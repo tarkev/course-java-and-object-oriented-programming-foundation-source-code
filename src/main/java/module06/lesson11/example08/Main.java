@@ -1,41 +1,44 @@
 package module06.lesson11.example08;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> emails = List.of(
-                "sakib@example.com", "nur@example.com", "Sakib@example.com",
-                "subu@example.com", "nur@example.com", "sakib@example.com",
-                "sumu@example.com");
+        int[] sorted = {10, 20, 40, 50, 70};
+        int[] targets = {40, 30, 5, 90, 70};
 
-        Map<String, Integer> duplicates = duplicateEmails(emails);
-        System.out.println(duplicates);
-
-        int extraCopies = 0;
-        for (int count : duplicates.values()) {
-            extraCopies += count - 1;
+        for (int target : targets) {
+            System.out.println(binarySearch(sorted, target));
         }
-        System.out.println("Extra copies: " + extraCopies);
+
+        for (int target : targets) {
+            if (binarySearch(sorted, target) != Arrays.binarySearch(sorted, target)) {
+                System.out.println("Mismatch for " + target);
+            }
+        }
+        System.out.println("Compared with Arrays.binarySearch()");
     }
 
-    static Map<String, Integer> duplicateEmails(List<String> emails) {
-        Map<String, Integer> counts = new HashMap<>();
+    static int binarySearch(int[] sorted, int target) {
+        int left = 0;
+        int right = sorted.length - 1;
 
-        for (String email : emails) {
-            counts.merge(email.toLowerCase(), 1, Integer::sum);
-        }
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
+            int value = sorted[middle];
 
-        Map<String, Integer> duplicates = new HashMap<>();
-        for (Map.Entry<String, Integer> entry : counts.entrySet()) {
-            if (entry.getValue() > 1) {
-                duplicates.put(entry.getKey(), entry.getValue());
+            if (value == target) {
+                return middle;
+            }
+
+            if (value < target) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
             }
         }
 
-        return duplicates;
+        return -left - 1;
     }
 }

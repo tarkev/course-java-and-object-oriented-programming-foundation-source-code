@@ -1,7 +1,6 @@
 package module04.lesson03.example01;
 
-public class VideoLesson
-        extends ContentItem {
+public class VideoLesson extends ContentItem {
 
     private final String videoUrl;
     private final int durationInMinutes;

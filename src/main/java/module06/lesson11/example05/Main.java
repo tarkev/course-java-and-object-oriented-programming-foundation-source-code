@@ -1,48 +1,73 @@
 package module06.lesson11.example05;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        Comparator<Task> ordering = Comparator.comparingInt(Task::getPriority)
-                .thenComparingLong(Task::getSequence);
-        PriorityQueue<Task> tasks = new PriorityQueue<>(ordering);
+        print(new int[] {2, 4, 1, 3, 5});
+        print(new int[] {5, 4, 3, 2, 1});
+        print(new int[] {1, 2, 3, 4});
+        print(new int[] {3, 1, 3, 2});
+    }
 
-        tasks.offer(new Task(1L, "Send receipt to Nur", 2));
-        tasks.offer(new Task(2L, "Fix login for Subu", 1));
-        tasks.offer(new Task(3L, "Send receipt to Sumu", 2));
-        tasks.offer(new Task(4L, "Send receipt to Jalisa", 2));
+    static void print(int[] numbers) {
+        String before = Arrays.toString(numbers);
+        System.out.println(before + " -> " + countInversions(numbers) + " inversions");
+    }
 
-        while (!tasks.isEmpty()) {
-            Task task = tasks.poll();
-            System.out.println(task.getPriority() + " - " + task.getDescription());
+    static long countInversions(int[] numbers) {
+        int[] buffer = new int[numbers.length];
+        return countInversions(numbers, buffer, 0, numbers.length - 1);
+    }
+
+    static long countInversions(int[] numbers, int[] buffer, int left, int right) {
+        if (left >= right) {
+            return 0;
         }
-    }
-}
 
-final class Task {
-
-    private final long sequence;
-    private final String description;
-    private final int priority;
-
-    Task(long sequence, String description, int priority) {
-        this.sequence = sequence;
-        this.description = description;
-        this.priority = priority;
+        int middle = left + (right - left) / 2;
+        long count = countInversions(numbers, buffer, left, middle);
+        count += countInversions(numbers, buffer, middle + 1, right);
+        count += merge(numbers, buffer, left, middle, right);
+        return count;
     }
 
-    long getSequence() {
-        return sequence;
-    }
+    static long merge(int[] numbers, int[] buffer, int left, int middle, int right) {
+        int leftIndex = left;
+        int rightIndex = middle + 1;
+        int bufferIndex = left;
+        long inversions = 0;
 
-    String getDescription() {
-        return description;
-    }
+        while (leftIndex <= middle && rightIndex <= right) {
+            if (numbers[leftIndex] <= numbers[rightIndex]) {
+                buffer[bufferIndex] = numbers[leftIndex];
+                leftIndex++;
+            } else {
+                buffer[bufferIndex] = numbers[rightIndex];
+                rightIndex++;
+                inversions += middle - leftIndex + 1;
+            }
 
-    int getPriority() {
-        return priority;
+            bufferIndex++;
+        }
+
+        while (leftIndex <= middle) {
+            buffer[bufferIndex] = numbers[leftIndex];
+            leftIndex++;
+            bufferIndex++;
+        }
+
+        while (rightIndex <= right) {
+            buffer[bufferIndex] = numbers[rightIndex];
+            rightIndex++;
+            bufferIndex++;
+        }
+
+        for (int index = left; index <= right; index++) {
+            numbers[index] = buffer[index];
+        }
+
+        return inversions;
     }
 }

@@ -4,103 +4,83 @@ import java.util.Scanner;
 
 public class Main {
 
-    static final int CALCULATE_OPTION = 1;
-    static final int RULES_OPTION = 2;
-    static final int EXIT_OPTION = 3;
-
-    static final int BEGINNER_FEE = 3000;
-    static final int INTERMEDIATE_FEE = 5000;
-    static final int ADVANCED_FEE = 8000;
-
-    static final int MINIMUM_COURSES = 1;
-    static final int MAXIMUM_COURSES = 5;
-    static final int DISCOUNT_MINIMUM_COURSES = 3;
-    static final int DISCOUNT_PERCENT = 10;
+    static final int MINIMUM_DAYS = 1;
+    static final int MAXIMUM_DAYS = 14;
+    static final int MINIMUM_MINUTES = 0;
+    static final int MAXIMUM_MINUTES = 600;
+    static final int GOAL_MINUTES = 30;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("=== Study Streak Tracker ===");
 
-        int option;
+        String name;
         do {
-            System.out.println("=== Course Fee Calculator ===");
-            System.out.println("1. Calculate fee");
-            System.out.println("2. View fee rules");
-            System.out.println("3. Exit");
-            System.out.print("Choose an option: ");
-            option = Integer.parseInt(scanner.nextLine().strip());
-
-            switch (option) {
-                case CALCULATE_OPTION -> {
-                    String name;
-                    while (true) {
-                        System.out.print("Learner name: ");
-                        name = scanner.nextLine().strip();
-                        if (!name.isBlank()) {
-                            break;
-                        }
-                        System.out.println("Name is required.");
-                    }
-
-                    String level;
-                    int feePerCourse;
-                    while (true) {
-                        System.out.print("Level (beginner/intermediate/advanced): ");
-                        level = scanner.nextLine().strip().toLowerCase();
-                        feePerCourse = switch (level) {
-                            case "beginner" -> BEGINNER_FEE;
-                            case "intermediate" -> INTERMEDIATE_FEE;
-                            case "advanced" -> ADVANCED_FEE;
-                            default -> 0;
-                        };
-                        if (feePerCourse > 0) {
-                            break;
-                        }
-                        System.out.println("Unknown level.");
-                    }
-
-                    int courseCount;
-                    while (true) {
-                        System.out.print("Number of courses ("
-                                + MINIMUM_COURSES + "-" + MAXIMUM_COURSES + "): ");
-                        courseCount = Integer.parseInt(scanner.nextLine().strip());
-                        if (courseCount >= MINIMUM_COURSES && courseCount <= MAXIMUM_COURSES) {
-                            break;
-                        }
-                        System.out.println("Number of courses must be between "
-                                + MINIMUM_COURSES + " and " + MAXIMUM_COURSES + ".");
-                    }
-
-                    int subtotal = feePerCourse * courseCount;
-                    int discount = 0;
-                    if (courseCount >= DISCOUNT_MINIMUM_COURSES) {
-                        discount = subtotal * DISCOUNT_PERCENT / 100;
-                    }
-                    int total = subtotal - discount;
-
-                    System.out.println();
-                    System.out.println("--- Fee Summary ---");
-                    System.out.println("Learner: " + name);
-                    System.out.println("Level: " + level);
-                    System.out.println("Courses: " + courseCount + " x "
-                            + feePerCourse + " taka");
-                    System.out.println("Subtotal: " + subtotal + " taka");
-                    System.out.println("Discount: " + discount + " taka");
-                    System.out.println("Total: " + total + " taka");
-                    System.out.println();
-                }
-                case RULES_OPTION -> {
-                    System.out.println("Beginner: " + BEGINNER_FEE + " taka per course");
-                    System.out.println("Intermediate: " + INTERMEDIATE_FEE
-                            + " taka per course");
-                    System.out.println("Advanced: " + ADVANCED_FEE + " taka per course");
-                    System.out.println(DISCOUNT_MINIMUM_COURSES + " or more courses: "
-                            + DISCOUNT_PERCENT + "% discount");
-                    System.out.println();
-                }
-                case EXIT_OPTION -> System.out.println("Goodbye.");
-                default -> System.out.println("Invalid option. Choose 1, 2 or 3.\n");
+            System.out.print("Learner name: ");
+            name = scanner.nextLine().strip();
+            if (name.isBlank()) {
+                System.out.println("Name is required.");
             }
-        } while (option != EXIT_OPTION);
+        } while (name.isBlank());
+
+        int dayCount;
+        while (true) {
+            System.out.print("Number of days (" + MINIMUM_DAYS + "-" + MAXIMUM_DAYS + "): ");
+            dayCount = Integer.parseInt(scanner.nextLine().strip());
+            if (dayCount >= MINIMUM_DAYS && dayCount <= MAXIMUM_DAYS) {
+                break;
+            }
+            System.out.println("Days must be between "
+                    + MINIMUM_DAYS + " and " + MAXIMUM_DAYS + ".");
+        }
+
+        int totalMinutes = 0;
+        int goalDays = 0;
+        int currentStreak = 0;
+        int longestStreak = 0;
+
+        for (int day = 1; day <= dayCount; day++) {
+            int minutes;
+            while (true) {
+                System.out.print("Day " + day + " minutes ("
+                        + MINIMUM_MINUTES + "-" + MAXIMUM_MINUTES + "): ");
+                minutes = Integer.parseInt(scanner.nextLine().strip());
+                if (minutes >= MINIMUM_MINUTES && minutes <= MAXIMUM_MINUTES) {
+                    break;
+                }
+                System.out.println("Minutes must be between "
+                        + MINIMUM_MINUTES + " and " + MAXIMUM_MINUTES + ".");
+            }
+
+            totalMinutes += minutes;
+            if (minutes >= GOAL_MINUTES) {
+                goalDays++;
+                currentStreak++;
+                if (currentStreak > longestStreak) {
+                    longestStreak = currentStreak;
+                }
+            } else {
+                currentStreak = 0;
+            }
+        }
+
+        double averageMinutes = (double) totalMinutes / dayCount;
+
+        String message = switch (longestStreak) {
+            case 0 -> "No 30-minute day yet. Start with one tomorrow.";
+            case 1, 2 -> "A good start. Aim for three days in a row.";
+            case 3, 4, 5, 6 -> "Strong habit. Keep the chain going.";
+            default -> "A week or more in a row. Excellent work.";
+        };
+
+        System.out.println();
+        System.out.println("--- Study Report for " + name + " ---");
+        System.out.println("Total: " + totalMinutes + " minutes");
+        System.out.println("Average: " + averageMinutes + " minutes per day");
+        System.out.println("Days with " + GOAL_MINUTES + "+ minutes: "
+                + goalDays + " of " + dayCount);
+        System.out.println("Longest streak: " + longestStreak + " days");
+        System.out.println(message);
 
         scanner.close();
     }

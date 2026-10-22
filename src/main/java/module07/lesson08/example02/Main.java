@@ -5,8 +5,7 @@ public class Main {
     sealed interface PaymentResult permits PaymentSucceeded, PaymentFailed {
     }
 
-    record PaymentSucceeded(String paymentId, long amountInPaisa)
-            implements PaymentResult {
+    record PaymentSucceeded(String paymentId, long amountInPaisa) implements PaymentResult {
     }
 
     record PaymentFailed(String reason) implements PaymentResult {

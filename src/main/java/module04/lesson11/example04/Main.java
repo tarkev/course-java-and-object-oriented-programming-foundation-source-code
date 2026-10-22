@@ -5,65 +5,57 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        VideoResource video = new VideoResource(1L, "Polymorphism in Practice",
-                "https://cdn.tarkev.com/videos/practice", 15);
-        DocumentResource document = new DocumentResource(2L,
-                "Interface Cheat Sheet", 4,
-                "https://cdn.tarkev.com/docs/interfaces.pdf");
-        AssessmentResource assessment =
-                new AssessmentResource(3L, "Module 4 Assessment", 12, 75);
+        DiskSpaceAlert disk = new DiskSpaceAlert(1L, " server-1 ", 8);
+        FailedLoginAlert login = new FailedLoginAlert(2L, "vpn", "nur", 5);
+        BackupAlert backup = new BackupAlert(3L, "server-1", "nightly", 120);
+        Alert[] alerts = {disk, login, backup};
 
-        LearningResource[] resources = {video, document, assessment};
-        ResourceCatalog catalog = new ResourceCatalog(resources);
-        ResourceNotifier notifier =
-                new ResourceNotifier(new ConsoleNotificationSender());
+        AlertDispatcher offline =
+                new AlertDispatcher(new OfflineAlertChannel(), alerts);
+        System.out.println("Sent while offline: " + offline.sendAll());
 
-        System.out.println("Notify before publishing: "
-                + notifier.notifyPublication(video, "samiul@example.com"));
-        System.out.println("Published: " + catalog.publishAll());
-        System.out.println("Published again: " + catalog.publishAll());
-        System.out.println("Total minutes: " + catalog.calculateTotalMinutes());
-        catalog.printDownloads();
-        System.out.println("Assessment score: " + assessment.calculateScore(9));
-        System.out.println("Assessment passed: " + assessment.hasPassed(9));
-        System.out.println("Notify blank recipient: "
-                + notifier.notifyPublication(video, " "));
-
-        boolean sent = notifier.notifyPublication(video, "samiul@example.com");
-        System.out.println("Notification sent: " + sent);
+        AlertDispatcher dispatcher =
+                new AlertDispatcher(new ConsoleAlertChannel(), alerts);
+        System.out.println("Sent: " + dispatcher.sendAll());
+        System.out.println("Sent again: " + dispatcher.sendAll());
+        System.out.println("Resend disk alert: " + dispatcher.send(disk));
+        System.out.println("Disk alert sent: " + disk.isSent());
     }
 }
 
-abstract class LearningResource {
+abstract class Alert {
 
     private final long id;
-    private final String title;
+    private final String source;
+    private boolean sent;
 
-    private boolean published;
-
-    protected LearningResource(long id, String title) {
+    protected Alert(long id, String source) {
         if (id <= 0) {
-            throw new IllegalArgumentException("Resource ID must be positive.");
+            throw new IllegalArgumentException("Alert ID must be positive.");
         }
 
-        if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Resource title is required.");
+        if (source == null || source.isBlank()) {
+            throw new IllegalArgumentException("Alert source is required.");
         }
 
         this.id = id;
-        this.title = title.strip();
+        this.source = source.strip();
     }
 
-    public abstract int calculateEstimatedMinutes();
+    public abstract String getLevel();
 
-    public abstract String getResourceType();
+    protected abstract String buildDetail();
 
-    public final boolean publish() {
-        if (published) {
+    public final String render() {
+        return "[" + getLevel() + "] " + source + ": " + buildDetail();
+    }
+
+    public final boolean markSent() {
+        if (sent) {
             return false;
         }
 
-        published = true;
+        sent = true;
         return true;
     }
 
@@ -71,246 +63,192 @@ abstract class LearningResource {
         return id;
     }
 
-    public final String getTitle() {
-        return title;
-    }
-
-    public final boolean isPublished() {
-        return published;
+    public final boolean isSent() {
+        return sent;
     }
 }
 
-interface Downloadable {
+interface Fixable {
 
-    String getDownloadUrl();
+    String suggestFix();
 }
 
-interface Gradable {
+final class DiskSpaceAlert extends Alert implements Fixable {
 
-    int calculateScore(int correctAnswers);
+    private final int freePercent;
 
-    boolean hasPassed(int correctAnswers);
-}
+    public DiskSpaceAlert(long id, String source, int freePercent) {
+        super(id, source);
 
-final class VideoResource extends LearningResource implements Downloadable {
-
-    private final String videoUrl;
-    private final int durationInMinutes;
-
-    public VideoResource(
-            long id, String title, String videoUrl, int durationInMinutes) {
-        super(id, title);
-
-        if (videoUrl == null || videoUrl.isBlank()) {
-            throw new IllegalArgumentException("Video URL is required.");
-        }
-
-        if (durationInMinutes <= 0) {
-            throw new IllegalArgumentException("Duration must be positive.");
-        }
-
-        this.videoUrl = videoUrl.strip();
-        this.durationInMinutes = durationInMinutes;
-    }
-
-    @Override
-    public int calculateEstimatedMinutes() {
-        return durationInMinutes;
-    }
-
-    @Override
-    public String getResourceType() {
-        return "VIDEO";
-    }
-
-    @Override
-    public String getDownloadUrl() {
-        return videoUrl;
-    }
-}
-
-final class DocumentResource extends LearningResource
-        implements Downloadable {
-
-    private static final int MINUTES_PER_PAGE = 3;
-
-    private final int pageCount;
-    private final String downloadUrl;
-
-    public DocumentResource(
-            long id, String title, int pageCount, String downloadUrl) {
-        super(id, title);
-
-        if (pageCount <= 0) {
-            throw new IllegalArgumentException("Page count must be positive.");
-        }
-
-        if (downloadUrl == null || downloadUrl.isBlank()) {
-            throw new IllegalArgumentException("Download URL is required.");
-        }
-
-        this.pageCount = pageCount;
-        this.downloadUrl = downloadUrl.strip();
-    }
-
-    @Override
-    public int calculateEstimatedMinutes() {
-        return pageCount * MINUTES_PER_PAGE;
-    }
-
-    @Override
-    public String getResourceType() {
-        return "DOCUMENT";
-    }
-
-    @Override
-    public String getDownloadUrl() {
-        return downloadUrl;
-    }
-}
-
-final class AssessmentResource extends LearningResource
-        implements Gradable {
-
-    private static final int MINUTES_PER_QUESTION = 2;
-
-    private final int questionCount;
-    private final int passingScore;
-
-    public AssessmentResource(
-            long id, String title, int questionCount, int passingScore) {
-        super(id, title);
-
-        if (questionCount <= 0) {
+        if (freePercent < 0 || freePercent > 100) {
             throw new IllegalArgumentException(
-                    "Question count must be positive.");
+                    "Free space must be between 0 and 100.");
         }
 
-        if (passingScore < 0 || passingScore > 100) {
+        this.freePercent = freePercent;
+    }
+
+    @Override
+    public String getLevel() {
+        return "WARNING";
+    }
+
+    @Override
+    protected String buildDetail() {
+        return "only " + freePercent + "% disk space left";
+    }
+
+    @Override
+    public String suggestFix() {
+        return "delete old log files";
+    }
+}
+
+final class FailedLoginAlert extends Alert implements Fixable {
+
+    private final String username;
+    private final int attemptCount;
+
+    public FailedLoginAlert(
+            long id, String source, String username, int attemptCount) {
+        super(id, source);
+
+        if (username == null || username.isBlank()) {
+            throw new IllegalArgumentException("Username is required.");
+        }
+
+        if (attemptCount <= 0) {
             throw new IllegalArgumentException(
-                    "Passing score must be between 0 and 100.");
+                    "Attempt count must be positive.");
         }
 
-        this.questionCount = questionCount;
-        this.passingScore = passingScore;
+        this.username = username.strip();
+        this.attemptCount = attemptCount;
     }
 
     @Override
-    public int calculateEstimatedMinutes() {
-        return questionCount * MINUTES_PER_QUESTION;
+    public String getLevel() {
+        return "SECURITY";
     }
 
     @Override
-    public String getResourceType() {
-        return "ASSESSMENT";
+    protected String buildDetail() {
+        return attemptCount + " failed logins for " + username;
     }
 
     @Override
-    public int calculateScore(int correctAnswers) {
-        if (correctAnswers < 0 || correctAnswers > questionCount) {
+    public String suggestFix() {
+        return "lock account " + username;
+    }
+}
+
+final class BackupAlert extends Alert {
+
+    private final String backupName;
+    private final int sizeInMegabytes;
+
+    public BackupAlert(
+            long id, String source, String backupName, int sizeInMegabytes) {
+        super(id, source);
+
+        if (backupName == null || backupName.isBlank()) {
+            throw new IllegalArgumentException("Backup name is required.");
+        }
+
+        if (sizeInMegabytes <= 0) {
             throw new IllegalArgumentException(
-                    "Correct answer count is invalid.");
+                    "Backup size must be positive.");
         }
 
-        return correctAnswers * 100 / questionCount;
+        this.backupName = backupName.strip();
+        this.sizeInMegabytes = sizeInMegabytes;
     }
 
     @Override
-    public boolean hasPassed(int correctAnswers) {
-        return calculateScore(correctAnswers) >= passingScore;
+    public String getLevel() {
+        return "INFO";
     }
-}
-
-final class ResourceCatalog {
-
-    private final LearningResource[] resources;
-
-    public ResourceCatalog(LearningResource[] resources) {
-        if (resources == null) {
-            throw new IllegalArgumentException("Resources are required.");
-        }
-
-        for (LearningResource resource : resources) {
-            if (resource == null) {
-                throw new IllegalArgumentException(
-                        "Resources cannot contain null.");
-            }
-        }
-
-        this.resources = Arrays.copyOf(resources, resources.length);
-    }
-
-    public int publishAll() {
-        int publishedCount = 0;
-
-        for (LearningResource resource : resources) {
-            if (resource.publish()) {
-                publishedCount++;
-            }
-        }
-
-        return publishedCount;
-    }
-
-    public int calculateTotalMinutes() {
-        int totalMinutes = 0;
-
-        for (LearningResource resource : resources) {
-            totalMinutes += resource.calculateEstimatedMinutes();
-        }
-
-        return totalMinutes;
-    }
-
-    public void printDownloads() {
-        for (LearningResource resource : resources) {
-            if (resource instanceof Downloadable downloadable) {
-                System.out.println(resource.getResourceType() + ": "
-                        + downloadable.getDownloadUrl());
-            }
-        }
-    }
-}
-
-interface NotificationSender {
-
-    boolean send(String recipient, String message);
-}
-
-final class ConsoleNotificationSender implements NotificationSender {
 
     @Override
-    public boolean send(String recipient, String message) {
-        System.out.println(recipient + " → " + message);
+    protected String buildDetail() {
+        return backupName + " backup finished (" + sizeInMegabytes + " MB)";
+    }
+}
+
+interface AlertChannel {
+
+    boolean deliver(String text);
+}
+
+final class ConsoleAlertChannel implements AlertChannel {
+
+    @Override
+    public boolean deliver(String text) {
+        System.out.println(text);
         return true;
     }
 }
 
-final class ResourceNotifier {
+final class OfflineAlertChannel implements AlertChannel {
 
-    private final NotificationSender sender;
+    @Override
+    public boolean deliver(String text) {
+        return false;
+    }
+}
 
-    public ResourceNotifier(NotificationSender sender) {
-        if (sender == null) {
-            throw new IllegalArgumentException(
-                    "Notification sender is required.");
+final class AlertDispatcher {
+
+    private final AlertChannel channel;
+    private final Alert[] alerts;
+
+    public AlertDispatcher(AlertChannel channel, Alert[] alerts) {
+        if (channel == null) {
+            throw new IllegalArgumentException("Alert channel is required.");
         }
 
-        this.sender = sender;
+        if (alerts == null) {
+            throw new IllegalArgumentException("Alerts are required.");
+        }
+
+        for (Alert alert : alerts) {
+            if (alert == null) {
+                throw new IllegalArgumentException(
+                        "Alerts cannot contain null.");
+            }
+        }
+
+        this.channel = channel;
+        this.alerts = Arrays.copyOf(alerts, alerts.length);
     }
 
-    public boolean notifyPublication(
-            LearningResource resource, String recipient) {
-        if (resource == null || !resource.isPublished()) {
+    public boolean send(Alert alert) {
+        if (alert == null || alert.isSent()) {
             return false;
         }
 
-        if (recipient == null || recipient.isBlank()) {
+        String text = alert.render();
+
+        if (alert instanceof Fixable fixable) {
+            text = text + " (fix: " + fixable.suggestFix() + ")";
+        }
+
+        if (!channel.deliver(text)) {
             return false;
         }
 
-        return sender.send(recipient.strip(),
-                resource.getResourceType() + " published: "
-                + resource.getTitle());
+        return alert.markSent();
+    }
+
+    public int sendAll() {
+        int sentCount = 0;
+
+        for (Alert alert : alerts) {
+            if (send(alert)) {
+                sentCount++;
+            }
+        }
+
+        return sentCount;
     }
 }

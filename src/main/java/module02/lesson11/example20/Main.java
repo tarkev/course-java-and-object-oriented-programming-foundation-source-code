@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         String[] learners = {"Sakib", "Nur", "Subu", "Sumu"};
-        String[] courses = {"Java", "SQL", "Git"};
-        int[][] scores = {{80, 90, 85}, {70, 95, 87}, {91, 80, 96}, {60, 75, 72}};
+        String[] courses = {"Java", "SQL", "Git", "Web"};
+        int[][] scores = {{80, 90, 85, 85}, {70, 95, 87, 78}, {91, 80, 96, 88}, {60, 75, 72, 92}};
 
         double[] averages = averages(scores);
 

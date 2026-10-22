@@ -1,56 +1,48 @@
 package module06.lesson11.example03;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(firstErrorIndex("{[()]}"));
-        System.out.println(firstErrorIndex("{[(])}"));
-        System.out.println(firstErrorIndex("list.get(0))"));
-        System.out.println(firstErrorIndex("if (a[0] > 1) {"));
-        System.out.println(firstErrorIndex(""));
+        int[] a = merge(new int[] {2, 7, 9}, new int[] {1, 5, 8, 10, 12});
+        int[] b = merge(new int[] {1, 1, 4}, new int[] {1, 3});
+        int[] c = merge(new int[] {}, new int[] {3, 4});
+
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(b));
+        System.out.println(Arrays.toString(c));
     }
 
-    static int firstErrorIndex(String text) {
-        Deque<Integer> openIndexes = new ArrayDeque<>();
+    static int[] merge(int[] first, int[] second) {
+        int[] result = new int[first.length + second.length];
+        int i = 0;
+        int j = 0;
+        int k = 0;
 
-        for (int index = 0; index < text.length(); index++) {
-            char current = text.charAt(index);
-
-            if (isOpening(current)) {
-                openIndexes.push(index);
-                continue;
+        while (i < first.length && j < second.length) {
+            if (first[i] <= second[j]) {
+                result[k] = first[i];
+                i++;
+            } else {
+                result[k] = second[j];
+                j++;
             }
-
-            if (isClosing(current)) {
-                if (openIndexes.isEmpty()) {
-                    return index;
-                }
-
-                char opening = text.charAt(openIndexes.pop());
-
-                if (!matches(opening, current)) {
-                    return index;
-                }
-            }
+            k++;
         }
 
-        return openIndexes.isEmpty() ? -1 : openIndexes.peek();
-    }
+        while (i < first.length) {
+            result[k] = first[i];
+            i++;
+            k++;
+        }
 
-    static boolean isOpening(char value) {
-        return value == '(' || value == '[' || value == '{';
-    }
+        while (j < second.length) {
+            result[k] = second[j];
+            j++;
+            k++;
+        }
 
-    static boolean isClosing(char value) {
-        return value == ')' || value == ']' || value == '}';
-    }
-
-    static boolean matches(char opening, char closing) {
-        return opening == '(' && closing == ')'
-                || opening == '[' && closing == ']'
-                || opening == '{' && closing == '}';
+        return result;
     }
 }

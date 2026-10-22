@@ -1,25 +1,18 @@
 package module07.lesson13.example02;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 public class Main {
 
     public static void main(String[] args) {
-        Course course = new Course("Git Basics", 40_000);
+        Optional<String> first = Stream.of("Nur", "Sakib", "Subu")
+                .filter(name -> {
+                    System.out.println("Checking " + name);
+                    return name.startsWith("S");
+                })
+                .findFirst();
 
-        System.out.println(finalPrice(course, price -> price));
-        System.out.println(finalPrice(course, price -> price * 90 / 100));
-        System.out.println(finalPrice(course, price -> Math.max(0, price - 50_000)));
+        System.out.println(first.orElse("none"));
     }
-
-    static long finalPrice(Course course, PriceAdjustment adjustment) {
-        return adjustment.adjust(course.priceInPaisa());
-    }
-
-    record Course(String title, long priceInPaisa) {
-    }
-}
-
-@FunctionalInterface
-interface PriceAdjustment {
-
-    long adjust(long priceInPaisa);
 }

@@ -1,7 +1,6 @@
 package module04.lesson01.example01;
 
-public class ArticleLesson
-        extends ContentItem {
+public class ArticleLesson extends ContentItem {
 
     private final String content;
     private final int estimatedReadingMinutes;

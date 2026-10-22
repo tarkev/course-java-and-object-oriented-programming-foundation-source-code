@@ -1,47 +1,33 @@
 package module07.lesson14.example11;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        Map<EnrollmentKey, Enrollment> enrollments = new HashMap<>();
-        EnrollmentKey key = new EnrollmentKey(new LearnerId(7), new CourseCode("JAVA"));
-        enrollments.put(key, new Enrollment(key));
+        List<Course> courses = List.of(
+                new Course("Java Foundation", 300_000, true),
+                new Course("Git Basics", 0, true),
+                new Course("Spring Boot", 600_000, false),
+                new Course("System Design", 800_000, true),
+                new Course("Backend Development", 500_000, true));
 
-        EnrollmentKey lookup = new EnrollmentKey(new LearnerId(7), new CourseCode("JAVA"));
-        Enrollment enrollment = enrollments.get(lookup);
-        enrollment.complete();
-
-        System.out.println(lookup == key);
-        System.out.println(enrollment.status());
-    }
-
-    record LearnerId(long value) {
-    }
-
-    record CourseCode(String value) {
-    }
-
-    record EnrollmentKey(LearnerId learnerId, CourseCode courseCode) {
-    }
-
-    static final class Enrollment {
-
-        private final EnrollmentKey key;
-        private String status = "ACTIVE";
-
-        Enrollment(EnrollmentKey key) {
-            this.key = key;
+        // A loop: the stop condition depends on a running total that
+        // changes with every printed course, which a stream cannot
+        // express without a hidden side effect.
+        long totalInPaisa = 0;
+        for (Course course : courses) {
+            if (!course.published()) {
+                continue;
+            }
+            System.out.println(course.title());
+            totalInPaisa += course.priceInPaisa();
+            if (totalInPaisa > 1_000_000) {
+                break;
+            }
         }
+    }
 
-        void complete() {
-            status = "COMPLETED";
-        }
-
-        String status() {
-            return status;
-        }
+    record Course(String title, long priceInPaisa, boolean published) {
     }
 }

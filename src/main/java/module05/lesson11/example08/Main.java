@@ -1,59 +1,26 @@
 package module05.lesson11.example08;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
 
-    static List<Course> findFreeCourses(List<Course> courses) {
-        if (courses == null) {
-            return List.of();
+    static boolean addCourseCode(
+            Set<String> courseCodes, String courseCode) {
+        if (courseCode == null || courseCode.isBlank()) {
+            return false;
         }
-
-        List<Course> result = new ArrayList<>();
-        for (Course course : courses) {
-            if (course != null && course.getPriceInPaisa() == 0) {
-                result.add(course);
-            }
-        }
-        return List.copyOf(result);
+        String normalized = courseCode.strip().toUpperCase();
+        return courseCodes.add(normalized);
     }
 
     public static void main(String[] args) {
-        List<Course> courses = List.of(
-                new Course(1L, "Java Basics", 0),
-                new Course(2L, "Spring Boot", 250000),
-                new Course(3L, "Git Basics", 0));
-
-        List<Course> freeCourses = findFreeCourses(courses);
-        for (Course course : freeCourses) {
-            System.out.println(course.getTitle());
-        }
-        System.out.println(courses.size());
-        System.out.println(findFreeCourses(null).size());
-    }
-}
-
-final class Course {
-    private final long id;
-    private final String title;
-    private final long priceInPaisa;
-
-    Course(long id, String title, long priceInPaisa) {
-        this.id = id;
-        this.title = title;
-        this.priceInPaisa = priceInPaisa;
-    }
-
-    long getId() {
-        return id;
-    }
-
-    String getTitle() {
-        return title;
-    }
-
-    long getPriceInPaisa() {
-        return priceInPaisa;
+        Set<String> courseCodes = new HashSet<>();
+        System.out.println(addCourseCode(courseCodes, "java-101"));
+        System.out.println(addCourseCode(courseCodes, "  JAVA-101 "));
+        System.out.println(addCourseCode(courseCodes, "   "));
+        System.out.println(addCourseCode(courseCodes, null));
+        System.out.println(addCourseCode(courseCodes, "spring-201"));
+        System.out.println(courseCodes.size());
     }
 }

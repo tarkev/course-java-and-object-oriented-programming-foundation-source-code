@@ -1,22 +1,36 @@
 package module07.lesson14.example03;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Main {
 
     public static void main(String[] args) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM uuuu", Locale.ENGLISH);
-        LocalDate startDate = LocalDate.of(2026, 3, 3);
+        List<Course> sample = List.of(
+                new Course("Java Foundation", 300_000),
+                new Course("Intro to Git", 400_000),
+                new Course("System Design", 900_000),
+                new Course("Backend Development", 500_000));
 
-        for (LocalDate reminder : reminderDates(startDate)) {
-            System.out.println(reminder.format(formatter));
-        }
+        List<Course> before = new ArrayList<>(sample);
+        before.removeIf(course ->
+                !(course.priceInPaisa() >= 300_000
+                        && course.priceInPaisa() <= 800_000
+                        && !course.title().startsWith("Intro")));
+
+        List<Course> after = new ArrayList<>(sample);
+        after.removeIf(course -> !isEligibleForPromotion(course));
+
+        System.out.println(after);
+        System.out.println("Same result: " + before.equals(after));
     }
 
-    static List<LocalDate> reminderDates(LocalDate startDate) {
-        return List.of(startDate.minusDays(7), startDate.minusDays(1));
+    static boolean isEligibleForPromotion(Course course) {
+        return course.priceInPaisa() >= 300_000
+                && course.priceInPaisa() <= 800_000
+                && !course.title().startsWith("Intro");
+    }
+
+    record Course(String title, long priceInPaisa) {
     }
 }

@@ -3,14 +3,24 @@ package module07.lesson14.example07;
 public class Main {
 
     public static void main(String[] args) {
-        String template = """
-                Hello %s,
+        PriceRule rule = PriceRule.between(0, 100_000).or(price -> price > 1_000_000);
 
-                Welcome to %s! Your first lesson is ready.
+        System.out.println(rule.test(50_000));
+        System.out.println(rule.test(500_000));
+        System.out.println(rule.test(1_500_000));
+    }
+}
 
-                The Tarkev team
-                """;
+@FunctionalInterface
+interface PriceRule {
 
-        System.out.print(template.formatted("Subu", "Java Foundation"));
+    boolean test(long priceInPaisa);
+
+    default PriceRule or(PriceRule other) {
+        return price -> test(price) || other.test(price);
+    }
+
+    static PriceRule between(long minimum, long maximum) {
+        return price -> price >= minimum && price <= maximum;
     }
 }

@@ -4,44 +4,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
-    static Learner findLearnerById(List<Learner> learners, long learnerId) {
-        if (learners == null) {
-            return null;
-        }
-        for (Learner learner : learners) {
-            if (learner != null && learner.getId() == learnerId) {
-                return learner;
-            }
-        }
-        return null;
-    }
-
     public static void main(String[] args) {
-        List<Learner> learners = new ArrayList<>();
-        learners.add(new Learner(1L, "Sakib"));
-        learners.add(null);
-        learners.add(new Learner(2L, "Jalisa"));
+        List<Course> courses = new ArrayList<>();
+        courses.add(new Course(1L, "Java Basics"));
+        LearningPath path = new LearningPath(courses);
 
-        System.out.println(findLearnerById(learners, 2L).getName());
-        System.out.println(findLearnerById(learners, 3L));
+        courses.clear();
+        System.out.println(path.getCourses().size());
+
+        List<Course> snapshot = path.getCourses();
+        System.out.println(snapshot.get(0).getTitle());
     }
 }
 
-final class Learner {
-    private final long id;
-    private final String name;
+final class LearningPath {
+    private final List<Course> courses;
 
-    Learner(long id, String name) {
+    LearningPath(List<Course> courses) {
+        if (courses == null) {
+            throw new IllegalArgumentException("Courses are required.");
+        }
+        this.courses = new ArrayList<>(courses);
+    }
+
+    List<Course> getCourses() {
+        return List.copyOf(courses);
+    }
+}
+
+final class Course {
+    private final long id;
+    private final String title;
+
+    Course(long id, String title) {
         this.id = id;
-        this.name = name;
+        this.title = title;
     }
 
     long getId() {
         return id;
     }
 
-    String getName() {
-        return name;
+    String getTitle() {
+        return title;
     }
 }

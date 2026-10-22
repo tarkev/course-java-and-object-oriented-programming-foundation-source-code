@@ -1,26 +1,25 @@
 package module07.lesson14.example09;
 
+import java.util.List;
+
 public class Main {
 
-    enum EnrollmentStatus {
-        ACTIVE, COMPLETED, CANCELLED, PAUSED
-    }
-
-    static String label(EnrollmentStatus status) {
-        return switch (status) {
-            case ACTIVE -> "In progress";
-            case COMPLETED -> "Completed";
-            case CANCELLED -> {
-                String note = "Cancelled";
-                yield note + " (no access)";
-            }
-            case PAUSED -> "Paused";
-        };
-    }
-
     public static void main(String[] args) {
-        System.out.println(label(EnrollmentStatus.ACTIVE));
-        System.out.println(label(EnrollmentStatus.CANCELLED));
-        System.out.println(label(EnrollmentStatus.PAUSED));
+        List<Course> courses = List.of(
+                new Course("Java Foundation", 300_000, true),
+                new Course("Git Basics", 0, true),
+                new Course("System Design", 800_000, false),
+                new Course("Backend Development", 500_000, true),
+                new Course("Kotlin Preview", 0, false));
+
+        List<String> titles = courses.stream()
+                .filter(Course::published)
+                .map(Course::title)
+                .toList();
+
+        System.out.println(titles);
+    }
+
+    record Course(String title, long priceInPaisa, boolean published) {
     }
 }

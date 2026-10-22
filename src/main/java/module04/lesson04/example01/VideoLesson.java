@@ -1,8 +1,6 @@
 package module04.lesson04.example01;
 
-public final class VideoLesson
-        extends ContentItem
-        implements Downloadable {
+public final class VideoLesson extends ContentItem implements Downloadable {
 
     private final String videoUrl;
     private final int durationInMinutes;

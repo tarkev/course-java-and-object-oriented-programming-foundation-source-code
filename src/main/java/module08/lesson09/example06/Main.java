@@ -1,49 +1,43 @@
 package module08.lesson09.example06;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Optional;
 
 public class Main {
 
     public static void main(String[] args) {
-        EnrollmentService service = new EnrollmentService();
-        System.out.println(service.enroll("enroll-req-7821", "Nur", "JAVA-OOP"));
-        System.out.println(service.enroll("enroll-req-7821", "Nur", "JAVA-OOP"));
-
-        try {
-            service.enroll("enroll-req-7821", "Nur", "SPRING-BOOT");
-        } catch (IllegalStateException exception) {
-            System.out.println(exception.getMessage());
+        for (PaymentStatus status : PaymentStatus.values()) {
+            System.out.println(status + " is stored as " + status.getCode());
         }
+
+        System.out.println(PaymentStatus.fromCode("paid"));
+        System.out.println(PaymentStatus.fromCode("unknown"));
     }
 }
 
-record EnrollmentRequest(String learner, String courseCode) {
-}
+enum PaymentStatus {
 
-record StoredResult(EnrollmentRequest request, String enrollmentId) {
-}
+    PENDING("pending"),
+    PAID("paid"),
+    FAILED("failed"),
+    REFUNDED("refunded");
 
-final class EnrollmentService {
+    private final String code;
 
-    private final Map<String, StoredResult> resultsByKey = new HashMap<>();
-    private int nextId = 1;
+    PaymentStatus(String code) {
+        this.code = code;
+    }
 
-    public String enroll(String key, String learner, String courseCode) {
-        EnrollmentRequest request = new EnrollmentRequest(learner, courseCode);
-        StoredResult stored = resultsByKey.get(key);
+    public String getCode() {
+        return code;
+    }
 
-        if (stored != null) {
-            if (!stored.request().equals(request)) {
-                throw new IllegalStateException("Idempotency key " + key
-                        + " was already used for a different request.");
+    public static Optional<PaymentStatus> fromCode(String code) {
+        for (PaymentStatus status : values()) {
+            if (status.code.equals(code)) {
+                return Optional.of(status);
             }
-
-            return stored.enrollmentId();
         }
 
-        String enrollmentId = "ENR-" + nextId++;
-        resultsByKey.put(key, new StoredResult(request, enrollmentId));
-        return enrollmentId;
+        return Optional.empty();
     }
 }

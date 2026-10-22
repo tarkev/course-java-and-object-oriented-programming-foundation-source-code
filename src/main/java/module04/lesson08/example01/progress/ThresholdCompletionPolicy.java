@@ -1,7 +1,6 @@
 package module04.lesson08.example01.progress;
 
-public final class ThresholdCompletionPolicy
-        implements CompletionPolicy {
+public final class ThresholdCompletionPolicy implements CompletionPolicy {
 
     private final int requiredPercentage;
 

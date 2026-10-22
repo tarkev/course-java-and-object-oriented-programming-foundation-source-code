@@ -3,83 +3,82 @@ package module04.lesson10.example06;
 public class Main {
 
     public static void main(String[] args) {
-        VideoLesson video = new VideoLesson(1L, "Abstract Classes",
-                "https://cdn.tarkev.com/videos/abstract");
-        QuizLesson quiz = new QuizLesson(2L, "Abstraction Quiz", 10, 70);
+        CardPayment card = new CardPayment(150_000, "4242");
+        BankTransfer transfer = new BankTransfer(250_000, "REF-77");
 
-        printDownload(video);
-        printGrade(quiz, 8);
+        printProcess(card);
+        printProcess(transfer);
+        printProcess(card);
     }
 
-    static void printDownload(Downloadable downloadable) {
-        System.out.println("Download URL: " + downloadable.getDownloadUrl());
-    }
-
-    static void printGrade(Gradable gradable, int correctAnswers) {
-        System.out.println(
-                "Score: " + gradable.calculateScore(correctAnswers));
+    static void printProcess(Payment payment) {
+        System.out.println(payment.process());
     }
 }
 
-abstract class ContentItem {
+abstract class Payment {
 
-    private final String title;
+    private final long amountInPaisa;
+    private boolean processed;
 
-    protected ContentItem(long id, String title) {
-        this.title = title;
+    protected Payment(long amountInPaisa) {
+        if (amountInPaisa <= 0) {
+            throw new IllegalArgumentException("Amount must be positive.");
+        }
+
+        this.amountInPaisa = amountInPaisa;
     }
 
-    public String getTitle() {
-        return title;
+    public abstract String getMethod();
+
+    protected abstract String authorize();
+
+    public final String process() {
+        if (processed) {
+            return getMethod() + ": already processed";
+        }
+
+        processed = true;
+        return getMethod() + " " + amountInPaisa + " paisa: " + authorize();
     }
 }
 
-interface Downloadable {
+class CardPayment extends Payment {
 
-    String getDownloadUrl();
-}
+    private final String lastFourDigits;
 
-interface Gradable {
-
-    int calculateScore(int correctAnswers);
-
-    boolean hasPassed(int correctAnswers);
-}
-
-class VideoLesson extends ContentItem implements Downloadable {
-
-    private final String videoUrl;
-
-    public VideoLesson(long id, String title, String videoUrl) {
-        super(id, title);
-        this.videoUrl = videoUrl;
+    public CardPayment(long amountInPaisa, String lastFourDigits) {
+        super(amountInPaisa);
+        this.lastFourDigits = lastFourDigits;
     }
 
     @Override
-    public String getDownloadUrl() {
-        return videoUrl;
+    public String getMethod() {
+        return "CARD";
+    }
+
+    @Override
+    protected String authorize() {
+        return "card ending " + lastFourDigits + " approved";
     }
 }
 
-class QuizLesson extends ContentItem implements Gradable {
+class BankTransfer extends Payment {
 
-    private final int questionCount;
-    private final int passingScore;
+    private final String reference;
 
-    public QuizLesson(
-            long id, String title, int questionCount, int passingScore) {
-        super(id, title);
-        this.questionCount = questionCount;
-        this.passingScore = passingScore;
+    public BankTransfer(long amountInPaisa, String reference) {
+        super(amountInPaisa);
+        this.reference = reference;
     }
 
     @Override
-    public int calculateScore(int correctAnswers) {
-        return correctAnswers * 100 / questionCount;
+    public String getMethod() {
+        return "BANK";
     }
 
     @Override
-    public boolean hasPassed(int correctAnswers) {
-        return calculateScore(correctAnswers) >= passingScore;
+    protected String authorize() {
+        return "transfer " + reference + " queued";
     }
 }

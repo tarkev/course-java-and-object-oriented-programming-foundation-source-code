@@ -1,15 +1,16 @@
 package module06.lesson11.example07;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        Map<Long, String> learners = new HashMap<>();
-        learners.put(100L, "Sakib");
+        int[] numbers = {10, 20, 30, 40};
 
-        System.out.println(learners.get(100L));
-        System.out.println(learners.get(200L));
+        boolean found = Arrays.binarySearch(numbers, 30) >= 0;
+        boolean missing = Arrays.binarySearch(numbers, 35) >= 0;
+
+        System.out.println("30 found: " + found);
+        System.out.println("35 found: " + missing);
     }
 }

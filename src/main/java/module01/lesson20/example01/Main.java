@@ -74,10 +74,7 @@ public class Main {
                     System.out.println();
                     System.out.println("--- Enter Subject Marks ---");
 
-                    for (int subjectNumber = 1;
-                            subjectNumber <= subjectCount;
-                            subjectNumber++
-                    ) {
+                    for (int subjectNumber = 1; subjectNumber <= subjectCount; subjectNumber++) {
                         int mark;
 
                         while (true) {

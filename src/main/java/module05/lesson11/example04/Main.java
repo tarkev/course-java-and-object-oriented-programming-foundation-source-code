@@ -1,21 +1,19 @@
 package module05.lesson11.example04;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-
-    static void processAll(Deque<String> tasks) {
-        while (!tasks.isEmpty()) {
-            System.out.println("Processing: " + tasks.pollFirst());
-        }
-    }
-
     public static void main(String[] args) {
-        Deque<String> tasks = new ArrayDeque<>();
-        tasks.offerLast("Review Nur's enrollment");
-        tasks.offerLast("Review Subu's enrollment");
-        processAll(tasks);
-        System.out.println(tasks.isEmpty());
+        List<String> learners = new ArrayList<>();
+        learners.add("Subu");
+        learners.add("Sumu");
+        learners.add(1, "Nur");
+        learners.set(learners.size() - 1, "Jalisa");
+        learners.remove("Nur");
+
+        for (int i = 0; i < learners.size(); i++) {
+            System.out.println(i + ": " + learners.get(i));
+        }
     }
 }

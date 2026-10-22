@@ -1,29 +1,31 @@
 package module07.lesson14.example10;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> lessons = new ArrayList<>(List.of("Lambdas", "Streams"));
-        CourseOutline outline = new CourseOutline("Modern Java", lessons);
+        List<Course> courses = List.of(
+                new Course("Java Foundation", 300_000, true),
+                new Course("System Design", 800_000, false),
+                new Course("Git Basics", 0, true));
 
-        lessons.add("Records");
+        Stream<String> pipeline = courses.stream()
+                .filter(course -> {
+                    System.out.println("filter: " + course.title());
+                    return course.published();
+                })
+                .map(course -> {
+                    System.out.println("map: " + course.title());
+                    return course.title();
+                });
 
-        System.out.println(lessons);
-        System.out.println(outline.lessonTitles());
+        System.out.println("Pipeline built");
+        List<String> titles = pipeline.toList();
+        System.out.println(titles);
     }
 
-    record CourseOutline(String title, List<String> lessonTitles) {
-
-        CourseOutline {
-            title = Objects.requireNonNull(title, "Title is required.").strip();
-            if (title.isBlank()) {
-                throw new IllegalArgumentException("Title is required.");
-            }
-            lessonTitles = List.copyOf(lessonTitles);
-        }
+    record Course(String title, long priceInPaisa, boolean published) {
     }
 }

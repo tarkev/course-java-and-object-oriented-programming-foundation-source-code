@@ -1,7 +1,6 @@
 package module04.lesson06.example01.notification;
 
-public final class ConsoleNotificationSender
-        implements NotificationSender {
+public final class ConsoleNotificationSender implements NotificationSender {
 
     @Override
     public boolean send(String recipient, String message) {

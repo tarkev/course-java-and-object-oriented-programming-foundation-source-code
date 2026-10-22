@@ -1,39 +1,35 @@
 package module08.lesson09.example03;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.Optional;
 
 public class Main {
 
     public static void main(String[] args) {
-        try {
-            loadContent("JAVA-OOP");
-        } catch (CourseContentStorageException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("Cause: " + exception.getCause());
-        }
-    }
+        String[] inputs = {" advanced ", "Beginner", "expert", "", null};
 
-    static String loadContent(String courseCode) {
-        try {
-            return Files.readString(Path.of(courseCode + ".md"));
-        } catch (IOException exception) {
-            throw new CourseContentStorageException(courseCode, exception);
+        for (String input : inputs) {
+            System.out.println("[" + input + "] → " + Difficulty.fromText(input));
         }
     }
 }
 
-final class CourseContentStorageException extends RuntimeException {
+enum Difficulty {
 
-    private final String courseCode;
+    BEGINNER, INTERMEDIATE, ADVANCED;
 
-    public CourseContentStorageException(String courseCode, Throwable cause) {
-        super("Could not read content for course " + courseCode + ".", cause);
-        this.courseCode = courseCode;
-    }
+    static Optional<Difficulty> fromText(String value) {
+        if (value == null || value.isBlank()) {
+            return Optional.empty();
+        }
 
-    public String getCourseCode() {
-        return courseCode;
+        String normalizedValue = value.strip().toUpperCase();
+
+        for (Difficulty difficulty : values()) {
+            if (difficulty.name().equals(normalizedValue)) {
+                return Optional.of(difficulty);
+            }
+        }
+
+        return Optional.empty();
     }
 }

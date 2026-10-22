@@ -1,7 +1,6 @@
 package module04.lesson03.example01;
 
-public class ArticleLesson
-        extends ContentItem {
+public class ArticleLesson extends ContentItem {
 
     private static final int WORDS_PER_MINUTE = 200;
 

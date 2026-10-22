@@ -1,25 +1,33 @@
 package module06.lesson11.example01;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("LEVEL"));
-        System.out.println(isPalindrome("JAVA"));
+        int[] numbers = {29, 5, 17, 5, 1};
+        insertionSort(numbers);
+
+        int[] empty = {};
+        int[] single = {42};
+        insertionSort(empty);
+        insertionSort(single);
+        System.out.println("Empty: " + Arrays.toString(empty));
+        System.out.println("Single: " + Arrays.toString(single));
     }
 
-    static boolean isPalindrome(String value) {
-        int left = 0;
-        int right = value.length() - 1;
+    static void insertionSort(int[] numbers) {
+        for (int i = 1; i < numbers.length; i++) {
+            int current = numbers[i];
+            int position = i - 1;
 
-        while (left < right) {
-            if (value.charAt(left) != value.charAt(right)) {
-                return false;
+            while (position >= 0 && numbers[position] > current) {
+                numbers[position + 1] = numbers[position];
+                position--;
             }
 
-            left++;
-            right--;
+            numbers[position + 1] = current;
+            System.out.println(Arrays.toString(numbers));
         }
-
-        return true;
     }
 }

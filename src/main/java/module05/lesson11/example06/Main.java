@@ -1,26 +1,22 @@
 package module05.lesson11.example06;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        names.add("Nur");
-        names.add(null);
-        names.add("   ");
-        names.add("Al");
-        names.add("Sumu");
 
-        Iterator<String> iterator = names.iterator();
-        while (iterator.hasNext()) {
-            String name = iterator.next();
-            if (name == null || name.isBlank() || name.length() < 3) {
-                iterator.remove();
-            }
+    static boolean containsLearner(
+            List<String> learners, String learnerName) {
+        if (learners == null || learnerName == null) {
+            return false;
         }
+        return learners.contains(learnerName);
+    }
 
-        System.out.println(names);
+    public static void main(String[] args) {
+        List<String> learners = List.of("Nur", "Sumu");
+        System.out.println(containsLearner(learners, "Sumu"));
+        System.out.println(containsLearner(learners, "Jalisa"));
+        System.out.println(containsLearner(null, "Nur"));
+        System.out.println(containsLearner(learners, null));
     }
 }

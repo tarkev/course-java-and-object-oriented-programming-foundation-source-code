@@ -1,29 +1,32 @@
 package module07.lesson15.example02;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> lessons = new ArrayList<>(List.of("Lambdas", "Streams"));
-        CourseOutline outline = new CourseOutline("Modern Java", lessons);
+        CourseRepository repository = new CourseRepository();
+        repository.save(new Course("JAVA", "Java Foundation", 300_000));
 
-        lessons.add("Records");
-
-        System.out.println(lessons);
-        System.out.println(outline.lessonTitles());
+        System.out.println(repository.findByCode("JAVA").map(Course::title).orElse("Not found"));
+        System.out.println(repository.findByCode("RUST").map(Course::title).orElse("Not found"));
     }
 
-    record CourseOutline(String title, List<String> lessonTitles) {
+    record Course(String code, String title, long priceInPaisa) {
+    }
 
-        CourseOutline {
-            title = Objects.requireNonNull(title, "Title is required.").strip();
-            if (title.isBlank()) {
-                throw new IllegalArgumentException("Title is required.");
-            }
-            lessonTitles = List.copyOf(lessonTitles);
+    static final class CourseRepository {
+
+        private final Map<String, Course> courses = new HashMap<>();
+
+        void save(Course course) {
+            courses.put(course.code(), course);
+        }
+
+        Optional<Course> findByCode(String code) {
+            return Optional.ofNullable(courses.get(code));
         }
     }
 }

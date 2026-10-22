@@ -1,32 +1,21 @@
 package module07.lesson15.example06;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
-        ProgressReporter reporter = new ProgressReporter();
-        Thread thread = new Thread(reporter::run);
-
-        thread.start();
-        Thread.sleep(200);
-        reporter.stop();
-        thread.join();
-
-        System.out.println("Reporter stopped");
+    public static void main(String[] args) {
+        printMembership(LocalDate.of(2024, 11, 15), LocalDate.of(2026, 3, 20));
     }
 
-    static final class ProgressReporter {
+    static void printMembership(LocalDate joinDate, LocalDate today) {
+        Period period = Period.between(joinDate, today);
+        long totalDays = ChronoUnit.DAYS.between(joinDate, today);
 
-        private volatile boolean running = true;
-        private long checks;
-
-        void run() {
-            while (running) {
-                checks++;
-            }
-        }
-
-        void stop() {
-            running = false;
-        }
+        System.out.println(period.getYears() + " years, " + period.getMonths()
+                + " months, " + period.getDays() + " days");
+        System.out.println(totalDays + " days in total");
     }
 }

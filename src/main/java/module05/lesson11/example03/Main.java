@@ -1,25 +1,34 @@
 package module05.lesson11.example03;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class Main {
 
-    static String undo(Deque<String> history) {
-        String action = history.pollFirst();
-        if (action == null) {
-            return "Nothing to undo";
+    static <T> T choose(T first, T second, boolean chooseSecond) {
+        if (chooseSecond) {
+            return second;
         }
-        return action;
+        return first;
     }
 
     public static void main(String[] args) {
-        Deque<String> history = new ArrayDeque<>();
-        history.push("Add lesson");
-        history.push("Rename lesson");
+        String learner = choose("Nur", "Subu", true);
+        Integer score = choose(72, 95, false);
+        VideoLesson lesson = choose(new VideoLesson("Generics"),
+                new VideoLesson("Wildcards"), true);
 
-        System.out.println(undo(history));
-        System.out.println(undo(history));
-        System.out.println(undo(history));
+        System.out.println(learner);
+        System.out.println(score);
+        System.out.println(lesson.getTitle());
+    }
+}
+
+final class VideoLesson {
+    private final String title;
+
+    VideoLesson(String title) {
+        this.title = title;
+    }
+
+    String getTitle() {
+        return title;
     }
 }

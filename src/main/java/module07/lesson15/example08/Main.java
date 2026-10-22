@@ -1,35 +1,30 @@
 package module07.lesson15.example08;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 public class Main {
 
-    static final Map<String, Integer> enrollments = new ConcurrentHashMap<>();
-
-    static void enroll(String courseCode) {
-        enrollments.merge(courseCode, 1, Integer::sum);
+    sealed interface LessonContent permits VideoContent, ArticleContent, QuizContent {
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Runnable importer = () -> {
-            for (int i = 0; i < 50_000; i++) {
-                enroll("JAVA");
-                enroll("SQL");
-            }
-        };
-        Thread first = new Thread(importer);
-        Thread second = new Thread(importer);
-        first.start();
-        second.start();
-        first.join();
-        second.join();
+    record VideoContent(String title, int minutes) implements LessonContent {
+    }
 
-        int total = 0;
-        for (int count : enrollments.values()) {
-            total += count;
-        }
-        System.out.println(enrollments);
-        System.out.println("Total: " + total + " (expected 200000)");
+    record ArticleContent(String title, int words) implements LessonContent {
+    }
+
+    record QuizContent(String title, int questions) implements LessonContent {
+    }
+
+    static int studyMinutes(LessonContent content) {
+        return switch (content) {
+            case VideoContent video -> video.minutes();
+            case ArticleContent article -> article.words() / 200;
+            case QuizContent quiz -> quiz.questions() * 2;
+        };
+    }
+
+    public static void main(String[] args) {
+        System.out.println(studyMinutes(new VideoContent("Streams in Practice", 18)));
+        System.out.println(studyMinutes(new ArticleContent("Reading Records", 1_200)));
+        System.out.println(studyMinutes(new QuizContent("Optional Quiz", 5)));
     }
 }

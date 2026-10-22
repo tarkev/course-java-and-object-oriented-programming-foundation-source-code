@@ -1,7 +1,6 @@
 package module04.lesson03.example01;
 
-public class QuizLesson
-        extends ContentItem {
+public class QuizLesson extends ContentItem {
 
     private static final int MINUTES_PER_QUESTION = 2;
 

@@ -1,40 +1,16 @@
 package module07.lesson15.example07;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main {
 
-    static final Map<String, Integer> enrollments = new HashMap<>();
+    public static void main(String[] args) {
+        String template = """
+                Hello %s,
 
-    static synchronized void enroll(String courseCode) {
-        Integer current = enrollments.get(courseCode);
-        if (current == null) {
-            enrollments.put(courseCode, 1);
-        } else {
-            enrollments.put(courseCode, current + 1);
-        }
-    }
+                Welcome to %s! Your first lesson is ready.
 
-    public static void main(String[] args) throws InterruptedException {
-        Runnable importer = () -> {
-            for (int i = 0; i < 50_000; i++) {
-                enroll("JAVA");
-                enroll("SQL");
-            }
-        };
-        Thread first = new Thread(importer);
-        Thread second = new Thread(importer);
-        first.start();
-        second.start();
-        first.join();
-        second.join();
+                The Tarkev team
+                """;
 
-        int total = 0;
-        for (int count : enrollments.values()) {
-            total += count;
-        }
-        System.out.println(enrollments);
-        System.out.println("Total: " + total + " (expected 200000)");
+        System.out.print(template.formatted("Subu", "Java Foundation"));
     }
 }

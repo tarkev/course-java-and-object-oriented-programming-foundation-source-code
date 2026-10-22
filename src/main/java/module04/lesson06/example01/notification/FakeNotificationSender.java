@@ -1,7 +1,6 @@
 package module04.lesson06.example01.notification;
 
-public final class FakeNotificationSender
-        implements NotificationSender {
+public final class FakeNotificationSender implements NotificationSender {
 
     private String lastRecipient;
     private String lastMessage;

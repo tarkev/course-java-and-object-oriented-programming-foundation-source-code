@@ -1,34 +1,20 @@
 package module05.lesson10.example03;
 
+import java.util.List;
+
 public class Main {
 
-    static <T> T choose(T first, T second, boolean chooseSecond) {
-        if (chooseSecond) {
-            return second;
-        }
-        return first;
-    }
-
     public static void main(String[] args) {
-        String learner = choose("Nur", "Subu", true);
-        Integer score = choose(72, 95, false);
-        VideoLesson lesson = choose(new VideoLesson("Generics"),
-                new VideoLesson("Wildcards"), true);
-
-        System.out.println(learner);
-        System.out.println(score);
-        System.out.println(lesson.getTitle());
+        ReadingClub club = new ReadingClub();
+        club.join("Subu");
     }
 }
 
-final class VideoLesson {
-    private final String title;
+class ReadingClub {
 
-    VideoLesson(String title) {
-        this.title = title;
-    }
+    private final List<String> members = List.of();
 
-    String getTitle() {
-        return title;
+    void join(String name) {
+        members.add(name);
     }
 }

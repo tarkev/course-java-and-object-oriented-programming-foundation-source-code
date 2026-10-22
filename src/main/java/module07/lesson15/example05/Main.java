@@ -1,51 +1,22 @@
 package module07.lesson15.example05;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
-        CourseSeats seats = new CourseSeats(100);
-        AtomicInteger succeeded = new AtomicInteger();
+    static final LocalTime CLASS_TIME = LocalTime.of(18, 30);
+    static final ZoneId CLASS_ZONE = ZoneId.of("Europe/Tallinn");
 
-        Thread[] threads = new Thread[4];
-        for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread(() -> {
-                for (int attempt = 0; attempt < 1_000; attempt++) {
-                    if (seats.reserve()) {
-                        succeeded.incrementAndGet();
-                    }
-                }
-            });
-            threads[i].start();
-        }
-        for (Thread thread : threads) {
-            thread.join();
-        }
-
-        System.out.println("Successful reservations: " + succeeded.get());
-        System.out.println("Reserved seats: " + seats.reserved());
+    public static void main(String[] args) {
+        System.out.println(classStart(LocalDate.of(2026, 1, 12)));
+        System.out.println(classStart(LocalDate.of(2026, 7, 13)));
     }
 
-    static final class CourseSeats {
-
-        private final int capacity;
-        private int reserved;
-
-        CourseSeats(int capacity) {
-            this.capacity = capacity;
-        }
-
-        synchronized boolean reserve() {
-            if (reserved >= capacity) {
-                return false;
-            }
-            reserved++;
-            return true;
-        }
-
-        synchronized int reserved() {
-            return reserved;
-        }
+    static Instant classStart(LocalDate date) {
+        return ZonedDateTime.of(date, CLASS_TIME, CLASS_ZONE).toInstant();
     }
 }

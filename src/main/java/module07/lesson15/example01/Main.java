@@ -1,37 +1,37 @@
 package module07.lesson15.example01;
 
-import java.util.Locale;
-import java.util.Objects;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Main {
 
+    enum CourseStatus {
+        DRAFT, PUBLISHED, ARCHIVED
+    }
+
+    record Course(
+            String code,
+            String title,
+            CourseStatus status,
+            long priceInPaisa,
+            List<String> topics) {
+    }
+
     public static void main(String[] args) {
-        EmailAddress first = new EmailAddress(" Nur@Tarkev.com");
-        EmailAddress second = new EmailAddress("nur@tarkev.com");
+        List<Course> courses = List.of(
+                new Course("JAVA", "Java Foundation", CourseStatus.PUBLISHED,
+                        0, List.of("Java", "OOP")),
+                new Course("BACKEND", "Backend Development", CourseStatus.PUBLISHED,
+                        450_000, List.of("Java", "Backend")),
+                new Course("SYSTEM", "System Design", CourseStatus.DRAFT,
+                        600_000, List.of("Backend", "Architecture")));
 
-        System.out.println(first);
-        System.out.println(first.equals(second));
-    }
+        Map<String, String> titlesByCode = courses.stream()
+                .collect(Collectors.toMap(Course::code, Course::title));
 
-    record LearnerId(long value) {
-
-        LearnerId {
-            if (value < 1) {
-                throw new IllegalArgumentException("Learner id must be at least 1.");
-            }
-        }
-    }
-
-    record EmailAddress(String value) {
-
-        EmailAddress {
-            value = Objects.requireNonNull(value, "Email is required.")
-                    .strip()
-                    .toLowerCase(Locale.ROOT);
-
-            if (value.isBlank() || !value.contains("@")) {
-                throw new IllegalArgumentException("Invalid email: " + value);
-            }
-        }
+        System.out.println(titlesByCode.get("JAVA"));
+        System.out.println(titlesByCode.get("SYSTEM"));
+        System.out.println(titlesByCode.size() + " courses");
     }
 }

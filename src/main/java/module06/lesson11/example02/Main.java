@@ -1,71 +1,53 @@
 package module06.lesson11.example02;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-
 public class Main {
 
     public static void main(String[] args) {
-        Map<String, List<String>> graph = Map.of(
-                "Java", List.of("OOP", "Algorithms"),
-                "OOP", List.of("Design Patterns", "Algorithms"),
-                "Algorithms", List.of("Java", "Data Structures"),
-                "Data Structures", List.of(),
-                "Design Patterns", List.of("OOP"));
+        Course[] courses = {
+            new Course("Spring Boot", 2000),
+            new Course("Java Basics", 1500),
+            new Course("Docker", 1200),
+            new Course("Java Basics", 900),
+            new Course("Algorithms", 1800)
+        };
 
-        System.out.println(breadthFirst(graph, "Java"));
-        System.out.println(breadthFirst(graph, "Design Patterns"));
-        System.out.println(breadthFirst(graph, "Data Structures"));
-        System.out.println("With a Stack: " + withStack(graph, "Java"));
+        insertionSortByTitle(courses);
+
+        for (Course course : courses) {
+            System.out.println(course.getTitle() + " " + course.getPrice());
+        }
     }
 
-    static List<String> breadthFirst(Map<String, List<String>> graph, String start) {
-        List<String> order = new ArrayList<>();
-        Set<String> visited = new HashSet<>();
-        Queue<String> queue = new ArrayDeque<>();
+    static void insertionSortByTitle(Course[] courses) {
+        for (int i = 1; i < courses.length; i++) {
+            Course current = courses[i];
+            int position = i - 1;
 
-        queue.offer(start);
-        visited.add(start);
-
-        while (!queue.isEmpty()) {
-            String current = queue.poll();
-            order.add(current);
-
-            for (String neighbor : graph.get(current)) {
-                if (visited.add(neighbor)) {
-                    queue.offer(neighbor);
-                }
+            while (position >= 0
+                    && courses[position].getTitle().compareTo(current.getTitle()) > 0) {
+                courses[position + 1] = courses[position];
+                position--;
             }
-        }
 
-        return order;
+            courses[position + 1] = current;
+        }
+    }
+}
+
+class Course {
+    private final String title;
+    private final long price;
+
+    Course(String title, long price) {
+        this.title = title;
+        this.price = price;
     }
 
-    static List<String> withStack(Map<String, List<String>> graph, String start) {
-        List<String> order = new ArrayList<>();
-        Set<String> visited = new HashSet<>();
-        Deque<String> stack = new ArrayDeque<>();
+    String getTitle() {
+        return title;
+    }
 
-        stack.push(start);
-        visited.add(start);
-
-        while (!stack.isEmpty()) {
-            String current = stack.pop();
-            order.add(current);
-
-            for (String neighbor : graph.get(current)) {
-                if (visited.add(neighbor)) {
-                    stack.push(neighbor);
-                }
-            }
-        }
-
-        return order;
+    long getPrice() {
+        return price;
     }
 }

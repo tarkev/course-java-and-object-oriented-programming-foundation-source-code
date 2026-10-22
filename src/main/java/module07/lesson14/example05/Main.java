@@ -1,22 +1,23 @@
 package module07.lesson14.example05;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class Main {
 
-    static final LocalTime CLASS_TIME = LocalTime.of(18, 30);
-    static final ZoneId CLASS_ZONE = ZoneId.of("Europe/Tallinn");
-
     public static void main(String[] args) {
-        System.out.println(classStart(LocalDate.of(2026, 1, 12)));
-        System.out.println(classStart(LocalDate.of(2026, 7, 13)));
+        Function<Course, String> title = Course::title;
+        UnaryOperator<String> strip = String::strip;
+        UnaryOperator<String> upperCase = String::toUpperCase;
+
+        Function<Course, String> withAndThen = title.andThen(strip).andThen(upperCase);
+        Function<Course, String> withCompose = upperCase.compose(strip).compose(title);
+
+        Course course = new Course("  Java Foundation ", 300_000, true);
+        System.out.println("[" + withAndThen.apply(course) + "]");
+        System.out.println("[" + withCompose.apply(course) + "]");
     }
 
-    static Instant classStart(LocalDate date) {
-        return ZonedDateTime.of(date, CLASS_TIME, CLASS_ZONE).toInstant();
+    record Course(String title, long priceInPaisa, boolean published) {
     }
 }

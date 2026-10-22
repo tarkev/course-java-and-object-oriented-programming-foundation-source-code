@@ -1,45 +1,41 @@
 package module05.lesson10.example02;
 
-public class Main {
-    public static void main(String[] args) {
-        KeyValue<Long, String> learner = new KeyValue<>(1L, "Nur");
-        Long learnerId = learner.getKey();
-        String learnerName = learner.getValue();
-        System.out.println(learnerId + " -> " + learnerName);
+import java.util.HashMap;
+import java.util.Map;
 
-        KeyValue<String, Course> entry = new KeyValue<>("JAVA-101", new Course("Java Basics"));
-        String code = entry.getKey();
-        Course course = entry.getValue();
-        System.out.println(code + " -> " + course.getTitle());
+public class Main {
+
+    public static void main(String[] args) {
+        ShelfCode code = new ShelfCode("A-12");
+        Map<ShelfCode, String> booksByShelf = new HashMap<>();
+        booksByShelf.put(code, "Clean Code");
+
+        code.change("B-07");
+
+        System.out.println(booksByShelf.get(code));
+        System.out.println(booksByShelf.size());
     }
 }
 
-final class KeyValue<K, V> {
-    private final K key;
-    private final V value;
+class ShelfCode {
 
-    KeyValue(K key, V value) {
-        this.key = key;
+    private String value;
+
+    ShelfCode(String value) {
         this.value = value;
     }
 
-    K getKey() {
-        return key;
+    void change(String newValue) {
+        this.value = newValue;
     }
 
-    V getValue() {
-        return value;
-    }
-}
-
-final class Course {
-    private final String title;
-
-    Course(String title) {
-        this.title = title;
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ShelfCode code && value.equals(code.value);
     }
 
-    String getTitle() {
-        return title;
+    @Override
+    public int hashCode() {
+        return value.hashCode();
     }
 }

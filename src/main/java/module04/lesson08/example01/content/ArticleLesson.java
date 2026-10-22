@@ -1,7 +1,6 @@
 package module04.lesson08.example01.content;
 
-public final class ArticleLesson extends ContentItem
-        implements Downloadable {
+public final class ArticleLesson extends ContentItem implements Downloadable {
 
     private static final int WORDS_PER_MINUTE = 200;
 

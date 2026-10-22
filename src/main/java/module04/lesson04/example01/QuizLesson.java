@@ -1,8 +1,6 @@
 package module04.lesson04.example01;
 
-public final class QuizLesson
-        extends ContentItem
-        implements Gradable {
+public final class QuizLesson extends ContentItem implements Gradable {
 
     private static final int MINUTES_PER_QUESTION = 2;
 

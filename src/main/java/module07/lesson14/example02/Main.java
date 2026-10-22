@@ -1,32 +1,25 @@
 package module07.lesson14.example02;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
 public class Main {
 
     public static void main(String[] args) {
-        CourseRepository repository = new CourseRepository();
-        repository.save(new Course("JAVA", "Java Foundation", 300_000));
+        Course course = new Course("Git Basics", 40_000);
 
-        System.out.println(repository.findByCode("JAVA").map(Course::title).orElse("Not found"));
-        System.out.println(repository.findByCode("RUST").map(Course::title).orElse("Not found"));
+        System.out.println(finalPrice(course, price -> price));
+        System.out.println(finalPrice(course, price -> price * 90 / 100));
+        System.out.println(finalPrice(course, price -> Math.max(0, price - 50_000)));
     }
 
-    record Course(String code, String title, long priceInPaisa) {
+    static long finalPrice(Course course, PriceAdjustment adjustment) {
+        return adjustment.adjust(course.priceInPaisa());
     }
 
-    static final class CourseRepository {
-
-        private final Map<String, Course> courses = new HashMap<>();
-
-        void save(Course course) {
-            courses.put(course.code(), course);
-        }
-
-        Optional<Course> findByCode(String code) {
-            return Optional.ofNullable(courses.get(code));
-        }
+    record Course(String title, long priceInPaisa) {
     }
+}
+
+@FunctionalInterface
+interface PriceAdjustment {
+
+    long adjust(long priceInPaisa);
 }

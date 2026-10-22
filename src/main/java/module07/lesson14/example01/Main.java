@@ -1,37 +1,27 @@
 package module07.lesson14.example01;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Main {
 
-    enum CourseStatus {
-        DRAFT, PUBLISHED, ARCHIVED
-    }
-
-    record Course(
-            String code,
-            String title,
-            CourseStatus status,
-            long priceInPaisa,
-            List<String> topics) {
-    }
-
     public static void main(String[] args) {
-        List<Course> courses = List.of(
-                new Course("JAVA", "Java Foundation", CourseStatus.PUBLISHED,
-                        0, List.of("Java", "OOP")),
-                new Course("BACKEND", "Backend Development", CourseStatus.PUBLISHED,
-                        450_000, List.of("Java", "Backend")),
-                new Course("SYSTEM", "System Design", CourseStatus.DRAFT,
-                        600_000, List.of("Backend", "Architecture")));
+        List<Course> courses = new ArrayList<>(List.of(
+                new Course("System Design", 800_000),
+                new Course("Git", 0),
+                new Course("Backend Development", 500_000),
+                new Course("Java Foundation", 300_000)));
 
-        Map<String, String> titlesByCode = courses.stream()
-                .collect(Collectors.toMap(Course::code, Course::title));
+        courses.sort((first, second) ->
+                Integer.compare(first.title().length(), second.title().length()));
+        courses.forEach(course -> System.out.println(course.title()));
 
-        System.out.println(titlesByCode.get("JAVA"));
-        System.out.println(titlesByCode.get("SYSTEM"));
-        System.out.println(titlesByCode.size() + " courses");
+        System.out.println("---");
+        courses.sort((first, second) ->
+                Integer.compare(second.title().length(), first.title().length()));
+        courses.forEach(course -> System.out.println(course.title()));
+    }
+
+    record Course(String title, long priceInPaisa) {
     }
 }
