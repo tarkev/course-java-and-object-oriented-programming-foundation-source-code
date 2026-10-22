@@ -1,4 +1,3 @@
-// Generated from modules/06-algorithms-and-problem-solving-with-java/07-heaps-and-priorityqueue.md by tools/extract_code.py. Edit the lesson, not this file.
 package module06.lesson07.example01;
 
 import java.util.Comparator;
@@ -13,11 +12,8 @@ public class Main {
         PriorityQueue<Task> tasks = new PriorityQueue<>(ordering);
 
         tasks.offer(new Task(1L, "Generate report", Priority.NORMAL));
-
         tasks.offer(new Task(2L, "Fix production outage", Priority.CRITICAL));
-
         tasks.offer(new Task(3L, "Send welcome email", Priority.LOW));
-
         tasks.offer(new Task(4L, "Investigate failed payment", Priority.HIGH));
 
         while (!tasks.isEmpty()) {
@@ -39,9 +35,7 @@ public class Main {
 
         Task(long sequence, String description, Priority priority) {
             this.sequence = sequence;
-
             this.description = description;
-
             this.priority = priority;
         }
 

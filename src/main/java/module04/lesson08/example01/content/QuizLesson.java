@@ -1,4 +1,3 @@
-// Generated from modules/04-inheritance-interfaces-and-polymorphism/08-project-polymorphic-content-system.md by tools/extract_code.py. Edit the lesson, not this file.
 package module04.lesson08.example01.content;
 
 public final class QuizLesson extends ContentItem implements Gradable {
@@ -23,7 +22,6 @@ public final class QuizLesson extends ContentItem implements Gradable {
         }
 
         this.questionCount = questionCount;
-
         this.passingScore = passingScore;
     }
 
@@ -45,7 +43,6 @@ public final class QuizLesson extends ContentItem implements Gradable {
     @Override
     public int calculateScore(int correctAnswers) {
         validateCorrectAnswers(correctAnswers);
-
         return correctAnswers * 100 / questionCount;
     }
 

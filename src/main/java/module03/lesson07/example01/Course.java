@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/07-object-references-null-identity-equality-and-tostring.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson07.example01;
 
 import java.util.Objects;
@@ -20,9 +19,7 @@ public class Course {
         }
 
         this.code = code.strip().toUpperCase();
-
         this.title = title.strip();
-
         this.published = false;
     }
 
@@ -32,7 +29,6 @@ public class Course {
         }
 
         title = newTitle.strip();
-
         return true;
     }
 
@@ -42,7 +38,6 @@ public class Course {
         }
 
         published = true;
-
         return true;
     }
 

@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/06-static-and-instance-members.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson06.example02;
 
 public class Course {
@@ -26,13 +25,9 @@ public class Course {
         }
 
         this.title = title.strip();
-
         this.totalLessons = totalLessons;
-
         this.priceInPaisa = priceInPaisa;
-
         this.published = false;
-
         totalCoursesCreated++;
     }
 
@@ -57,7 +52,6 @@ public class Course {
         }
 
         published = true;
-
         return true;
     }
 

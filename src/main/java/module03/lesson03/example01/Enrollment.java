@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/03-constructors-and-valid-object-creation.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson03.example01;
 
 public class Enrollment {
@@ -26,11 +25,8 @@ public class Enrollment {
         }
 
         learnerName = initialLearnerName.strip();
-
         courseTitle = initialCourseTitle.strip();
-
         completedLessons = 0;
-
         totalLessons = initialTotalLessons;
     }
 

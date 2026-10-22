@@ -1,4 +1,3 @@
-// Generated from modules/04-inheritance-interfaces-and-polymorphism/02-parent-construction-super-and-inherited-access.md by tools/extract_code.py. Edit the lesson, not this file.
 package module04.lesson02.example01;
 
 public class ContentItem {
@@ -18,9 +17,7 @@ public class ContentItem {
         }
 
         this.id = id;
-
         this.title = title.strip();
-
         this.published = false;
     }
 
@@ -42,7 +39,6 @@ public class ContentItem {
         }
 
         published = true;
-
         return true;
     }
 }

@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/11-project-build-a-course-enrollment-system.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson11.example01.learner;
 
 import java.util.Objects;
@@ -18,17 +17,21 @@ public final class Learner {
             throw new IllegalArgumentException("Learner name is required.");
         }
 
-        if (email == null || email.isBlank() || !email.contains("@")
-                || email.contains(" ")) {
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException(
+                    "A valid learner email is required.");
+        }
+
+        String normalizedEmail = email.strip().toLowerCase();
+
+        if (!normalizedEmail.contains("@") || normalizedEmail.contains(" ")) {
             throw new IllegalArgumentException(
                     "A valid learner email is required.");
         }
 
         this.id = id;
-
         this.name = name.strip();
-
-        this.email = email.strip().toLowerCase();
+        this.email = normalizedEmail;
     }
 
     public long getId() {
@@ -54,7 +57,6 @@ public final class Learner {
         }
 
         Learner learner = (Learner) other;
-
         return id == learner.id;
     }
 

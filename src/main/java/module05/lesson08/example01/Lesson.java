@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/08-designing-classes-that-own-collections.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson08.example01;
 
 public final class Lesson {
@@ -16,7 +15,6 @@ public final class Lesson {
         }
 
         this.id = id;
-
         this.title = title.strip();
     }
 

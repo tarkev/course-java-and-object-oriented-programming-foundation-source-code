@@ -1,19 +1,14 @@
-// Generated from modules/02-methods-arrays-and-program-structure/08-introduction-to-recursion.md by tools/extract_code.py. Edit the lesson, not this file.
 package module02.lesson08.example02;
 
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Countdown:");
-
         countDown(5);
-
         System.out.println("Factorial: " + factorial(5));
 
         int[] numbers = {10, 20, 30};
-
         System.out.println("Array total: " + sum(numbers));
-
         System.out.println("Contains 20: " + contains(numbers, 20));
     }
 
@@ -23,7 +18,6 @@ public class Main {
         }
 
         System.out.println(number);
-
         countDown(number - 1);
     }
 
@@ -56,8 +50,7 @@ public class Main {
             return false;
         }
 
-        if (numbers[index]
-                == target) {
+        if (numbers[index] == target) {
             return true;
         }
 

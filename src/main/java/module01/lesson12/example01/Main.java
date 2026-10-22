@@ -1,4 +1,3 @@
-// Generated from modules/01-programming-and-java-fundamentals/12-operators-and-expressions.md by tools/extract_code.py. Edit the lesson, not this file.
 package module01.lesson12.example01;
 
 public class Main {
@@ -9,16 +8,12 @@ public class Main {
         int scienceMark = 85;
 
         int totalMarks = mathematicsMark + englishMark + scienceMark;
-
         double averageMark = totalMarks / 3.0;
-
         boolean passed =
                 mathematicsMark >= 40 && englishMark >= 40 && scienceMark >= 40;
 
         System.out.println("Total: " + totalMarks);
-
         System.out.println("Average: " + averageMark);
-
         System.out.println("Passed: " + passed);
     }
 }

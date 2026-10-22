@@ -1,63 +1,13 @@
-// Generated from modules/07-modern-java/10-introduction-to-concurrency-and-thread-safety.md by tools/extract_code.py. Edit the lesson, not this file.
 package module07.lesson10.example01;
 
 public class Main {
 
-    public static void main(
-            String[] args
-    ) throws InterruptedException {
-        Counter counter =
-                new Counter();
+    public static void main(String[] args) throws InterruptedException {
+        Thread worker = new Thread(() -> System.out.println("Worker running"));
 
-        Thread first =
-                new Thread(
-                        () ->
-                                incrementManyTimes(
-                                        counter
-                                )
-                );
+        worker.start();
+        worker.join();
 
-        Thread second =
-                new Thread(
-                        () ->
-                                incrementManyTimes(
-                                        counter
-                                )
-                );
-
-        first.start();
-        second.start();
-
-        first.join();
-        second.join();
-
-        System.out.println(
-                counter.value()
-        );
-    }
-
-    static void incrementManyTimes(
-            Counter counter
-    ) {
-        for (
-                int i = 0;
-                i < 100_000;
-                i++
-        ) {
-            counter.increment();
-        }
-    }
-
-    static final class Counter {
-
-        private int count;
-
-        void increment() {
-            count++;
-        }
-
-        int value() {
-            return count;
-        }
+        System.out.println("Worker finished");
     }
 }

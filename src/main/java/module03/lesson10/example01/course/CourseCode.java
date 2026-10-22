@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/10-packages-and-organizing-java-code.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson10.example01.course;
 
 import java.util.Objects;
@@ -30,7 +29,6 @@ public final class CourseCode {
         }
 
         CourseCode courseCode = (CourseCode) other;
-
         return value.equals(courseCode.value);
     }
 

@@ -1,4 +1,3 @@
-// Generated from modules/06-algorithms-and-problem-solving-with-java/05-java-s-built-in-sorting-and-searching-apis.md by tools/extract_code.py. Edit the lesson, not this file.
 package module06.lesson05.example01;
 
 public final class Course implements Comparable<Course> {
@@ -9,9 +8,7 @@ public final class Course implements Comparable<Course> {
 
     public Course(String code, String title, long priceInPaisa) {
         this.code = code;
-
         this.title = title;
-
         this.priceInPaisa = priceInPaisa;
     }
 

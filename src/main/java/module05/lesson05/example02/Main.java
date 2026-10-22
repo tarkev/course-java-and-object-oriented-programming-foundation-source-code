@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/05-queues-and-fifo-processing.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson05.example02;
 
 import java.util.ArrayDeque;
@@ -8,17 +7,13 @@ public class Main {
 
     public static void main(String[] args) {
         Queue<String> enrollmentRequests = new ArrayDeque<>();
-
         submit(enrollmentRequests, "Sakib");
-
         submit(enrollmentRequests, "Subu");
-
         submit(enrollmentRequests, "Sumu");
 
         System.out.println("Waiting: " + enrollmentRequests.size());
 
         processNext(enrollmentRequests);
-
         processNext(enrollmentRequests);
 
         System.out.println("Next learner: " + enrollmentRequests.peek());
@@ -37,7 +32,6 @@ public class Main {
 
         if (learner == null) {
             System.out.println("No enrollment request.");
-
             return;
         }
 

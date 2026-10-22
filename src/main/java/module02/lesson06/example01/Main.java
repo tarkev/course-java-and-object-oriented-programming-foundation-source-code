@@ -1,4 +1,3 @@
-// Generated from modules/02-methods-arrays-and-program-structure/06-two-dimensional-and-multidimensional-arrays.md by tools/extract_code.py. Edit the lesson, not this file.
 package module02.lesson06.example01;
 
 public class Main {

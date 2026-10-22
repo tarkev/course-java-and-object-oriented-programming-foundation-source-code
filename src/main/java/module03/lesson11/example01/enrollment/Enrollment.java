@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/11-project-build-a-course-enrollment-system.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson11.example01.enrollment;
 
 import module03.lesson11.example01.course.Course;
@@ -27,11 +26,8 @@ public final class Enrollment {
         }
 
         this.learner = learner;
-
         this.course = course;
-
         this.completedLessons = 0;
-
         this.active = true;
     }
 
@@ -59,7 +55,6 @@ public final class Enrollment {
         }
 
         completedLessons = updatedCount;
-
         return true;
     }
 
@@ -73,7 +68,6 @@ public final class Enrollment {
         }
 
         active = false;
-
         return true;
     }
 

@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/06-static-and-instance-members.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson06.example02;
 
 public class PriceCalculator {
@@ -15,7 +14,6 @@ public class PriceCalculator {
         }
 
         long discountAmount = priceInPaisa * discountPercentage / 100;
-
         return priceInPaisa - discountAmount;
     }
 }

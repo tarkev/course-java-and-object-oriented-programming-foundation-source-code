@@ -1,4 +1,3 @@
-// Generated from modules/06-algorithms-and-problem-solving-with-java/02-simple-sorting-algorithms.md by tools/extract_code.py. Edit the lesson, not this file.
 package module06.lesson02.example01;
 
 import java.util.Arrays;
@@ -7,23 +6,16 @@ public class Main {
 
     public static void main(String[] args) {
         int[] original = {40, 10, 30, 20};
-
         int[] bubble = Arrays.copyOf(original, original.length);
-
         int[] selection = Arrays.copyOf(original, original.length);
-
         int[] insertion = Arrays.copyOf(original, original.length);
 
         bubbleSort(bubble);
-
         selectionSort(selection);
-
         insertionSort(insertion);
 
         System.out.println(Arrays.toString(bubble));
-
         System.out.println(Arrays.toString(selection));
-
         System.out.println(Arrays.toString(insertion));
     }
 
@@ -34,7 +26,6 @@ public class Main {
             for (int i = 0; i < numbers.length - 1 - pass; i++) {
                 if (numbers[i] > numbers[i + 1]) {
                     swap(numbers, i, i + 1);
-
                     swapped = true;
                 }
             }
@@ -64,12 +55,10 @@ public class Main {
     static void insertionSort(int[] numbers) {
         for (int i = 1; i < numbers.length; i++) {
             int current = numbers[i];
-
             int position = i - 1;
 
             while (position >= 0 && numbers[position] > current) {
                 numbers[position + 1] = numbers[position];
-
                 position--;
             }
 
@@ -79,9 +68,7 @@ public class Main {
 
     static void swap(int[] numbers, int firstIndex, int secondIndex) {
         int temporary = numbers[firstIndex];
-
         numbers[firstIndex] = numbers[secondIndex];
-
         numbers[secondIndex] = temporary;
     }
 }

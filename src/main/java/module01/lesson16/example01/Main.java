@@ -1,4 +1,3 @@
-// Generated from modules/01-programming-and-java-fundamentals/16-switch-expressions-and-statements.md by tools/extract_code.py. Edit the lesson, not this file.
 package module01.lesson16.example01;
 
 import java.util.Scanner;
@@ -9,15 +8,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("1. Create course");
-
         System.out.println("2. View courses");
-
         System.out.println("3. Update course");
-
         System.out.println("4. Exit");
-
         System.out.print("Choose an option: ");
-
         int option = Integer.parseInt(scanner.nextLine().strip());
 
         String action = switch (option) {

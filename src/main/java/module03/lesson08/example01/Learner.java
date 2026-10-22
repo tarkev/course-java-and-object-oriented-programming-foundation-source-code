@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/08-composition-and-object-relationships.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson08.example01;
 
 public class Learner {
@@ -21,9 +20,7 @@ public class Learner {
         }
 
         this.id = id;
-
         this.name = name.strip();
-
         this.email = email.strip();
     }
 

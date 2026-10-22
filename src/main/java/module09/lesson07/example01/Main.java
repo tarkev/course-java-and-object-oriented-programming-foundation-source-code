@@ -1,4 +1,3 @@
-// Generated from modules/09-file-handling-and-i-o/07-designing-a-file-based-repository.md by tools/extract_code.py. Edit the lesson, not this file.
 package module09.lesson07.example01;
 
 import module09.lesson07.example01.course.Course;
@@ -11,48 +10,19 @@ import java.nio.file.Path;
 
 public class Main {
 
-    public static void main(
-            String[] args
-    ) {
+    public static void main(String[] args) {
         CourseRepository repository =
-                new FileCourseRepository(
-                        Path.of(
-                                "data",
-                                "courses"
-                        )
-                );
+                new FileCourseRepository(Path.of("data", "courses"));
 
-        Course course =
-                new Course(
-                        new CourseCode(
-                                "JAVA-OOP"
-                        ),
-                        "Java and OOP Foundation",
-                        499_000L
-                );
+        CourseCode code = new CourseCode("JAVA-OOP");
+        Course course = new Course(code, "Java and OOP Foundation", 499_000L);
+        course.changeStatus(CourseStatus.REVIEW);
 
-        course.changeStatus(
-                CourseStatus.REVIEW
-        );
+        repository.save(course);
 
-        repository.save(
-                course
-        );
-
-        Course loaded =
-                repository.findByCode(
-                        new CourseCode(
-                                "java-oop"
-                        )
-                );
-
-        System.out.println(
-                loaded
-        );
-
-        repository.findAll()
-                .forEach(
-                        System.out::println
-                );
+        System.out.println(repository.findByCode(new CourseCode("java-oop")));
+        System.out.println(repository.findAll().size() + " course(s) stored");
+        System.out.println(repository.deleteByCode(code));
+        System.out.println(repository.findByCode(code));
     }
 }

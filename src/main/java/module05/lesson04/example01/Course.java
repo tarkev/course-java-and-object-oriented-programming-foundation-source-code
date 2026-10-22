@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/04-working-with-map.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson04.example01;
 
 public final class Course {
@@ -16,7 +15,6 @@ public final class Course {
         }
 
         this.code = code;
-
         this.title = title.strip();
     }
 

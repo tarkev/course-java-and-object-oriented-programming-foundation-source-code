@@ -1,4 +1,3 @@
-// Generated from modules/09-file-handling-and-i-o/07-designing-a-file-based-repository.md by tools/extract_code.py. Edit the lesson, not this file.
 package module09.lesson07.example01.repository;
 
 import module09.lesson07.example01.course.Course;
@@ -15,426 +14,176 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.stream.Stream;
 
-public final class FileCourseRepository
-        implements CourseRepository {
+public final class FileCourseRepository implements CourseRepository {
+
+    private static final String EXTENSION = ".properties";
 
     private final Path baseDirectory;
 
-    public FileCourseRepository(
-            Path baseDirectory
-    ) {
-        if (
-                baseDirectory == null
-        ) {
-            throw new IllegalArgumentException(
-                    "Base directory is required."
-            );
+    public FileCourseRepository(Path baseDirectory) {
+        if (baseDirectory == null) {
+            throw new IllegalArgumentException("Base directory is required.");
         }
 
-        this.baseDirectory =
-                baseDirectory
-                        .toAbsolutePath()
-                        .normalize();
+        this.baseDirectory = baseDirectory.toAbsolutePath().normalize();
     }
 
     @Override
-    public void save(
-            Course course
-    ) {
-        if (
-                course == null
-        ) {
-            throw new IllegalArgumentException(
-                    "Course is required."
-            );
+    public void save(Course course) {
+        if (course == null) {
+            throw new IllegalArgumentException("Course is required.");
         }
 
-        Path target =
-                resolveFile(
-                        course.getCode()
-                );
+        Path target = resolveFile(course.getCode());
 
         try {
-            Files.createDirectories(
-                    baseDirectory
-            );
-
-            replaceFile(
-                    target,
-                    serialize(
-                            course
-                    )
-            );
-        } catch (
-                IOException exception
-        ) {
+            Files.createDirectories(baseDirectory);
+            replaceFile(target, serialize(course));
+        } catch (IOException exception) {
             throw new CourseRepositoryException(
-                    "Could not save course "
-                            + course.getCode()
-                            + ".",
-                    exception
-            );
+                    "Could not save course " + course.getCode(), exception);
         }
     }
 
     @Override
-    public Course findByCode(
-            CourseCode courseCode
-    ) {
-        Path path =
-                resolveFile(
-                        courseCode
-                );
-
+    public Optional<Course> findByCode(CourseCode courseCode) {
         try {
-            return deserialize(
-                    loadProperties(
-                            path
-                    ),
-                    path
-            );
-        } catch (
-                NoSuchFileException exception
-        ) {
-            return null;
-        } catch (
-                IOException exception
-        ) {
+            return Optional.of(loadCourse(resolveFile(courseCode)));
+        } catch (NoSuchFileException exception) {
+            return Optional.empty();
+        } catch (IOException exception) {
             throw new CourseRepositoryException(
-                    "Could not load course "
-                            + courseCode
-                            + ".",
-                    exception
-            );
+                    "Could not load course " + courseCode, exception);
         }
     }
 
     @Override
     public List<Course> findAll() {
-        try {
-            Files.createDirectories(
-                    baseDirectory
-            );
-        } catch (
-                IOException exception
-        ) {
-            throw new CourseRepositoryException(
-                    "Could not initialize course repository.",
-                    exception
-            );
+        if (Files.notExists(baseDirectory)) {
+            return List.of();
         }
 
-        try (
-                Stream<Path> paths =
-                        Files.list(
-                                baseDirectory
-                        )
-        ) {
-            return paths.filter(
-                    Files::isRegularFile
-            )
-            .filter(
-                    this::isCourseFile
-            )
-            .map(
-                    this::loadCourseFile
-            )
-            .toList();
-        } catch (
-                IOException exception
-        ) {
+        try (Stream<Path> paths = Files.list(baseDirectory)) {
+            return paths.filter(Files::isRegularFile)
+                    .filter(path -> path.toString().endsWith(EXTENSION))
+                    .map(this::loadListedCourse)
+                    .toList();
+        } catch (IOException exception) {
             throw new CourseRepositoryException(
-                    "Could not list courses.",
-                    exception
-            );
+                    "Could not list stored courses", exception);
         }
     }
 
     @Override
-    public boolean deleteByCode(
-            CourseCode courseCode
-    ) {
-        Path path =
-                resolveFile(
-                        courseCode
-                );
-
+    public boolean deleteByCode(CourseCode courseCode) {
         try {
-            return Files.deleteIfExists(
-                    path
-            );
-        } catch (
-                IOException exception
-        ) {
+            return Files.deleteIfExists(resolveFile(courseCode));
+        } catch (IOException exception) {
             throw new CourseRepositoryException(
-                    "Could not delete course "
-                            + courseCode
-                            + ".",
-                    exception
-            );
+                    "Could not delete course " + courseCode, exception);
         }
     }
 
-    private Path resolveFile(
-            CourseCode courseCode
-    ) {
-        if (
-                courseCode == null
-        ) {
-            throw new IllegalArgumentException(
-                    "Course code is required."
-            );
+    private Path resolveFile(CourseCode courseCode) {
+        if (courseCode == null) {
+            throw new IllegalArgumentException("Course code is required.");
         }
 
-        String fileName =
-                courseCode.getValue()
-                        .toLowerCase()
-                        + ".properties";
+        String fileName = courseCode.value().toLowerCase(Locale.ROOT);
+        Path target = baseDirectory.resolve(fileName + EXTENSION).normalize();
 
-        Path target =
-                baseDirectory
-                        .resolve(
-                                fileName
-                        )
-                        .normalize();
-
-        if (
-                !target.startsWith(
-                        baseDirectory
-                )
-        ) {
+        if (!baseDirectory.equals(target.getParent())) {
             throw new IllegalArgumentException(
-                    "Course path escapes repository directory."
-            );
+                    "Course path escapes repository directory.");
         }
 
         return target;
     }
 
-    private Properties serialize(
-            Course course
-    ) {
-        Properties properties =
-                new Properties();
-
+    private Properties serialize(Course course) {
+        Properties properties = new Properties();
+        properties.setProperty("code", course.getCode().value());
+        properties.setProperty("title", course.getTitle());
         properties.setProperty(
-                "code",
-                course.getCode()
-                        .getValue()
-        );
-
-        properties.setProperty(
-                "title",
-                course.getTitle()
-        );
-
-        properties.setProperty(
-                "priceInPaisa",
-                Long.toString(
-                        course.getPriceInPaisa()
-                )
-        );
-
-        properties.setProperty(
-                "status",
-                course.getStatus()
-                        .name()
-        );
-
+                "priceInPaisa", Long.toString(course.getPriceInPaisa()));
+        properties.setProperty("status", course.getStatus().name());
         return properties;
     }
 
-    private Course deserialize(
-            Properties properties,
-            Path source
-    ) {
+    private Course loadCourse(Path path) throws IOException {
+        Properties properties = new Properties();
+
+        try (BufferedReader reader =
+                     Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+            properties.load(reader);
+        }
+
         try {
-            CourseCode code =
-                    new CourseCode(
-                            requireProperty(
-                                    properties,
-                                    "code"
-                            )
-                    );
-
-            String title =
-                    requireProperty(
-                            properties,
-                            "title"
-                    );
-
-            long priceInPaisa =
-                    Long.parseLong(
-                            requireProperty(
-                                    properties,
-                                    "priceInPaisa"
-                            )
-                    );
-
-            CourseStatus status =
-                    CourseStatus.valueOf(
-                            requireProperty(
-                                    properties,
-                                    "status"
-                            )
-                    );
-
             return Course.restore(
-                    code,
-                    title,
-                    priceInPaisa,
-                    status
-            );
-        } catch (
-                CourseRepositoryException exception
-        ) {
-            throw exception;
-        } catch (
-                RuntimeException exception
-        ) {
+                    new CourseCode(require(properties, "code")),
+                    require(properties, "title"),
+                    Long.parseLong(require(properties, "priceInPaisa")),
+                    CourseStatus.valueOf(require(properties, "status")));
+        } catch (RuntimeException exception) {
             throw new CourseRepositoryException(
-                    "Stored course data is invalid: "
-                            + source.getFileName()
-                            + ".",
-                    exception
-            );
+                    "Stored course data is invalid: " + path.getFileName(),
+                    exception);
         }
     }
 
-    private String requireProperty(
-            Properties properties,
-            String key
-    ) {
-        String value =
-                properties.getProperty(
-                        key
-                );
+    private String require(Properties properties, String key) {
+        String value = properties.getProperty(key);
 
-        if (
-                value == null
-                || value.isBlank()
-        ) {
-            throw new CourseRepositoryException(
-                    "Stored course is missing property: "
-                            + key
-                            + "."
-            );
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException("Missing property: " + key);
         }
 
         return value;
     }
 
-    private Properties loadProperties(
-            Path path
-    ) throws IOException {
-        Properties properties =
-                new Properties();
-
-        try (
-                BufferedReader reader =
-                        Files.newBufferedReader(
-                                path,
-                                StandardCharsets.UTF_8
-                        )
-        ) {
-            properties.load(
-                    reader
-            );
-        }
-
-        return properties;
-    }
-
-    private void storeProperties(
-            Path path,
-            Properties properties
-    ) throws IOException {
-        try (
-                BufferedWriter writer =
-                        Files.newBufferedWriter(
-                                path,
-                                StandardCharsets.UTF_8
-                        )
-        ) {
-            properties.store(
-                    writer,
-                    null
-            );
-        }
-    }
-
-    private void replaceFile(
-            Path target,
-            Properties properties
-    ) throws IOException {
-        Path temp =
-                Files.createTempFile(
-                        baseDirectory,
-                        "course-",
-                        ".tmp"
-                );
-
+    private Course loadListedCourse(Path path) {
         try {
-            storeProperties(
-                    temp,
-                    properties
-            );
-
-            try {
-                Files.move(
-                        temp,
-                        target,
-                        StandardCopyOption.REPLACE_EXISTING,
-                        StandardCopyOption.ATOMIC_MOVE
-                );
-            } catch (
-                    AtomicMoveNotSupportedException exception
-            ) {
-                Files.move(
-                        temp,
-                        target,
-                        StandardCopyOption.REPLACE_EXISTING
-                );
-            }
-        } finally {
-            Files.deleteIfExists(
-                    temp
-            );
-        }
-    }
-
-    private boolean isCourseFile(
-            Path path
-    ) {
-        return path.getFileName()
-                .toString()
-                .endsWith(
-                        ".properties"
-                );
-    }
-
-    private Course loadCourseFile(
-            Path path
-    ) {
-        try {
-            return deserialize(
-                    loadProperties(
-                            path
-                    ),
-                    path
-            );
-        } catch (
-                IOException exception
-        ) {
+            return loadCourse(path);
+        } catch (IOException exception) {
             throw new CourseRepositoryException(
-                    "Could not load stored course "
-                            + path.getFileName()
-                            + ".",
-                    exception
-            );
+                    "Could not load " + path.getFileName(), exception);
+        }
+    }
+
+    private void replaceFile(Path target, Properties properties)
+            throws IOException {
+        Path temp = Files.createTempFile(baseDirectory, "course-", ".tmp");
+
+        try {
+            try (BufferedWriter writer =
+                         Files.newBufferedWriter(temp, StandardCharsets.UTF_8)) {
+                properties.store(writer, null);
+            }
+
+            moveIntoPlace(temp, target);
+        } catch (IOException | RuntimeException exception) {
+            try {
+                Files.deleteIfExists(temp);
+            } catch (IOException cleanupFailure) {
+                exception.addSuppressed(cleanupFailure);
+            }
+
+            throw exception;
+        }
+    }
+
+    private void moveIntoPlace(Path temp, Path target) throws IOException {
+        try {
+            Files.move(temp, target,
+                    StandardCopyOption.ATOMIC_MOVE,
+                    StandardCopyOption.REPLACE_EXISTING);
+        } catch (AtomicMoveNotSupportedException exception) {
+            Files.move(temp, target, StandardCopyOption.REPLACE_EXISTING);
         }
     }
 }

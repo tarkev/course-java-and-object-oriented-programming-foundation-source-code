@@ -1,4 +1,3 @@
-// Generated from modules/06-algorithms-and-problem-solving-with-java/04-linear-search-and-binary-search.md by tools/extract_code.py. Edit the lesson, not this file.
 package module06.lesson04.example03;
 
 import java.util.Arrays;
@@ -9,7 +8,6 @@ public class Main {
         String[] courseCodes = {
                 "ALGORITHMS", "BACKEND", "JAVA", "SYSTEM-DESIGN"
         };
-
         String target = "JAVA";
 
         int index = Arrays.binarySearch(courseCodes, target);

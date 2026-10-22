@@ -1,4 +1,3 @@
-// Generated from modules/01-programming-and-java-fundamentals/20-project-build-a-console-based-grade-calculator.md by tools/extract_code.py. Edit the lesson, not this file.
 package module01.lesson20.example01;
 
 import java.util.Scanner;
@@ -25,17 +24,11 @@ public class Main {
             System.out.println();
             System.out.println("=== Grade Calculator ===");
             System.out.println();
-
             System.out.println("1. Calculate student result");
-
             System.out.println("2. View grade rules");
-
             System.out.println("3. Exit");
-
             System.out.println();
-
             System.out.print("Choose an option: ");
-
             menuOption = Integer.parseInt(scanner.nextLine().strip());
 
             switch (menuOption) {
@@ -47,15 +40,11 @@ public class Main {
 
                     while (true) {
                         System.out.print("Enter student name: ");
-
                         studentName = scanner.nextLine().strip();
-
                         if (studentName.isBlank()) {
                             System.out.println("Student name is required.");
-
                             continue;
                         }
-
                         break;
                     }
 
@@ -65,27 +54,20 @@ public class Main {
                         System.out.print(
                                 "Enter number of subjects ("
                                 + MINIMUM_SUBJECT_COUNT + "-" + MAXIMUM_SUBJECT_COUNT + "): ");
-
                         subjectCount = Integer.parseInt(scanner.nextLine().strip());
-
                         if (subjectCount < MINIMUM_SUBJECT_COUNT
                                 || subjectCount > MAXIMUM_SUBJECT_COUNT) {
                             System.out.println(
                                     "Subject count must be between "
                                     + MINIMUM_SUBJECT_COUNT + " and " + MAXIMUM_SUBJECT_COUNT + ".");
-
                             continue;
                         }
-
                         break;
                     }
 
                     int totalMarks = 0;
-
                     int highestMark = MINIMUM_MARK;
-
                     int lowestMark = MAXIMUM_MARK;
-
                     int passedSubjectCount = 0;
                     int failedSubjectCount = 0;
 
@@ -102,17 +84,13 @@ public class Main {
                             System.out.print(
                                     "Enter mark for subject "
                                     + subjectNumber + " (" + MINIMUM_MARK + "-" + MAXIMUM_MARK + "): ");
-
                             mark = Integer.parseInt(scanner.nextLine().strip());
-
                             if (mark < MINIMUM_MARK || mark > MAXIMUM_MARK) {
                                 System.out.println(
                                         "Mark must be between "
                                         + MINIMUM_MARK + " and " + MAXIMUM_MARK + ".");
-
                                 continue;
                             }
-
                             break;
                         }
 
@@ -163,17 +141,11 @@ public class Main {
 
                     String performanceMessage = switch (grade) {
                         case "A" -> "Excellent performance";
-
                         case "B" -> "Very good performance";
-
                         case "C" -> "Good performance";
-
                         case "D" -> "Satisfactory performance";
-
                         case "E" -> "Passed, but improvement is needed";
-
                         case "F" -> "One or more subjects were failed";
-
                         default -> "Result unavailable";
                     };
 
@@ -181,28 +153,17 @@ public class Main {
 
                     System.out.println();
                     System.out.println("=== Student Result ===");
-
                     System.out.println("Student: " + studentName);
-
                     System.out.println("Subjects: " + subjectCount);
-
                     System.out.println(
                             "Total marks: " + totalMarks + " out of " + maximumPossibleMarks);
-
                     System.out.println("Average mark: " + averageMark);
-
                     System.out.println("Highest mark: " + highestMark);
-
                     System.out.println("Lowest mark: " + lowestMark);
-
                     System.out.println("Passed subjects: " + passedSubjectCount);
-
                     System.out.println("Failed subjects: " + failedSubjectCount);
-
                     System.out.println("Grade: " + grade);
-
                     System.out.println("Result: " + finalResult);
-
                     System.out.println("Performance: " + performanceMessage);
                 }
 
@@ -212,11 +173,11 @@ public class Main {
 
                             Passing mark per subject: 40
 
-                            Average 80-100 → Grade A
-                            Average 70-79  → Grade B
-                            Average 60-69  → Grade C
-                            Average 50-59  → Grade D
-                            Average 40-49  → Grade E
+                            Average 80 to 100      → Grade A
+                            Average 70 to under 80 → Grade B
+                            Average 60 to under 70 → Grade C
+                            Average 50 to under 60 → Grade D
+                            Average 40 to under 50 → Grade E
 
                             If any subject mark is below 40:
                             Grade F and final result Failed
@@ -227,10 +188,8 @@ public class Main {
                 }
 
                 case EXIT_OPTION -> System.out.println("Grade calculator closed.");
-
                 default -> System.out.println("Invalid option. Choose 1, 2, or 3.");
             }
-
         } while (menuOption != EXIT_OPTION);
 
         scanner.close();

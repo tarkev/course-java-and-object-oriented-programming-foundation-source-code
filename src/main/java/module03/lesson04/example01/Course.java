@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/04-the-this-keyword-and-method-overloading.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson04.example01;
 
 public class Course {
@@ -27,9 +26,7 @@ public class Course {
         }
 
         this.title = title.strip();
-
         this.totalLessons = totalLessons;
-
         this.priceInPaisa = priceInPaisa;
     }
 

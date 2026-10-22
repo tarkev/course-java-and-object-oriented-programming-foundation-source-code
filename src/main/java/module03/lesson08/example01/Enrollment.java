@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/08-composition-and-object-relationships.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson08.example01;
 
 public class Enrollment {
@@ -24,11 +23,8 @@ public class Enrollment {
         }
 
         this.learner = learner;
-
         this.course = course;
-
         this.completedLessons = 0;
-
         this.active = true;
     }
 
@@ -48,7 +44,6 @@ public class Enrollment {
         }
 
         completedLessons = updatedCount;
-
         return true;
     }
 
@@ -62,7 +57,6 @@ public class Enrollment {
         }
 
         active = false;
-
         return true;
     }
 

@@ -1,18 +1,18 @@
-// Generated from modules/02-methods-arrays-and-program-structure/03-scope-static-methods-and-method-overloading.md by tools/extract_code.py. Edit the lesson, not this file.
 package module02.lesson03.example05;
 
 public class Main {
 
     public static void main(String[] args) {
-        show();
-        show();
+        show(5);
+        show(5L);
+        show(2.5);
     }
 
-    static void show() {
-        int number = 5;
+    static void show(long value) {
+        System.out.println("long");
+    }
 
-        number++;
-
-        System.out.println(number);
+    static void show(double value) {
+        System.out.println("double");
     }
 }

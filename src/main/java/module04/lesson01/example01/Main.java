@@ -1,4 +1,3 @@
-// Generated from modules/04-inheritance-interfaces-and-polymorphism/01-introduction-to-inheritance.md by tools/extract_code.py. Edit the lesson, not this file.
 package module04.lesson01.example01;
 
 public class Main {
@@ -19,17 +18,13 @@ public class Main {
         articleLesson.publish();
 
         printSummary(videoLesson);
-
         printSummary(articleLesson);
     }
 
     private static void printSummary(ContentItem content) {
         System.out.println("ID: " + content.getId());
-
         System.out.println("Title: " + content.getTitle());
-
         System.out.println("Published: " + content.isPublished());
-
         System.out.println();
     }
 }

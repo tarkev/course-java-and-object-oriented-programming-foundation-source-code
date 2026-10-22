@@ -1,4 +1,3 @@
-// Generated from modules/02-methods-arrays-and-program-structure/05-traversing-and-working-with-arrays.md by tools/extract_code.py. Edit the lesson, not this file.
 package module02.lesson05.example01;
 
 public class Main {
@@ -7,23 +6,15 @@ public class Main {
         int[] scores = {82, 91, 45, 76, 88};
 
         int total = sum(scores);
-
         double average = (double) total / scores.length;
-
         int highest = max(scores);
-
         int lowest = min(scores);
-
         int passing = countPassing(scores);
 
         System.out.println("Total: " + total);
-
         System.out.println("Average: " + average);
-
         System.out.println("Highest: " + highest);
-
         System.out.println("Lowest: " + lowest);
-
         System.out.println("Passing: " + passing);
     }
 
@@ -41,8 +32,7 @@ public class Main {
         int maximum = scores[0];
 
         for (int index = 1; index < scores.length; index++) {
-            if (scores[index]
-                    > maximum) {
+            if (scores[index] > maximum) {
                 maximum = scores[index];
             }
         }
@@ -54,8 +44,7 @@ public class Main {
         int minimum = scores[0];
 
         for (int index = 1; index < scores.length; index++) {
-            if (scores[index]
-                    < minimum) {
+            if (scores[index] < minimum) {
                 minimum = scores[index];
             }
         }

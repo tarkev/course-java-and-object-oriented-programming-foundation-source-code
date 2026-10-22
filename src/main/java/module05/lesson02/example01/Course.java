@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/02-working-with-list.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson02.example01;
 
 import java.util.ArrayList;
@@ -22,11 +21,8 @@ public final class Course {
         }
 
         this.id = id;
-
         this.title = title.strip();
-
         this.lessonTitles = new ArrayList<>();
-
         this.published = false;
     }
 

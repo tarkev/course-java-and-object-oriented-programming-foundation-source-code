@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/07-iteration-and-collection-operations.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson07.example01;
 
 import java.util.List;
@@ -17,7 +16,6 @@ public class Main {
                 CourseOperations.findPublishedCourses(courses);
 
         System.out.println("Published titles:");
-
         for (String title : CourseOperations.extractTitles(publishedCourses)) {
             System.out.println(title);
         }
@@ -26,14 +24,12 @@ public class Main {
                 "Total price: " + CourseOperations.calculateTotalPrice(courses));
 
         Course mostExpensive = CourseOperations.findMostExpensive(courses);
-
         if (mostExpensive != null) {
             System.out.println("Most expensive: " + mostExpensive.getTitle());
         }
 
         Map<String, Integer> counts =
                 CourseOperations.countByDifficulty(courses);
-
         System.out.println("Difficulty counts: " + counts);
     }
 }

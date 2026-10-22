@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/07-iteration-and-collection-operations.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson07.example01;
 
 import java.util.ArrayList;
@@ -39,7 +38,6 @@ public final class CourseOperations {
             if (course == null) {
                 continue;
             }
-
             titles.add(course.getTitle());
         }
 
@@ -57,7 +55,6 @@ public final class CourseOperations {
             if (course == null) {
                 continue;
             }
-
             total += course.getPriceInPaisa();
         }
 
@@ -75,7 +72,6 @@ public final class CourseOperations {
             if (course == null) {
                 continue;
             }
-
             if (mostExpensive == null
                     || course.getPriceInPaisa() > mostExpensive.getPriceInPaisa()) {
                 mostExpensive = course;
@@ -97,11 +93,8 @@ public final class CourseOperations {
             if (course == null) {
                 continue;
             }
-
             String difficulty = course.getDifficulty();
-
             int currentCount = counts.getOrDefault(difficulty, 0);
-
             counts.put(difficulty, currentCount + 1);
         }
 

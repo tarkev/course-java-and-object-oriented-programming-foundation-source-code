@@ -1,4 +1,3 @@
-// Generated from modules/04-inheritance-interfaces-and-polymorphism/08-project-polymorphic-content-system.md by tools/extract_code.py. Edit the lesson, not this file.
 package module04.lesson08.example01.content;
 
 import java.util.Arrays;
@@ -48,12 +47,9 @@ public final class ContentCatalog {
         for (ContentItem content : contentItems) {
             System.out.println(
                     content.getContentType() + ": " + content.getTitle());
-
             System.out.println(
                     "Estimated minutes: " + content.calculateEstimatedMinutes());
-
             System.out.println("Published: " + content.isPublished());
-
             System.out.println();
         }
     }
@@ -62,9 +58,7 @@ public final class ContentCatalog {
         for (ContentItem content : contentItems) {
             if (content instanceof Downloadable downloadable) {
                 System.out.println(content.getTitle());
-
                 System.out.println(downloadable.getDownloadUrl());
-
                 System.out.println();
             }
         }

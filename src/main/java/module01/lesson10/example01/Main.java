@@ -1,17 +1,14 @@
-// Generated from modules/01-programming-and-java-fundamentals/10-primitive-data-types.md by tools/extract_code.py. Edit the lesson, not this file.
 package module01.lesson10.example01;
 
 public class Main {
 
     public static void main(String[] args) {
         String studentName = "Sakib";
-
         int mathematicsMark = 80;
         int englishMark = 90;
         int scienceMark = 85;
 
         int totalMarks = mathematicsMark + englishMark + scienceMark;
-
         double averageMark = totalMarks / 3.0;
         char grade = 'A';
         boolean isPassed = true;

@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/10-packages-and-organizing-java-code.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson10.example01.learner;
 
 public class Learner {
@@ -16,7 +15,6 @@ public class Learner {
         }
 
         this.id = id;
-
         this.name = name.strip();
     }
 

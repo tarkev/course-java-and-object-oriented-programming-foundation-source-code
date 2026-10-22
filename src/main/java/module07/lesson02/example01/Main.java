@@ -1,72 +1,37 @@
-// Generated from modules/07-modern-java/02-functional-interfaces-and-method-references.md by tools/extract_code.py. Edit the lesson, not this file.
 package module07.lesson02.example01;
-
-import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 public class Main {
 
-    public static void main(
-            String[] args
-    ) {
-        List<Course> courses =
-                List.of(
-                        new Course(
-                                "Java Foundation",
-                                300_000L,
-                                true
-                        ),
-                        new Course(
-                                "System Design",
-                                800_000L,
-                                false
-                        ),
-                        new Course(
-                                "Backend Development",
-                                500_000L,
-                                true
-                        )
-                );
+    public static void main(String[] args) {
+        CourseRule published = Course::published;
+        CourseRule featured = published.and(CourseRule.priceAtLeast(500_000L));
 
-        Predicate<Course> paid =
-                course ->
-                        course.priceInPaisa()
-                        > 0;
+        System.out.println(featured.explain(new Course("Java Foundation", 300_000L, true)));
+        System.out.println(featured.explain(new Course("System Design", 800_000L, true)));
+    }
 
-        Predicate<Course> published =
-                Course::published;
+    @FunctionalInterface
+    interface CourseRule {
 
-        Predicate<Course> purchasable =
-                paid.and(
-                        published
-                );
+        boolean test(Course course);
 
-        Function<Course, String> title =
-                Course::title;
+        default CourseRule and(CourseRule other) {
+            return course -> test(course) && other.test(course);
+        }
 
-        for (
-                Course course
-                : courses
-        ) {
-            if (
-                    purchasable.test(
-                            course
-                    )
-            ) {
-                System.out.println(
-                        title.apply(
-                                course
-                        )
-                );
-            }
+        default String explain(Course course) {
+            return course.title() + ": " + verdict(test(course));
+        }
+
+        static CourseRule priceAtLeast(long minimumInPaisa) {
+            return course -> course.priceInPaisa() >= minimumInPaisa;
+        }
+
+        private String verdict(boolean passed) {
+            return passed ? "yes" : "no";
         }
     }
 
-    record Course(
-            String title,
-            long priceInPaisa,
-            boolean published
-    ) {
+    record Course(String title, long priceInPaisa, boolean published) {
     }
 }

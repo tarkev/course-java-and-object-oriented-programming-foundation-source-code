@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/03-working-with-set.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson03.example01;
 
 import java.util.HashSet;

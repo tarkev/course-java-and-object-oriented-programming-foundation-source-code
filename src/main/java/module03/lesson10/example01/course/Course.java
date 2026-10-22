@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/10-packages-and-organizing-java-code.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson10.example01.course;
 
 public class Course {
@@ -24,11 +23,8 @@ public class Course {
         }
 
         this.code = code;
-
         this.title = title.strip();
-
         this.totalLessons = totalLessons;
-
         this.published = false;
     }
 
@@ -38,7 +34,6 @@ public class Course {
         }
 
         published = true;
-
         return true;
     }
 

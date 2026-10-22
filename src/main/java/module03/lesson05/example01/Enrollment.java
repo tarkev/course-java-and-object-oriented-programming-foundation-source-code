@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/05-encapsulation-access-control-and-object-invariants.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson05.example01;
 
 public class Enrollment {
@@ -27,13 +26,9 @@ public class Enrollment {
         }
 
         this.learnerName = learnerName.strip();
-
         this.courseTitle = courseTitle.strip();
-
         this.completedLessons = 0;
-
         this.totalLessons = totalLessons;
-
         this.active = true;
     }
 
@@ -53,7 +48,6 @@ public class Enrollment {
         }
 
         completedLessons = updatedCount;
-
         return true;
     }
 
@@ -67,7 +61,6 @@ public class Enrollment {
         }
 
         active = false;
-
         return true;
     }
 

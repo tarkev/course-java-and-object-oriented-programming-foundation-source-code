@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/10-packages-and-organizing-java-code.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson10.example01.enrollment;
 
 import module03.lesson10.example01.course.Course;
@@ -25,9 +24,7 @@ public class Enrollment {
         }
 
         this.learner = learner;
-
         this.course = course;
-
         this.completedLessons = 0;
     }
 
@@ -43,7 +40,6 @@ public class Enrollment {
         }
 
         completedLessons = updatedCount;
-
         return true;
     }
 

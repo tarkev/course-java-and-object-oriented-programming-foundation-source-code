@@ -1,19 +1,18 @@
-// Generated from modules/02-methods-arrays-and-program-structure/02-parameters-arguments-and-return-values.md by tools/extract_code.py. Edit the lesson, not this file.
 package module02.lesson02.example03;
 
 public class Main {
 
     public static void main(String[] args) {
-        int value = multiply(add(2, 3), 4);
+        int score = 70;
+        addBonus(score);
+        System.out.println(score);
 
-        System.out.println(value);
+        score = addBonus(score);
+        System.out.println(score);
     }
 
-    static int add(int first, int second) {
-        return first + second;
-    }
-
-    static int multiply(int first, int second) {
-        return first * second;
+    static int addBonus(int score) {
+        score = score + 10;
+        return score;
     }
 }

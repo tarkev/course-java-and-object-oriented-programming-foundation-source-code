@@ -1,4 +1,3 @@
-// Generated from modules/02-methods-arrays-and-program-structure/08-introduction-to-recursion.md by tools/extract_code.py. Edit the lesson, not this file.
 package module02.lesson08.example01;
 
 public class Main {
@@ -13,7 +12,6 @@ public class Main {
         }
 
         System.out.println(number);
-
         countDown(number - 1);
     }
 }

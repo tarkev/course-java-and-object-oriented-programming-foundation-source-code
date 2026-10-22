@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/02-classes-objects-fields-and-methods.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson02.example01;
 
 public class Enrollment {

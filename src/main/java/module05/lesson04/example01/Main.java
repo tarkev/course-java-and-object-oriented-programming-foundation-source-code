@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/04-working-with-map.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson04.example01;
 
 public class Main {
@@ -8,22 +7,17 @@ public class Main {
 
         Course javaCourse =
                 new Course(new CourseCode("java-oop"), "Java and OOP Foundation");
-
         Course backendCourse =
                 new Course(new CourseCode("backend"), "Backend Development");
-
         Course duplicateJavaCourse =
                 new Course(new CourseCode("JAVA-OOP"), "Another Java Course");
 
         System.out.println(
                 "Java registered: " + catalog.register(javaCourse));
-
         System.out.println(
                 "Backend registered: " + catalog.register(backendCourse));
-
         System.out.println(
                 "Duplicate registered: " + catalog.register(duplicateJavaCourse));
-
         System.out.println("Course count: " + catalog.getCourseCount());
 
         Course found = catalog.findByCode(new CourseCode("Java-Oop"));
@@ -39,9 +33,7 @@ public class Main {
         boolean removed = catalog.remove(new CourseCode("BACKEND"));
 
         System.out.println();
-
         System.out.println("Backend removed: " + removed);
-
         System.out.println("Course count: " + catalog.getCourseCount());
     }
 }

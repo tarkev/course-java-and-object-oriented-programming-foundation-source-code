@@ -1,4 +1,3 @@
-// Generated from modules/04-inheritance-interfaces-and-polymorphism/05-polymorphic-methods-and-collections.md by tools/extract_code.py. Edit the lesson, not this file.
 package module04.lesson05.example01;
 
 public abstract class ContentItem {
@@ -18,9 +17,7 @@ public abstract class ContentItem {
         }
 
         this.id = id;
-
         this.title = title.strip();
-
         this.published = false;
     }
 
@@ -34,7 +31,6 @@ public abstract class ContentItem {
         }
 
         published = true;
-
         return true;
     }
 

@@ -1,4 +1,3 @@
-// Generated from modules/03-object-oriented-programming-foundations/11-project-build-a-course-enrollment-system.md by tools/extract_code.py. Edit the lesson, not this file.
 package module03.lesson11.example01.course;
 
 import java.util.Objects;
@@ -38,7 +37,6 @@ public final class CourseCode {
         }
 
         CourseCode courseCode = (CourseCode) other;
-
         return value.equals(courseCode.value);
     }
 

@@ -1,4 +1,3 @@
-// Generated from modules/04-inheritance-interfaces-and-polymorphism/02-parent-construction-super-and-inherited-access.md by tools/extract_code.py. Edit the lesson, not this file.
 package module04.lesson02.example01;
 
 public class VideoLesson
@@ -25,7 +24,6 @@ public class VideoLesson
         }
 
         this.videoUrl = videoUrl.strip();
-
         this.durationInMinutes = durationInMinutes;
     }
 

@@ -1,4 +1,3 @@
-// Generated from modules/04-inheritance-interfaces-and-polymorphism/03-method-overriding-and-runtime-polymorphism.md by tools/extract_code.py. Edit the lesson, not this file.
 package module04.lesson03.example01;
 
 public class VideoLesson
@@ -21,7 +20,6 @@ public class VideoLesson
         }
 
         this.videoUrl = videoUrl.strip();
-
         this.durationInMinutes = durationInMinutes;
     }
 

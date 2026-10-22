@@ -1,4 +1,3 @@
-// Generated from modules/05-generics-collections-and-core-data-structures/08-designing-classes-that-own-collections.md by tools/extract_code.py. Edit the lesson, not this file.
 package module05.lesson08.example01;
 
 import java.util.ArrayList;
@@ -41,11 +40,8 @@ public final class Course {
         validateLessons(initialLessons);
 
         this.id = id;
-
         this.title = title.strip();
-
         this.lessons = new ArrayList<>(initialLessons);
-
         this.published = false;
     }
 
@@ -75,7 +71,6 @@ public final class Course {
         }
 
         lessons.add(index, lesson);
-
         return true;
     }
 
@@ -91,7 +86,6 @@ public final class Course {
         }
 
         lessons.remove(index);
-
         return true;
     }
 
@@ -111,9 +105,7 @@ public final class Course {
         }
 
         Lesson currentLesson = lessons.get(index);
-
         lessons.set(index, currentLesson.rename(newTitle));
-
         return true;
     }
 
@@ -133,9 +125,7 @@ public final class Course {
         }
 
         Lesson lesson = lessons.remove(currentIndex);
-
         lessons.add(targetIndex, lesson);
-
         return true;
     }
 
@@ -159,7 +149,6 @@ public final class Course {
         }
 
         published = true;
-
         return true;
     }
 

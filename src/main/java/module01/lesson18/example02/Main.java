@@ -1,4 +1,3 @@
-// Generated from modules/01-programming-and-java-fundamentals/18-while-and-do-while-loops.md by tools/extract_code.py. Edit the lesson, not this file.
 package module01.lesson18.example02;
 
 import java.util.Scanner;
@@ -13,14 +12,11 @@ public class Main {
         int total = 0;
 
         System.out.print("Enter a number or -1 to stop: ");
-
         int number = Integer.parseInt(scanner.nextLine().strip());
 
         while (number != SENTINEL) {
             total += number;
-
             System.out.print("Enter a number or -1 to stop: ");
-
             number = Integer.parseInt(scanner.nextLine().strip());
         }
 
