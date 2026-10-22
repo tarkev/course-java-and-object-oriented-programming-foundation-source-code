@@ -1,16 +1,12 @@
 package module01.lesson23.example10;
 
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        String firstValue = "Java";
+        String secondValue = "java";
 
-        System.out.print("Enter a language: ");
-        String language = scanner.nextLine().strip().toLowerCase();
-        System.out.println(language);
-
-        scanner.close();
+        System.out.println(firstValue.equals(secondValue));
+        System.out.println(firstValue.equalsIgnoreCase(secondValue));
     }
 }

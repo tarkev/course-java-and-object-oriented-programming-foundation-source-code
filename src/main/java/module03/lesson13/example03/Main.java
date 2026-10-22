@@ -1,64 +1,39 @@
 package module03.lesson13.example03;
 
-import java.util.Objects;
-
 public class Main {
 
     public static void main(String[] args) {
-        EmailAddress first = new EmailAddress("  Nur@Example.COM ");
-        EmailAddress second = new EmailAddress("nur@example.com");
+        Course course = new Course("  Java and OOP Foundation  ", 20, 0);
 
-        System.out.println(first.getValue());
-        System.out.println(first == second);
-        System.out.println(first.equals(second));
-        System.out.println(first.hashCode() == second.hashCode());
+        System.out.println("[" + course.title + "]");
+        System.out.println(course.totalLessons + " lessons");
+        System.out.println(course.priceInPaisa + " paisa");
     }
 }
 
-final class EmailAddress {
+class Course {
 
-    private final String value;
+    String title;
+    int totalLessons;
+    long priceInPaisa;
 
-    EmailAddress(String value) {
-        if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("Email address is required.");
+    Course(String initialTitle, int initialTotalLessons,
+            long initialPriceInPaisa) {
+        if (initialTitle == null || initialTitle.isBlank()) {
+            throw new IllegalArgumentException("Course title is required.");
         }
 
-        String normalizedValue = value.strip().toLowerCase();
-
-        if (!normalizedValue.contains("@")) {
+        if (initialTotalLessons <= 0) {
             throw new IllegalArgumentException(
-                    "Email address must contain @.");
+                    "Total lessons must be greater than zero.");
         }
 
-        this.value = normalizedValue;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
+        if (initialPriceInPaisa < 0) {
+            throw new IllegalArgumentException("Price cannot be negative.");
         }
 
-        if (other == null || getClass() != other.getClass()) {
-            return false;
-        }
-
-        EmailAddress emailAddress = (EmailAddress) other;
-        return value.equals(emailAddress.value);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(value);
-    }
-
-    @Override
-    public String toString() {
-        return value;
+        title = initialTitle.strip();
+        totalLessons = initialTotalLessons;
+        priceInPaisa = initialPriceInPaisa;
     }
 }

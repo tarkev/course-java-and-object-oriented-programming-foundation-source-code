@@ -1,55 +1,55 @@
 package module10.lesson10.example04;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
-        List<Enrollment> initial = new ArrayList<>();
-        Learner learner = new Learner("Sumu", initial);
-        initial.add(new Enrollment("JAVA-OOP"));
+        LessonId x = new LessonId(7);
+        LessonId y = new LessonId(7);
+        LessonId z = new LessonId(7);
 
-        learner.enroll(new Enrollment("SPRING"));
-        System.out.println(learner.getEnrollments());
-
-        try {
-            learner.getEnrollments().clear();
-        } catch (UnsupportedOperationException exception) {
-            System.out.println("Snapshot cannot be changed");
-        }
-
-        try {
-            learner.enroll(new Enrollment("SPRING"));
-        } catch (IllegalStateException exception) {
-            System.out.println(exception.getMessage());
-        }
+        System.out.println("Reflexive: " + x.equals(x));
+        System.out.println("Symmetric: " + (x.equals(y) && y.equals(x)));
+        System.out.println("Transitive: "
+                + (x.equals(y) && y.equals(z) && x.equals(z)));
+        System.out.println("Consistent: " + (x.equals(y) && x.equals(y)));
+        System.out.println("Not null: " + !x.equals(null));
+        System.out.println("Same hash: " + (x.hashCode() == y.hashCode()));
+        System.out.println(x);
     }
 }
 
-record Enrollment(String courseCode) {
-}
+final class LessonId {
 
-final class Learner {
+    private final long value;
 
-    private final String name;
-    private final List<Enrollment> enrollments;
-
-    Learner(String name, List<Enrollment> enrollments) {
-        this.name = name;
-        this.enrollments = new ArrayList<>(enrollments);
-    }
-
-    void enroll(Enrollment enrollment) {
-        if (enrollments.contains(enrollment)) {
-            throw new IllegalStateException(
-                    name + " is already enrolled in " + enrollment.courseCode());
+    LessonId(long value) {
+        if (value <= 0) {
+            throw new IllegalArgumentException("Lesson id must be positive.");
         }
 
-        enrollments.add(enrollment);
+        this.value = value;
     }
 
-    List<Enrollment> getEnrollments() {
-        return List.copyOf(enrollments);
+    long value() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        return other instanceof LessonId id && value == id.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Long.hashCode(value);
+    }
+
+    @Override
+    public String toString() {
+        return "LessonId[" + value + "]";
     }
 }

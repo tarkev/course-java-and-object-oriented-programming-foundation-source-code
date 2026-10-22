@@ -1,54 +1,49 @@
 package module10.lesson10.example01;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-        Enrollment enrollment = new Enrollment();
-        enrollment.recordProgress(60);
+        List<String> lessons = new ArrayList<>(List.of("Variables"));
+        CoursePlan plan = new CoursePlan(lessons);
+        lessons.add("Loops");
+        System.out.println(plan.getLessons());
 
         try {
-            enrollment.complete();
-        } catch (IllegalStateException exception) {
+            plan.getLessons().clear();
+        } catch (UnsupportedOperationException exception) {
+            System.out.println("The plan cannot be changed");
+        }
+
+        try {
+            new CoursePlan(java.util.Arrays.asList("Variables", null));
+        } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
         }
-
-        enrollment.recordProgress(100);
-        enrollment.complete();
-        System.out.println(enrollment.getStatus());
     }
 }
 
-enum EnrollmentStatus {
-    ACTIVE,
-    COMPLETED
-}
+final class CoursePlan {
 
-final class Enrollment {
+    private final List<String> lessons;
 
-    private EnrollmentStatus status = EnrollmentStatus.ACTIVE;
-    private int progress;
-
-    void recordProgress(int percent) {
-        if (percent < progress || percent > 100) {
-            throw new IllegalArgumentException("Invalid progress: " + percent);
+    CoursePlan(List<String> lessons) {
+        if (lessons == null) {
+            throw new IllegalArgumentException("Lessons are required.");
         }
 
-        progress = percent;
+        List<String> copy = new ArrayList<>(lessons);
+
+        if (copy.contains(null)) {
+            throw new IllegalArgumentException("Lessons cannot contain null.");
+        }
+
+        this.lessons = List.copyOf(copy);
     }
 
-    void complete() {
-        if (status != EnrollmentStatus.ACTIVE) {
-            throw new IllegalStateException("Only active enrollments can be completed.");
-        }
-
-        if (progress < 100) {
-            throw new IllegalStateException("Progress must reach 100 percent.");
-        }
-
-        status = EnrollmentStatus.COMPLETED;
-    }
-
-    EnrollmentStatus getStatus() {
-        return status;
+    List<String> getLessons() {
+        return lessons;
     }
 }

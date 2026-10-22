@@ -3,10 +3,17 @@ package module01.lesson24.example06;
 public class Main {
 
     public static void main(String[] args) {
-        int number = 7;
-        for (int multiplier = 1; multiplier <= 10; multiplier++) {
-            int result = number * multiplier;
-            System.out.println(number + " × " + multiplier + " = " + result);
-        }
+        int age = 30;
+        double score = 85.5;
+        boolean active = true;
+        char grade = 'A';
+
+        String ageText = String.valueOf(age);
+        String scoreText = String.valueOf(score);
+        String activeText = String.valueOf(active);
+        String gradeText = String.valueOf(grade);
+
+        System.out.println(ageText + " " + scoreText + " " + activeText
+                + " " + gradeText);
     }
 }

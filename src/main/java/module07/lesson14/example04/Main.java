@@ -1,22 +1,41 @@
 package module07.lesson14.example04;
 
+import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 
 public class Main {
 
-    static final LocalTime CLASS_TIME = LocalTime.of(18, 30);
-    static final ZoneId CLASS_ZONE = ZoneId.of("Europe/Tallinn");
-
     public static void main(String[] args) {
-        System.out.println(classStart(LocalDate.of(2026, 1, 12)));
-        System.out.println(classStart(LocalDate.of(2026, 7, 13)));
+        Enrollment enrollment =
+                new Enrollment("Sumu", Instant.parse("2026-03-01T10:00:00Z"));
+
+        System.out.println(enrollment.canCancel(Instant.parse("2026-03-04T10:00:00Z")));
+        System.out.println(enrollment.canCancel(Instant.parse("2026-03-04T10:00:01Z")));
+
+        System.out.println("Sumu: " + enrollment.enrolledAt().atZone(ZoneId.of("Asia/Dhaka")));
+        System.out.println("Jalisa: "
+                + enrollment.enrolledAt().atZone(ZoneId.of("Europe/Tallinn")));
+    }
+}
+
+class Enrollment {
+
+    private static final Duration CANCELLATION_WINDOW = Duration.ofHours(72);
+
+    private final String learnerName;
+    private final Instant enrolledAt;
+
+    Enrollment(String learnerName, Instant enrolledAt) {
+        this.learnerName = learnerName;
+        this.enrolledAt = enrolledAt;
     }
 
-    static Instant classStart(LocalDate date) {
-        return ZonedDateTime.of(date, CLASS_TIME, CLASS_ZONE).toInstant();
+    boolean canCancel(Instant now) {
+        return !now.isAfter(enrolledAt.plus(CANCELLATION_WINDOW));
+    }
+
+    Instant enrolledAt() {
+        return enrolledAt;
     }
 }

@@ -1,11 +1,16 @@
 package module01.lesson24.example07;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        String word = "Java";
-        for (int index = 0; index < word.length(); index++) {
-            System.out.println(word.charAt(index));
-        }
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your full name: ");
+        String fullName = scanner.nextLine().strip();
+        System.out.println("Welcome, " + fullName);
+
+        scanner.close();
     }
 }

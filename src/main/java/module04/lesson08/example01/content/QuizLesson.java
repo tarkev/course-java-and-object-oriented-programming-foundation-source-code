@@ -37,7 +37,7 @@ public final class QuizLesson extends ContentItem implements Gradable {
 
     @Override
     protected boolean isReadyForPublication() {
-        return questionCount > 0;
+        return passingScore > 0;
     }
 
     @Override

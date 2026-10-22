@@ -15,17 +15,22 @@ public class Main {
 
         LearningResource[] resources = {video, document, assessment};
         ResourceCatalog catalog = new ResourceCatalog(resources);
+        ResourceNotifier notifier =
+                new ResourceNotifier(new ConsoleNotificationSender());
 
+        System.out.println("Notify before publishing: "
+                + notifier.notifyPublication(video, "samiul@example.com"));
         System.out.println("Published: " + catalog.publishAll());
-        System.out.println(
-                "Total minutes: " + catalog.calculateTotalMinutes());
+        System.out.println("Published again: " + catalog.publishAll());
+        System.out.println("Total minutes: " + catalog.calculateTotalMinutes());
         catalog.printDownloads();
         System.out.println("Assessment score: " + assessment.calculateScore(9));
         System.out.println("Assessment passed: " + assessment.hasPassed(9));
+        System.out.println("Notify blank recipient: "
+                + notifier.notifyPublication(video, " "));
 
-        ResourceNotifier notifier =
-                new ResourceNotifier(new ConsoleNotificationSender());
-        notifier.notifyPublication(video, "samiul@example.com");
+        boolean sent = notifier.notifyPublication(video, "samiul@example.com");
+        System.out.println("Notification sent: " + sent);
     }
 }
 
@@ -300,7 +305,11 @@ final class ResourceNotifier {
             return false;
         }
 
-        return sender.send(recipient,
+        if (recipient == null || recipient.isBlank()) {
+            return false;
+        }
+
+        return sender.send(recipient.strip(),
                 resource.getResourceType() + " published: "
                 + resource.getTitle());
     }

@@ -3,42 +3,64 @@ package module03.lesson13.example05;
 public class Main {
 
     public static void main(String[] args) {
-        CourseCode original = new CourseCode("foundation");
-        CourseCode prefixed = original.withPrefix("java");
+        Course course = new Course("Java and OOP Foundation", 0, 20);
 
-        System.out.println(original.getValue());
-        System.out.println(prefixed.getValue());
+        System.out.println("Published: " + course.isPublished());
+        System.out.println("First publish: " + course.publish());
+        System.out.println("Second publish: " + course.publish());
+        System.out.println("Published: " + course.isPublished());
     }
 }
 
-final class CourseCode {
+class Course {
 
-    private final String value;
+    private String title;
+    private long priceInPaisa;
+    private int totalLessons;
+    private boolean published;
 
-    CourseCode(String value) {
-        if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("Course code is required.");
+    public Course(String title, long priceInPaisa, int totalLessons) {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Course title is required.");
         }
 
-        String normalizedValue = value.strip().toUpperCase();
+        if (priceInPaisa < 0) {
+            throw new IllegalArgumentException("Price cannot be negative.");
+        }
 
-        if (!normalizedValue.matches("[A-Z0-9-]+")) {
+        if (totalLessons <= 0) {
             throw new IllegalArgumentException(
-                    "Course code may contain only letters, numbers, and hyphens.");
+                    "Total lessons must be greater than zero.");
         }
 
-        this.value = normalizedValue;
+        this.title = title.strip();
+        this.priceInPaisa = priceInPaisa;
+        this.totalLessons = totalLessons;
+        this.published = false;
     }
 
-    public CourseCode withPrefix(String prefix) {
-        if (prefix == null || prefix.isBlank()) {
-            throw new IllegalArgumentException("Prefix is required.");
+    public boolean publish() {
+        if (published) {
+            return false;
         }
 
-        return new CourseCode(prefix.strip() + "-" + value);
+        published = true;
+        return true;
     }
 
-    public String getValue() {
-        return value;
+    public String getTitle() {
+        return title;
+    }
+
+    public long getPriceInPaisa() {
+        return priceInPaisa;
+    }
+
+    public int getTotalLessons() {
+        return totalLessons;
+    }
+
+    public boolean isPublished() {
+        return published;
     }
 }

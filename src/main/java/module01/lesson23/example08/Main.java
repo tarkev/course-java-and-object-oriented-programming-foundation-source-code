@@ -1,16 +1,11 @@
 package module01.lesson23.example08;
 
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        String firstName = "Sakib";
+        String lastName = "Sami";
 
-        System.out.print("Enter your age: ");
-        int age = Integer.parseInt(scanner.nextLine().strip());
-        System.out.println("Next year you will be " + (age + 1));
-
-        scanner.close();
+        System.out.println("Full name: " + firstName + " " + lastName);
     }
 }

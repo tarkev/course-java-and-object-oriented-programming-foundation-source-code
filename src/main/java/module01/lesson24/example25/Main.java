@@ -3,14 +3,15 @@ package module01.lesson24.example25;
 public class Main {
 
     public static void main(String[] args) {
-        int number = 1;
-        while (number <= 5) {
-            if (number == 3) {
-                number++;
-                continue;
-            }
-            System.out.println(number);
-            number++;
-        }
+        String roleInput = "  learner ";
+
+        String role = roleInput.strip().toUpperCase();
+        String dashboard = switch (role) {
+            case "ADMIN" -> "Admin dashboard";
+            case "INSTRUCTOR" -> "Instructor dashboard";
+            case "LEARNER" -> "Learner dashboard";
+            default -> "Unknown role";
+        };
+        System.out.println(dashboard);
     }
 }

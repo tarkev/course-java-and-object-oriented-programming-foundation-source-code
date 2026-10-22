@@ -3,12 +3,15 @@ package module02.lesson09.example05;
 public class Main {
 
     public static void main(String[] args) {
-        greet("Sakib");
-        greet("Nur");
-        greet("Subu");
+        int score = 80;
+        addBonus(score);
+        System.out.println(score);
+        score = addBonus(score);
+        System.out.println(score);
     }
 
-    static void greet(String name) {
-        System.out.println("Hello, " + name + "!");
+    static int addBonus(int score) {
+        score += 5;
+        return score;
     }
 }

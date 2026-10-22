@@ -1,14 +1,13 @@
 package module02.lesson10.example07;
 
 public class Main {
-    public static void main(String[] args) {
-        int[][] values = new int[3][];
-        values[0] = new int[2];
-        values[1] = new int[4];
-        values[2] = new int[1];
 
-        for (int row = 0; row < values.length; row++) {
-            System.out.println("Row " + row + ": " + values[row].length);
-        }
+    public static void main(String[] args) {
+        System.out.println(calculateArea(5, 4));
+        System.out.println(calculateArea(10, 3));
+    }
+
+    static int calculateArea(int width, int height) {
+        return width * height;
     }
 }

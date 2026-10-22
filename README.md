@@ -50,9 +50,7 @@ src/main/java/
 | 1.01 Introduction to Programming | [1](src/main/java/module01/lesson01/example01) | `module01.lesson01.example01.Main` |
 | 1.02 How a Computer Executes a Program | [1](src/main/java/module01/lesson02/example01) | `module01.lesson02.example01.Main` |
 | 1.03 Introduction to Java | [1](src/main/java/module01/lesson03/example01) | `module01.lesson03.example01.Main` |
-| 1.03 Introduction to Java | [2](src/main/java/module01/lesson03/example02) | `module01.lesson03.example02.Main` |
 | 1.04 JDK, JRE, JVM, and Bytecode | [1](src/main/java/module01/lesson04/example01) | `module01.lesson04.example01.Main` |
-| 1.04 JDK, JRE, JVM, and Bytecode | [2](src/main/java/module01/lesson04/example02) | `module01.lesson04.example02.Main` |
 | 1.05 Setting Up the Java Development Environment | [1](src/main/java/module01/lesson05/example01) | `module01.lesson05.example01.Main` |
 | 1.05 Setting Up the Java Development Environment | [2](src/main/java/module01/lesson05/example02) | `module01.lesson05.example02.Main` |
 | 1.05 Setting Up the Java Development Environment | [3](src/main/java/module01/lesson05/example03) | `module01.lesson05.example03.SetupTest` |
@@ -63,26 +61,17 @@ src/main/java/
 | 1.06 Creating Your First Java Project | [4](src/main/java/module01/lesson06/example04) | `module01.lesson06.example04.Main` |
 | 1.06 Creating Your First Java Project | [5](src/main/java/module01/lesson06/example05) | `module01.lesson06.example05.Main` |
 | 1.07 Understanding the First Java Program | [1](src/main/java/module01/lesson07/example01) | `module01.lesson07.example01.Main` |
-| 1.07 Understanding the First Java Program | [2](src/main/java/module01/lesson07/example02) | `module01.lesson07.example02.Main` |
-| 1.07 Understanding the First Java Program | [3](src/main/java/module01/lesson07/example03) | `module01.lesson07.example03.Application` |
+| 1.07 Understanding the First Java Program | [2](src/main/java/module01/lesson07/example02) | `module01.lesson07.example02.Application` |
+| 1.07 Understanding the First Java Program | [3](src/main/java/module01/lesson07/example03) | `module01.lesson07.example03.Main` |
 | 1.07 Understanding the First Java Program | [4](src/main/java/module01/lesson07/example04) | `module01.lesson07.example04.Main` |
 | 1.07 Understanding the First Java Program | [5](src/main/java/module01/lesson07/example05) | `module01.lesson07.example05.Main` |
-| 1.07 Understanding the First Java Program | [6](src/main/java/module01/lesson07/example06) | `module01.lesson07.example06.Main` |
 | 1.07 Understanding the First Java Program | [7](src/main/java/module01/lesson07/example07) | `module01.lesson07.example07.Main` |
-| 1.07 Understanding the First Java Program | [8](src/main/java/module01/lesson07/example08) | `module01.lesson07.example08.Main` |
+| 1.07 Understanding the First Java Program | [8](src/main/java/module01/lesson07/example08) | `module01.lesson07.example08.CourseApplication` |
 | 1.07 Understanding the First Java Program | [9](src/main/java/module01/lesson07/example09) | `module01.lesson07.example09.Main` |
-| 1.07 Understanding the First Java Program | [11](src/main/java/module01/lesson07/example11) | `module01.lesson07.example11.Main` |
-| 1.07 Understanding the First Java Program | [12](src/main/java/module01/lesson07/example12) | `module01.lesson07.example12.CourseApplication` |
-| 1.07 Understanding the First Java Program | [13](src/main/java/module01/lesson07/example13) | `module01.lesson07.example13.Main` |
 | 1.08 Java Syntax and Coding Conventions | [1](src/main/java/module01/lesson08/example01) | `module01.lesson08.example01.Main` |
 | 1.08 Java Syntax and Coding Conventions | [2](src/main/java/module01/lesson08/example02) | `module01.lesson08.example02.Main` |
-| 1.08 Java Syntax and Coding Conventions | [3](src/main/java/module01/lesson08/example03) | `module01.lesson08.example03.Main` |
-| 1.08 Java Syntax and Coding Conventions | [4](src/main/java/module01/lesson08/example04) | `module01.lesson08.example04.Main` |
+| 1.08 Java Syntax and Coding Conventions | [3](src/main/java/module01/lesson08/example03) | `module01.lesson08.example03.CourseInformation` |
 | 1.08 Java Syntax and Coding Conventions | [5](src/main/java/module01/lesson08/example05) | `module01.lesson08.example05.Main` |
-| 1.08 Java Syntax and Coding Conventions | [6](src/main/java/module01/lesson08/example06) | `module01.lesson08.example06.Main` |
-| 1.08 Java Syntax and Coding Conventions | [7](src/main/java/module01/lesson08/example07) | `module01.lesson08.example07.CourseInformation` |
-| 1.08 Java Syntax and Coding Conventions | [9](src/main/java/module01/lesson08/example09) | `module01.lesson08.example09.Main` |
-| 1.08 Java Syntax and Coding Conventions | [11](src/main/java/module01/lesson08/example11) | `module01.lesson08.example11.Main` |
 | 1.09 Variables and Constants | [1](src/main/java/module01/lesson09/example01) | `module01.lesson09.example01.Main` |
 | 1.09 Variables and Constants | [2](src/main/java/module01/lesson09/example02) | `module01.lesson09.example02.Main` |
 | 1.09 Variables and Constants | [3](src/main/java/module01/lesson09/example03) | `module01.lesson09.example03.Main` |
@@ -90,9 +79,8 @@ src/main/java/
 | 1.09 Variables and Constants | [5](src/main/java/module01/lesson09/example05) | `module01.lesson09.example05.Main` |
 | 1.09 Variables and Constants | [6](src/main/java/module01/lesson09/example06) | `module01.lesson09.example06.Main` |
 | 1.09 Variables and Constants | [7](src/main/java/module01/lesson09/example07) | `module01.lesson09.example07.Main` |
-| 1.09 Variables and Constants | [8](src/main/java/module01/lesson09/example08) | `module01.lesson09.example08.Main` |
-| 1.09 Variables and Constants | [10](src/main/java/module01/lesson09/example10) | `module01.lesson09.example10.Main` |
-| 1.09 Variables and Constants | [13](src/main/java/module01/lesson09/example13) | `module01.lesson09.example13.Main` |
+| 1.09 Variables and Constants | [9](src/main/java/module01/lesson09/example09) | `module01.lesson09.example09.Main` |
+| 1.09 Variables and Constants | [12](src/main/java/module01/lesson09/example12) | `module01.lesson09.example12.Main` |
 | 1.10 Primitive Data Types | [1](src/main/java/module01/lesson10/example01) | `module01.lesson10.example01.Main` |
 | 1.10 Primitive Data Types | [2](src/main/java/module01/lesson10/example02) | `module01.lesson10.example02.Main` |
 | 1.10 Primitive Data Types | [3](src/main/java/module01/lesson10/example03) | `module01.lesson10.example03.Main` |
@@ -114,78 +102,63 @@ src/main/java/
 | 1.18 While and Do-While Loops | [2](src/main/java/module01/lesson18/example02) | `module01.lesson18.example02.Main` |
 | 1.18 While and Do-While Loops | [3](src/main/java/module01/lesson18/example03) | `module01.lesson18.example03.Main` |
 | 1.18 While and Do-While Loops | [4](src/main/java/module01/lesson18/example04) | `module01.lesson18.example04.Main` |
-| 1.18 While and Do-While Loops | [5](src/main/java/module01/lesson18/example05) | `module01.lesson18.example05.Main` |
 | 1.19 Break, Continue, and Loop Control | [1](src/main/java/module01/lesson19/example01) | `module01.lesson19.example01.Main` |
 | 1.20 Project: Build a Console-Based Grade Calculator | [1](src/main/java/module01/lesson20/example01) | `module01.lesson20.example01.Main` |
-| 1.21 Module 1 Practice Solutions: Lessons 1.01–1.06 | [1](src/main/java/module01/lesson21/example01) | `module01.lesson21.example01.Main` |
-| 1.21 Module 1 Practice Solutions: Lessons 1.01–1.06 | [2](src/main/java/module01/lesson21/example02) | `module01.lesson21.example02.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [1](src/main/java/module01/lesson22/example01) | `module01.lesson22.example01.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [2](src/main/java/module01/lesson22/example02) | `module01.lesson22.example02.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [3](src/main/java/module01/lesson22/example03) | `module01.lesson22.example03.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [4](src/main/java/module01/lesson22/example04) | `module01.lesson22.example04.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [5](src/main/java/module01/lesson22/example05) | `module01.lesson22.example05.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [6](src/main/java/module01/lesson22/example06) | `module01.lesson22.example06.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [7](src/main/java/module01/lesson22/example07) | `module01.lesson22.example07.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [8](src/main/java/module01/lesson22/example08) | `module01.lesson22.example08.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [9](src/main/java/module01/lesson22/example09) | `module01.lesson22.example09.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [10](src/main/java/module01/lesson22/example10) | `module01.lesson22.example10.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [11](src/main/java/module01/lesson22/example11) | `module01.lesson22.example11.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [12](src/main/java/module01/lesson22/example12) | `module01.lesson22.example12.Main` |
-| 1.22 Module 1 Practice Solutions: Lessons 1.07–1.11 | [13](src/main/java/module01/lesson22/example13) | `module01.lesson22.example13.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [1](src/main/java/module01/lesson23/example01) | `module01.lesson23.example01.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [2](src/main/java/module01/lesson23/example02) | `module01.lesson23.example02.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [3](src/main/java/module01/lesson23/example03) | `module01.lesson23.example03.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [4](src/main/java/module01/lesson23/example04) | `module01.lesson23.example04.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [5](src/main/java/module01/lesson23/example05) | `module01.lesson23.example05.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [6](src/main/java/module01/lesson23/example06) | `module01.lesson23.example06.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [7](src/main/java/module01/lesson23/example07) | `module01.lesson23.example07.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [8](src/main/java/module01/lesson23/example08) | `module01.lesson23.example08.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [9](src/main/java/module01/lesson23/example09) | `module01.lesson23.example09.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [10](src/main/java/module01/lesson23/example10) | `module01.lesson23.example10.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [11](src/main/java/module01/lesson23/example11) | `module01.lesson23.example11.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [12](src/main/java/module01/lesson23/example12) | `module01.lesson23.example12.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [13](src/main/java/module01/lesson23/example13) | `module01.lesson23.example13.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [14](src/main/java/module01/lesson23/example14) | `module01.lesson23.example14.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [15](src/main/java/module01/lesson23/example15) | `module01.lesson23.example15.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [16](src/main/java/module01/lesson23/example16) | `module01.lesson23.example16.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [17](src/main/java/module01/lesson23/example17) | `module01.lesson23.example17.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [18](src/main/java/module01/lesson23/example18) | `module01.lesson23.example18.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [19](src/main/java/module01/lesson23/example19) | `module01.lesson23.example19.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [20](src/main/java/module01/lesson23/example20) | `module01.lesson23.example20.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [21](src/main/java/module01/lesson23/example21) | `module01.lesson23.example21.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [22](src/main/java/module01/lesson23/example22) | `module01.lesson23.example22.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [23](src/main/java/module01/lesson23/example23) | `module01.lesson23.example23.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [24](src/main/java/module01/lesson23/example24) | `module01.lesson23.example24.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [25](src/main/java/module01/lesson23/example25) | `module01.lesson23.example25.Main` |
-| 1.23 Module 1 Practice Solutions: Lessons 1.12–1.16 | [26](src/main/java/module01/lesson23/example26) | `module01.lesson23.example26.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [1](src/main/java/module01/lesson24/example01) | `module01.lesson24.example01.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [2](src/main/java/module01/lesson24/example02) | `module01.lesson24.example02.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [3](src/main/java/module01/lesson24/example03) | `module01.lesson24.example03.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [4](src/main/java/module01/lesson24/example04) | `module01.lesson24.example04.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [5](src/main/java/module01/lesson24/example05) | `module01.lesson24.example05.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [6](src/main/java/module01/lesson24/example06) | `module01.lesson24.example06.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [7](src/main/java/module01/lesson24/example07) | `module01.lesson24.example07.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [8](src/main/java/module01/lesson24/example08) | `module01.lesson24.example08.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [9](src/main/java/module01/lesson24/example09) | `module01.lesson24.example09.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [10](src/main/java/module01/lesson24/example10) | `module01.lesson24.example10.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [11](src/main/java/module01/lesson24/example11) | `module01.lesson24.example11.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [12](src/main/java/module01/lesson24/example12) | `module01.lesson24.example12.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [13](src/main/java/module01/lesson24/example13) | `module01.lesson24.example13.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [14](src/main/java/module01/lesson24/example14) | `module01.lesson24.example14.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [15](src/main/java/module01/lesson24/example15) | `module01.lesson24.example15.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [16](src/main/java/module01/lesson24/example16) | `module01.lesson24.example16.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [17](src/main/java/module01/lesson24/example17) | `module01.lesson24.example17.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [18](src/main/java/module01/lesson24/example18) | `module01.lesson24.example18.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [19](src/main/java/module01/lesson24/example19) | `module01.lesson24.example19.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [20](src/main/java/module01/lesson24/example20) | `module01.lesson24.example20.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [21](src/main/java/module01/lesson24/example21) | `module01.lesson24.example21.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [22](src/main/java/module01/lesson24/example22) | `module01.lesson24.example22.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [23](src/main/java/module01/lesson24/example23) | `module01.lesson24.example23.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [24](src/main/java/module01/lesson24/example24) | `module01.lesson24.example24.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [25](src/main/java/module01/lesson24/example25) | `module01.lesson24.example25.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [26](src/main/java/module01/lesson24/example26) | `module01.lesson24.example26.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [27](src/main/java/module01/lesson24/example27) | `module01.lesson24.example27.Main` |
-| 1.24 Module 1 Practice Solutions: Lessons 1.17–1.20 | [28](src/main/java/module01/lesson24/example28) | `module01.lesson24.example28.Main` |
+| 1.21 Module 1 Review | [1](src/main/java/module01/lesson21/example01) | `module01.lesson21.example01.Main` |
+| 1.21 Module 1 Review | [2](src/main/java/module01/lesson21/example02) | `module01.lesson21.example02.Main` |
+| 1.21 Module 1 Review | [3](src/main/java/module01/lesson21/example03) | `module01.lesson21.example03.Main` |
+| 1.21 Module 1 Review | [4](src/main/java/module01/lesson21/example04) | `module01.lesson21.example04.Main` |
+| 1.22 Module 1 Practice Solutions: Lessons 1.01–1.06 | [1](src/main/java/module01/lesson22/example01) | `module01.lesson22.example01.Main` |
+| 1.22 Module 1 Practice Solutions: Lessons 1.01–1.06 | [2](src/main/java/module01/lesson22/example02) | `module01.lesson22.example02.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [1](src/main/java/module01/lesson23/example01) | `module01.lesson23.example01.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [2](src/main/java/module01/lesson23/example02) | `module01.lesson23.example02.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [3](src/main/java/module01/lesson23/example03) | `module01.lesson23.example03.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [4](src/main/java/module01/lesson23/example04) | `module01.lesson23.example04.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [5](src/main/java/module01/lesson23/example05) | `module01.lesson23.example05.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [6](src/main/java/module01/lesson23/example06) | `module01.lesson23.example06.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [7](src/main/java/module01/lesson23/example07) | `module01.lesson23.example07.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [8](src/main/java/module01/lesson23/example08) | `module01.lesson23.example08.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [9](src/main/java/module01/lesson23/example09) | `module01.lesson23.example09.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [10](src/main/java/module01/lesson23/example10) | `module01.lesson23.example10.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [11](src/main/java/module01/lesson23/example11) | `module01.lesson23.example11.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [12](src/main/java/module01/lesson23/example12) | `module01.lesson23.example12.Main` |
+| 1.23 Module 1 Practice Solutions: Lessons 1.07–1.11 | [13](src/main/java/module01/lesson23/example13) | `module01.lesson23.example13.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [1](src/main/java/module01/lesson24/example01) | `module01.lesson24.example01.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [2](src/main/java/module01/lesson24/example02) | `module01.lesson24.example02.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [3](src/main/java/module01/lesson24/example03) | `module01.lesson24.example03.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [4](src/main/java/module01/lesson24/example04) | `module01.lesson24.example04.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [5](src/main/java/module01/lesson24/example05) | `module01.lesson24.example05.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [6](src/main/java/module01/lesson24/example06) | `module01.lesson24.example06.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [7](src/main/java/module01/lesson24/example07) | `module01.lesson24.example07.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [8](src/main/java/module01/lesson24/example08) | `module01.lesson24.example08.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [9](src/main/java/module01/lesson24/example09) | `module01.lesson24.example09.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [10](src/main/java/module01/lesson24/example10) | `module01.lesson24.example10.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [11](src/main/java/module01/lesson24/example11) | `module01.lesson24.example11.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [12](src/main/java/module01/lesson24/example12) | `module01.lesson24.example12.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [13](src/main/java/module01/lesson24/example13) | `module01.lesson24.example13.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [14](src/main/java/module01/lesson24/example14) | `module01.lesson24.example14.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [15](src/main/java/module01/lesson24/example15) | `module01.lesson24.example15.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [16](src/main/java/module01/lesson24/example16) | `module01.lesson24.example16.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [17](src/main/java/module01/lesson24/example17) | `module01.lesson24.example17.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [18](src/main/java/module01/lesson24/example18) | `module01.lesson24.example18.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [19](src/main/java/module01/lesson24/example19) | `module01.lesson24.example19.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [20](src/main/java/module01/lesson24/example20) | `module01.lesson24.example20.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [21](src/main/java/module01/lesson24/example21) | `module01.lesson24.example21.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [22](src/main/java/module01/lesson24/example22) | `module01.lesson24.example22.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [23](src/main/java/module01/lesson24/example23) | `module01.lesson24.example23.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [24](src/main/java/module01/lesson24/example24) | `module01.lesson24.example24.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [25](src/main/java/module01/lesson24/example25) | `module01.lesson24.example25.Main` |
+| 1.24 Module 1 Practice Solutions: Lessons 1.12–1.16 | [26](src/main/java/module01/lesson24/example26) | `module01.lesson24.example26.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [1](src/main/java/module01/lesson25/example01) | `module01.lesson25.example01.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [2](src/main/java/module01/lesson25/example02) | `module01.lesson25.example02.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [3](src/main/java/module01/lesson25/example03) | `module01.lesson25.example03.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [4](src/main/java/module01/lesson25/example04) | `module01.lesson25.example04.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [5](src/main/java/module01/lesson25/example05) | `module01.lesson25.example05.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [6](src/main/java/module01/lesson25/example06) | `module01.lesson25.example06.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [7](src/main/java/module01/lesson25/example07) | `module01.lesson25.example07.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [8](src/main/java/module01/lesson25/example08) | `module01.lesson25.example08.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [9](src/main/java/module01/lesson25/example09) | `module01.lesson25.example09.Main` |
+| 1.25 Module 1 Practice Solutions: Lessons 1.17–1.21 | [10](src/main/java/module01/lesson25/example10) | `module01.lesson25.example10.Main` |
 
 ### Module 2: Methods, Arrays, and Program Structure
 
@@ -200,11 +173,9 @@ src/main/java/
 | 2.01 Introduction to Methods | [7](src/main/java/module02/lesson01/example07) | `module02.lesson01.example07.Main` |
 | 2.01 Introduction to Methods | [8](src/main/java/module02/lesson01/example08) | `module02.lesson01.example08.Main` |
 | 2.01 Introduction to Methods | [9](src/main/java/module02/lesson01/example09) | `module02.lesson01.example09.Main` |
-| 2.01 Introduction to Methods | [10](src/main/java/module02/lesson01/example10) | `module02.lesson01.example10.Main` |
 | 2.01 Introduction to Methods | [11](src/main/java/module02/lesson01/example11) | `module02.lesson01.example11.Main` |
-| 2.01 Introduction to Methods | [13](src/main/java/module02/lesson01/example13) | `module02.lesson01.example13.Main` |
+| 2.01 Introduction to Methods | [12](src/main/java/module02/lesson01/example12) | `module02.lesson01.example12.Main` |
 | 2.01 Introduction to Methods | [14](src/main/java/module02/lesson01/example14) | `module02.lesson01.example14.Main` |
-| 2.01 Introduction to Methods | [16](src/main/java/module02/lesson01/example16) | `module02.lesson01.example16.Main` |
 | 2.02 Parameters, Arguments, and Return Values | [1](src/main/java/module02/lesson02/example01) | `module02.lesson02.example01.Main` |
 | 2.02 Parameters, Arguments, and Return Values | [2](src/main/java/module02/lesson02/example02) | `module02.lesson02.example02.Main` |
 | 2.02 Parameters, Arguments, and Return Values | [3](src/main/java/module02/lesson02/example03) | `module02.lesson02.example03.Main` |
@@ -213,10 +184,9 @@ src/main/java/
 | 2.03 Scope, Static Methods, and Method Overloading | [2](src/main/java/module02/lesson03/example02) | `module02.lesson03.example02.Main` |
 | 2.03 Scope, Static Methods, and Method Overloading | [3](src/main/java/module02/lesson03/example03) | `module02.lesson03.example03.Main` |
 | 2.03 Scope, Static Methods, and Method Overloading | [4](src/main/java/module02/lesson03/example04) | `module02.lesson03.example04.Main` |
-| 2.03 Scope, Static Methods, and Method Overloading | [5](src/main/java/module02/lesson03/example05) | `module02.lesson03.example05.Main` |
+| 2.03 Scope, Static Methods, and Method Overloading | [6](src/main/java/module02/lesson03/example06) | `module02.lesson03.example06.Main` |
 | 2.03 Scope, Static Methods, and Method Overloading | [7](src/main/java/module02/lesson03/example07) | `module02.lesson03.example07.Main` |
 | 2.03 Scope, Static Methods, and Method Overloading | [8](src/main/java/module02/lesson03/example08) | `module02.lesson03.example08.Main` |
-| 2.03 Scope, Static Methods, and Method Overloading | [9](src/main/java/module02/lesson03/example09) | `module02.lesson03.example09.Main` |
 | 2.04 Introduction to Arrays | [1](src/main/java/module02/lesson04/example01) | `module02.lesson04.example01.Main` |
 | 2.04 Introduction to Arrays | [2](src/main/java/module02/lesson04/example02) | `module02.lesson04.example02.Main` |
 | 2.04 Introduction to Arrays | [3](src/main/java/module02/lesson04/example03) | `module02.lesson04.example03.Main` |
@@ -228,61 +198,57 @@ src/main/java/
 | 2.06 Two-Dimensional and Multidimensional Arrays | [1](src/main/java/module02/lesson06/example01) | `module02.lesson06.example01.Main` |
 | 2.07 The Arrays Utility Class and Common Array Operations | [1](src/main/java/module02/lesson07/example01) | `module02.lesson07.example01.Main` |
 | 2.07 The Arrays Utility Class and Common Array Operations | [2](src/main/java/module02/lesson07/example02) | `module02.lesson07.example02.Main` |
-| 2.07 The Arrays Utility Class and Common Array Operations | [3](src/main/java/module02/lesson07/example03) | `module02.lesson07.example03.Main` |
-| 2.07 The Arrays Utility Class and Common Array Operations | [4](src/main/java/module02/lesson07/example04) | `module02.lesson07.example04.Main` |
 | 2.08 Introduction to Recursion | [1](src/main/java/module02/lesson08/example01) | `module02.lesson08.example01.Main` |
-| 2.08 Introduction to Recursion | [2](src/main/java/module02/lesson08/example02) | `module02.lesson08.example02.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [1](src/main/java/module02/lesson09/example01) | `module02.lesson09.example01.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [2](src/main/java/module02/lesson09/example02) | `module02.lesson09.example02.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [3](src/main/java/module02/lesson09/example03) | `module02.lesson09.example03.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [4](src/main/java/module02/lesson09/example04) | `module02.lesson09.example04.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [5](src/main/java/module02/lesson09/example05) | `module02.lesson09.example05.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [6](src/main/java/module02/lesson09/example06) | `module02.lesson09.example06.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [7](src/main/java/module02/lesson09/example07) | `module02.lesson09.example07.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [8](src/main/java/module02/lesson09/example08) | `module02.lesson09.example08.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [9](src/main/java/module02/lesson09/example09) | `module02.lesson09.example09.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [10](src/main/java/module02/lesson09/example10) | `module02.lesson09.example10.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [11](src/main/java/module02/lesson09/example11) | `module02.lesson09.example11.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [12](src/main/java/module02/lesson09/example12) | `module02.lesson09.example12.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [13](src/main/java/module02/lesson09/example13) | `module02.lesson09.example13.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [14](src/main/java/module02/lesson09/example14) | `module02.lesson09.example14.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [15](src/main/java/module02/lesson09/example15) | `module02.lesson09.example15.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [16](src/main/java/module02/lesson09/example16) | `module02.lesson09.example16.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [17](src/main/java/module02/lesson09/example17) | `module02.lesson09.example17.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [18](src/main/java/module02/lesson09/example18) | `module02.lesson09.example18.Main` |
-| 2.09 Module 2 Practice Solutions: Lessons 2.01–2.04 | [19](src/main/java/module02/lesson09/example19) | `module02.lesson09.example19.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [1](src/main/java/module02/lesson10/example01) | `module02.lesson10.example01.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [2](src/main/java/module02/lesson10/example02) | `module02.lesson10.example02.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [3](src/main/java/module02/lesson10/example03) | `module02.lesson10.example03.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [4](src/main/java/module02/lesson10/example04) | `module02.lesson10.example04.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [5](src/main/java/module02/lesson10/example05) | `module02.lesson10.example05.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [6](src/main/java/module02/lesson10/example06) | `module02.lesson10.example06.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [7](src/main/java/module02/lesson10/example07) | `module02.lesson10.example07.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [8](src/main/java/module02/lesson10/example08) | `module02.lesson10.example08.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [9](src/main/java/module02/lesson10/example09) | `module02.lesson10.example09.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [10](src/main/java/module02/lesson10/example10) | `module02.lesson10.example10.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [11](src/main/java/module02/lesson10/example11) | `module02.lesson10.example11.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [12](src/main/java/module02/lesson10/example12) | `module02.lesson10.example12.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [13](src/main/java/module02/lesson10/example13) | `module02.lesson10.example13.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [14](src/main/java/module02/lesson10/example14) | `module02.lesson10.example14.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [15](src/main/java/module02/lesson10/example15) | `module02.lesson10.example15.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [16](src/main/java/module02/lesson10/example16) | `module02.lesson10.example16.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [17](src/main/java/module02/lesson10/example17) | `module02.lesson10.example17.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [18](src/main/java/module02/lesson10/example18) | `module02.lesson10.example18.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [19](src/main/java/module02/lesson10/example19) | `module02.lesson10.example19.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [20](src/main/java/module02/lesson10/example20) | `module02.lesson10.example20.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [21](src/main/java/module02/lesson10/example21) | `module02.lesson10.example21.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [22](src/main/java/module02/lesson10/example22) | `module02.lesson10.example22.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [23](src/main/java/module02/lesson10/example23) | `module02.lesson10.example23.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [24](src/main/java/module02/lesson10/example24) | `module02.lesson10.example24.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [25](src/main/java/module02/lesson10/example25) | `module02.lesson10.example25.Main` |
-| 2.10 Module 2 Practice Solutions: Lessons 2.05–2.08 | [26](src/main/java/module02/lesson10/example26) | `module02.lesson10.example26.Main` |
+| 2.09 Module 2 Review | [2](src/main/java/module02/lesson09/example02) | `module02.lesson09.example02.Main` |
+| 2.09 Module 2 Review | [3](src/main/java/module02/lesson09/example03) | `module02.lesson09.example03.Main` |
+| 2.09 Module 2 Review | [4](src/main/java/module02/lesson09/example04) | `module02.lesson09.example04.Main` |
+| 2.09 Module 2 Review | [5](src/main/java/module02/lesson09/example05) | `module02.lesson09.example05.Main` |
+| 2.09 Module 2 Review | [6](src/main/java/module02/lesson09/example06) | `module02.lesson09.example06.Main` |
+| 2.09 Module 2 Review | [7](src/main/java/module02/lesson09/example07) | `module02.lesson09.example07.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [1](src/main/java/module02/lesson10/example01) | `module02.lesson10.example01.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [2](src/main/java/module02/lesson10/example02) | `module02.lesson10.example02.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [3](src/main/java/module02/lesson10/example03) | `module02.lesson10.example03.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [4](src/main/java/module02/lesson10/example04) | `module02.lesson10.example04.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [5](src/main/java/module02/lesson10/example05) | `module02.lesson10.example05.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [6](src/main/java/module02/lesson10/example06) | `module02.lesson10.example06.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [7](src/main/java/module02/lesson10/example07) | `module02.lesson10.example07.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [8](src/main/java/module02/lesson10/example08) | `module02.lesson10.example08.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [9](src/main/java/module02/lesson10/example09) | `module02.lesson10.example09.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [10](src/main/java/module02/lesson10/example10) | `module02.lesson10.example10.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [11](src/main/java/module02/lesson10/example11) | `module02.lesson10.example11.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [12](src/main/java/module02/lesson10/example12) | `module02.lesson10.example12.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [13](src/main/java/module02/lesson10/example13) | `module02.lesson10.example13.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [14](src/main/java/module02/lesson10/example14) | `module02.lesson10.example14.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [15](src/main/java/module02/lesson10/example15) | `module02.lesson10.example15.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [16](src/main/java/module02/lesson10/example16) | `module02.lesson10.example16.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [17](src/main/java/module02/lesson10/example17) | `module02.lesson10.example17.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [18](src/main/java/module02/lesson10/example18) | `module02.lesson10.example18.Main` |
+| 2.10 Module 2 Practice Solutions: Lessons 2.01–2.04 | [19](src/main/java/module02/lesson10/example19) | `module02.lesson10.example19.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [1](src/main/java/module02/lesson11/example01) | `module02.lesson11.example01.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [2](src/main/java/module02/lesson11/example02) | `module02.lesson11.example02.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [3](src/main/java/module02/lesson11/example03) | `module02.lesson11.example03.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [4](src/main/java/module02/lesson11/example04) | `module02.lesson11.example04.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [5](src/main/java/module02/lesson11/example05) | `module02.lesson11.example05.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [6](src/main/java/module02/lesson11/example06) | `module02.lesson11.example06.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [7](src/main/java/module02/lesson11/example07) | `module02.lesson11.example07.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [8](src/main/java/module02/lesson11/example08) | `module02.lesson11.example08.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [9](src/main/java/module02/lesson11/example09) | `module02.lesson11.example09.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [10](src/main/java/module02/lesson11/example10) | `module02.lesson11.example10.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [11](src/main/java/module02/lesson11/example11) | `module02.lesson11.example11.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [12](src/main/java/module02/lesson11/example12) | `module02.lesson11.example12.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [13](src/main/java/module02/lesson11/example13) | `module02.lesson11.example13.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [14](src/main/java/module02/lesson11/example14) | `module02.lesson11.example14.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [15](src/main/java/module02/lesson11/example15) | `module02.lesson11.example15.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [16](src/main/java/module02/lesson11/example16) | `module02.lesson11.example16.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [17](src/main/java/module02/lesson11/example17) | `module02.lesson11.example17.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [18](src/main/java/module02/lesson11/example18) | `module02.lesson11.example18.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [19](src/main/java/module02/lesson11/example19) | `module02.lesson11.example19.Main` |
+| 2.11 Module 2 Practice Solutions: Lessons 2.05–2.09 | [20](src/main/java/module02/lesson11/example20) | `module02.lesson11.example20.Main` |
 
 ### Module 3: Object-Oriented Programming Foundations
 
 | Lesson | Example | Main class |
 | --- | --- | --- |
-| 3.01 Introduction to Object-Oriented Design | [1](src/main/java/module03/lesson01/example01) | `module03.lesson01.example01.Main` |
 | 3.02 Classes, Objects, Fields, and Methods | [1](src/main/java/module03/lesson02/example01) (2 files) | `module03.lesson02.example01.Main` |
 | 3.03 Constructors and Valid Object Creation | [1](src/main/java/module03/lesson03/example01) (2 files) | `module03.lesson03.example01.Main` |
 | 3.04 The `this` Keyword and Method Overloading | [1](src/main/java/module03/lesson04/example01) (2 files) | `module03.lesson04.example01.Main` |
@@ -296,19 +262,19 @@ src/main/java/
 | 3.08 Composition and Object Relationships | [1](src/main/java/module03/lesson08/example01) (4 files) | `module03.lesson08.example01.Main` |
 | 3.10 Packages and Organizing Java Code | [1](src/main/java/module03/lesson10/example01) (5 files) | `module03.lesson10.example01.Main` |
 | 3.11 Project: Build a Course Enrollment System | [1](src/main/java/module03/lesson11/example01) (5 files) | `module03.lesson11.example01.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [1](src/main/java/module03/lesson12/example01) | `module03.lesson12.example01.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [2](src/main/java/module03/lesson12/example02) | `module03.lesson12.example02.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [3](src/main/java/module03/lesson12/example03) | `module03.lesson12.example03.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [4](src/main/java/module03/lesson12/example04) | `module03.lesson12.example04.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [5](src/main/java/module03/lesson12/example05) | `module03.lesson12.example05.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [6](src/main/java/module03/lesson12/example06) | `module03.lesson12.example06.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [7](src/main/java/module03/lesson12/example07) | `module03.lesson12.example07.Main` |
-| 3.12 Module 3 Practice Solutions: Lessons 3.01–3.06 | [8](src/main/java/module03/lesson12/example08) | `module03.lesson12.example08.Main` |
-| 3.13 Module 3 Practice Solutions: Lessons 3.07–3.11 | [1](src/main/java/module03/lesson13/example01) | `module03.lesson13.example01.Main` |
-| 3.13 Module 3 Practice Solutions: Lessons 3.07–3.11 | [2](src/main/java/module03/lesson13/example02) | `module03.lesson13.example02.Main` |
-| 3.13 Module 3 Practice Solutions: Lessons 3.07–3.11 | [3](src/main/java/module03/lesson13/example03) | `module03.lesson13.example03.Main` |
-| 3.13 Module 3 Practice Solutions: Lessons 3.07–3.11 | [4](src/main/java/module03/lesson13/example04) | `module03.lesson13.example04.Main` |
-| 3.13 Module 3 Practice Solutions: Lessons 3.07–3.11 | [5](src/main/java/module03/lesson13/example05) | `module03.lesson13.example05.Main` |
+| 3.12 Module 3 Review | [1](src/main/java/module03/lesson12/example01) | `module03.lesson12.example01.SeatTicketDemo` |
+| 3.12 Module 3 Review | [2](src/main/java/module03/lesson12/example02) | `module03.lesson12.example02.DraftCourseDemo` |
+| 3.12 Module 3 Review | [3](src/main/java/module03/lesson12/example03) | `module03.lesson12.example03.ScoreBoardDemo` |
+| 3.12 Module 3 Review | [4](src/main/java/module03/lesson12/example04) | `module03.lesson12.example04.CourseTagDemo` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [1](src/main/java/module03/lesson13/example01) | `module03.lesson13.example01.Main` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [2](src/main/java/module03/lesson13/example02) | `module03.lesson13.example02.Main` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [3](src/main/java/module03/lesson13/example03) | `module03.lesson13.example03.Main` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [4](src/main/java/module03/lesson13/example04) | `module03.lesson13.example04.Main` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [5](src/main/java/module03/lesson13/example05) | `module03.lesson13.example05.Main` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [6](src/main/java/module03/lesson13/example06) | `module03.lesson13.example06.Main` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [7](src/main/java/module03/lesson13/example07) | `module03.lesson13.example07.Main` |
+| 3.13 Module 3 Practice Solutions: Lessons 3.01–3.06 | [8](src/main/java/module03/lesson13/example08) | `module03.lesson13.example08.Main` |
+| 3.14 Module 3 Practice Solutions: Lessons 3.07–3.12 | [1](src/main/java/module03/lesson14/example01) (4 files) | `module03.lesson14.example01.Main` |
 
 ### Module 4: Inheritance, Interfaces, and Polymorphism
 
@@ -319,9 +285,12 @@ src/main/java/
 | 4.03 Method Overriding and Runtime Polymorphism | [1](src/main/java/module04/lesson03/example01) (5 files) | `module04.lesson03.example01.Main` |
 | 4.04 Abstract Classes and Interfaces | [1](src/main/java/module04/lesson04/example01) (7 files) | `module04.lesson04.example01.Main` |
 | 4.05 Polymorphic Methods and Arrays | [1](src/main/java/module04/lesson05/example01) (6 files) | `module04.lesson05.example01.Main` |
-| 4.06 Interfaces and Dependency Design | [1](src/main/java/module04/lesson06/example01) (4 files) | `module04.lesson06.example01.Main` |
-| 4.06 Interfaces and Dependency Design | [2](src/main/java/module04/lesson06/example02) (6 files) | `module04.lesson06.example02.Main` |
+| 4.06 Interfaces and Dependency Design | [1](src/main/java/module04/lesson06/example01) (6 files) | `module04.lesson06.example01.Main` |
 | 4.08 Project: Polymorphic Content System | [1](src/main/java/module04/lesson08/example01) (15 files) | `module04.lesson08.example01.Main` |
+| 4.09 Module 4 Review | [1](src/main/java/module04/lesson09/example01) | `module04.lesson09.example01.DispatchDemo` |
+| 4.09 Module 4 Review | [2](src/main/java/module04/lesson09/example02) | `module04.lesson09.example02.AbstractDemo` |
+| 4.09 Module 4 Review | [3](src/main/java/module04/lesson09/example03) | `module04.lesson09.example03.FieldDemo` |
+| 4.09 Module 4 Review | [4](src/main/java/module04/lesson09/example04) | `module04.lesson09.example04.CapabilityDemo` |
 | 4.10 Module 4 Practice Solutions: Lessons 4.01–4.04 | [1](src/main/java/module04/lesson10/example01) | `module04.lesson10.example01.Main` |
 | 4.10 Module 4 Practice Solutions: Lessons 4.01–4.04 | [2](src/main/java/module04/lesson10/example02) | `module04.lesson10.example02.Main` |
 | 4.10 Module 4 Practice Solutions: Lessons 4.01–4.04 | [3](src/main/java/module04/lesson10/example03) | `module04.lesson10.example03.Main` |
@@ -396,15 +365,25 @@ src/main/java/
 | 6.06 Using Stacks, Queues, and Deques in Algorithms | [2](src/main/java/module06/lesson06/example02) | `module06.lesson06.example02.Main` |
 | 6.06 Using Stacks, Queues, and Deques in Algorithms | [3](src/main/java/module06/lesson06/example03) | `module06.lesson06.example03.Main` |
 | 6.07 Heaps and PriorityQueue | [1](src/main/java/module06/lesson07/example01) | `module06.lesson07.example01.Main` |
-| 6.10 Module 6 Practice Solutions | [1](src/main/java/module06/lesson10/example01) | `module06.lesson10.example01.Main` |
-| 6.10 Module 6 Practice Solutions | [2](src/main/java/module06/lesson10/example02) | `module06.lesson10.example02.Main` |
-| 6.10 Module 6 Practice Solutions | [3](src/main/java/module06/lesson10/example03) | `module06.lesson10.example03.Main` |
-| 6.10 Module 6 Practice Solutions | [4](src/main/java/module06/lesson10/example04) | `module06.lesson10.example04.Main` |
-| 6.10 Module 6 Practice Solutions | [5](src/main/java/module06/lesson10/example05) (2 files) | `module06.lesson10.example05.Main` |
-| 6.10 Module 6 Practice Solutions | [6](src/main/java/module06/lesson10/example06) | `module06.lesson10.example06.Main` |
-| 6.10 Module 6 Practice Solutions | [7](src/main/java/module06/lesson10/example07) | `module06.lesson10.example07.Main` |
-| 6.10 Module 6 Practice Solutions | [8](src/main/java/module06/lesson10/example08) | `module06.lesson10.example08.Main` |
-| 6.10 Module 6 Practice Solutions | [9](src/main/java/module06/lesson10/example09) | `module06.lesson10.example09.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [1](src/main/java/module06/lesson10/example01) | `module06.lesson10.example01.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [2](src/main/java/module06/lesson10/example02) | `module06.lesson10.example02.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [3](src/main/java/module06/lesson10/example03) | `module06.lesson10.example03.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [4](src/main/java/module06/lesson10/example04) | `module06.lesson10.example04.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [5](src/main/java/module06/lesson10/example05) | `module06.lesson10.example05.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [6](src/main/java/module06/lesson10/example06) | `module06.lesson10.example06.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [7](src/main/java/module06/lesson10/example07) | `module06.lesson10.example07.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [8](src/main/java/module06/lesson10/example08) | `module06.lesson10.example08.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [9](src/main/java/module06/lesson10/example09) | `module06.lesson10.example09.Main` |
+| 6.10 Module 6 Practice Solutions: Lessons 6.01–6.05 | [10](src/main/java/module06/lesson10/example10) | `module06.lesson10.example10.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [1](src/main/java/module06/lesson11/example01) | `module06.lesson11.example01.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [2](src/main/java/module06/lesson11/example02) | `module06.lesson11.example02.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [3](src/main/java/module06/lesson11/example03) | `module06.lesson11.example03.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [4](src/main/java/module06/lesson11/example04) | `module06.lesson11.example04.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [5](src/main/java/module06/lesson11/example05) | `module06.lesson11.example05.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [6](src/main/java/module06/lesson11/example06) | `module06.lesson11.example06.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [7](src/main/java/module06/lesson11/example07) | `module06.lesson11.example07.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [8](src/main/java/module06/lesson11/example08) | `module06.lesson11.example08.Main` |
+| 6.11 Module 6 Practice Solutions: Lessons 6.06–6.09 | [9](src/main/java/module06/lesson11/example09) | `module06.lesson11.example09.Main` |
 
 ### Module 7: Modern Java
 
@@ -431,43 +410,48 @@ src/main/java/
 | 7.09 Records and Modern Data Models | [2](src/main/java/module07/lesson09/example02) | `module07.lesson09.example02.Main` |
 | 7.10 Introduction to Concurrency and Thread Safety | [1](src/main/java/module07/lesson10/example01) | `module07.lesson10.example01.Main` |
 | 7.10 Introduction to Concurrency and Thread Safety | [2](src/main/java/module07/lesson10/example02) | `module07.lesson10.example02.Main` |
+| 7.10 Introduction to Concurrency and Thread Safety | [3](src/main/java/module07/lesson10/example03) | `module07.lesson10.example03.Main` |
 | 7.11 Executors, Callable, Future, and CompletableFuture | [1](src/main/java/module07/lesson11/example01) | `module07.lesson11.example01.Main` |
 | 7.11 Executors, Callable, Future, and CompletableFuture | [2](src/main/java/module07/lesson11/example02) | `module07.lesson11.example02.Main` |
 | 7.12 Virtual Threads and Concurrent Collections | [1](src/main/java/module07/lesson12/example01) | `module07.lesson12.example01.Main` |
 | 7.12 Virtual Threads and Concurrent Collections | [2](src/main/java/module07/lesson12/example02) | `module07.lesson12.example02.Main` |
 | 7.12 Virtual Threads and Concurrent Collections | [3](src/main/java/module07/lesson12/example03) | `module07.lesson12.example03.Main` |
 | 7.12 Virtual Threads and Concurrent Collections | [4](src/main/java/module07/lesson12/example04) | `module07.lesson12.example04.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [1](src/main/java/module07/lesson13/example01) | `module07.lesson13.example01.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [2](src/main/java/module07/lesson13/example02) | `module07.lesson13.example02.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [3](src/main/java/module07/lesson13/example03) | `module07.lesson13.example03.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [4](src/main/java/module07/lesson13/example04) | `module07.lesson13.example04.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [5](src/main/java/module07/lesson13/example05) | `module07.lesson13.example05.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [6](src/main/java/module07/lesson13/example06) | `module07.lesson13.example06.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [7](src/main/java/module07/lesson13/example07) | `module07.lesson13.example07.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [8](src/main/java/module07/lesson13/example08) | `module07.lesson13.example08.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [9](src/main/java/module07/lesson13/example09) | `module07.lesson13.example09.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [10](src/main/java/module07/lesson13/example10) | `module07.lesson13.example10.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [11](src/main/java/module07/lesson13/example11) | `module07.lesson13.example11.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [12](src/main/java/module07/lesson13/example12) | `module07.lesson13.example12.Main` |
-| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.05 | [13](src/main/java/module07/lesson13/example13) | `module07.lesson13.example13.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [1](src/main/java/module07/lesson14/example01) | `module07.lesson14.example01.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [2](src/main/java/module07/lesson14/example02) | `module07.lesson14.example02.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [3](src/main/java/module07/lesson14/example03) | `module07.lesson14.example03.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [4](src/main/java/module07/lesson14/example04) | `module07.lesson14.example04.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [5](src/main/java/module07/lesson14/example05) | `module07.lesson14.example05.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [6](src/main/java/module07/lesson14/example06) | `module07.lesson14.example06.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [7](src/main/java/module07/lesson14/example07) | `module07.lesson14.example07.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [8](src/main/java/module07/lesson14/example08) | `module07.lesson14.example08.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [9](src/main/java/module07/lesson14/example09) | `module07.lesson14.example09.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [10](src/main/java/module07/lesson14/example10) | `module07.lesson14.example10.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [11](src/main/java/module07/lesson14/example11) | `module07.lesson14.example11.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [12](src/main/java/module07/lesson14/example12) | `module07.lesson14.example12.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [13](src/main/java/module07/lesson14/example13) | `module07.lesson14.example13.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [14](src/main/java/module07/lesson14/example14) | `module07.lesson14.example14.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [15](src/main/java/module07/lesson14/example15) | `module07.lesson14.example15.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [16](src/main/java/module07/lesson14/example16) | `module07.lesson14.example16.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [17](src/main/java/module07/lesson14/example17) | `module07.lesson14.example17.Main` |
-| 7.14 Module 7 Practice Solutions: Lessons 7.06–7.12 | [18](src/main/java/module07/lesson14/example18) | `module07.lesson14.example18.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [1](src/main/java/module07/lesson13/example01) | `module07.lesson13.example01.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [2](src/main/java/module07/lesson13/example02) | `module07.lesson13.example02.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [3](src/main/java/module07/lesson13/example03) | `module07.lesson13.example03.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [4](src/main/java/module07/lesson13/example04) | `module07.lesson13.example04.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [5](src/main/java/module07/lesson13/example05) | `module07.lesson13.example05.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [6](src/main/java/module07/lesson13/example06) | `module07.lesson13.example06.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [7](src/main/java/module07/lesson13/example07) | `module07.lesson13.example07.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [8](src/main/java/module07/lesson13/example08) | `module07.lesson13.example08.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [9](src/main/java/module07/lesson13/example09) | `module07.lesson13.example09.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [10](src/main/java/module07/lesson13/example10) | `module07.lesson13.example10.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [11](src/main/java/module07/lesson13/example11) | `module07.lesson13.example11.Main` |
+| 7.13 Module 7 Practice Solutions: Lessons 7.01–7.04 | [12](src/main/java/module07/lesson13/example12) | `module07.lesson13.example12.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [1](src/main/java/module07/lesson14/example01) | `module07.lesson14.example01.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [2](src/main/java/module07/lesson14/example02) | `module07.lesson14.example02.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [3](src/main/java/module07/lesson14/example03) | `module07.lesson14.example03.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [4](src/main/java/module07/lesson14/example04) | `module07.lesson14.example04.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [5](src/main/java/module07/lesson14/example05) | `module07.lesson14.example05.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [6](src/main/java/module07/lesson14/example06) | `module07.lesson14.example06.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [7](src/main/java/module07/lesson14/example07) | `module07.lesson14.example07.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [8](src/main/java/module07/lesson14/example08) | `module07.lesson14.example08.Main` |
+| 7.14 Module 7 Practice Solutions: Lessons 7.05–7.08 | [9](src/main/java/module07/lesson14/example09) | `module07.lesson14.example09.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [1](src/main/java/module07/lesson15/example01) | `module07.lesson15.example01.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [2](src/main/java/module07/lesson15/example02) | `module07.lesson15.example02.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [3](src/main/java/module07/lesson15/example03) | `module07.lesson15.example03.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [4](src/main/java/module07/lesson15/example04) | `module07.lesson15.example04.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [5](src/main/java/module07/lesson15/example05) | `module07.lesson15.example05.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [6](src/main/java/module07/lesson15/example06) | `module07.lesson15.example06.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [7](src/main/java/module07/lesson15/example07) | `module07.lesson15.example07.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [8](src/main/java/module07/lesson15/example08) | `module07.lesson15.example08.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [9](src/main/java/module07/lesson15/example09) | `module07.lesson15.example09.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [10](src/main/java/module07/lesson15/example10) | `module07.lesson15.example10.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [11](src/main/java/module07/lesson15/example11) | `module07.lesson15.example11.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [12](src/main/java/module07/lesson15/example12) | `module07.lesson15.example12.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [13](src/main/java/module07/lesson15/example13) | `module07.lesson15.example13.Main` |
+| 7.15 Module 7 Practice Solutions: Lessons 7.09–7.12 | [14](src/main/java/module07/lesson15/example14) | `module07.lesson15.example14.Main` |
 
 ### Module 8: Enums, Exceptions, and Robust Error Handling
 
@@ -563,18 +547,19 @@ src/main/java/
 | 10.06 Dependency Design and Composition | [2](src/main/java/module10/lesson06/example02) (8 files) | `module10.lesson06.example02.PublishCheck` |
 | 10.07 Refactoring a Small Java Application | [1](src/main/java/module10/lesson07/example01) (10 files) | `module10.lesson07.example01.Main` |
 | 10.08 Designing Clear APIs and Boundaries | [1](src/main/java/module10/lesson08/example01) | `module10.lesson08.example01.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [1](src/main/java/module10/lesson09/example01) | `module10.lesson09.example01.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [2](src/main/java/module10/lesson09/example02) | `module10.lesson09.example02.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [3](src/main/java/module10/lesson09/example03) | `module10.lesson09.example03.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [4](src/main/java/module10/lesson09/example04) | `module10.lesson09.example04.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [5](src/main/java/module10/lesson09/example05) | `module10.lesson09.example05.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [6](src/main/java/module10/lesson09/example06) | `module10.lesson09.example06.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [7](src/main/java/module10/lesson09/example07) | `module10.lesson09.example07.Main` |
-| 10.09 Module 10 Practice Solutions: Lessons 10.01–10.04 | [8](src/main/java/module10/lesson09/example08) | `module10.lesson09.example08.Main` |
-| 10.10 Module 10 Practice Solutions: Lessons 10.05–10.08 | [1](src/main/java/module10/lesson10/example01) | `module10.lesson10.example01.Main` |
-| 10.10 Module 10 Practice Solutions: Lessons 10.05–10.08 | [2](src/main/java/module10/lesson10/example02) | `module10.lesson10.example02.PublishCheck` |
-| 10.10 Module 10 Practice Solutions: Lessons 10.05–10.08 | [3](src/main/java/module10/lesson10/example03) | `module10.lesson10.example03.Main` |
-| 10.10 Module 10 Practice Solutions: Lessons 10.05–10.08 | [4](src/main/java/module10/lesson10/example04) | `module10.lesson10.example04.Main` |
+| 10.09 Testing, Building and Debugging Java Code | [1](src/main/java/module10/lesson09/example01) (2 files) | `module10.lesson09.example01.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [1](src/main/java/module10/lesson10/example01) | `module10.lesson10.example01.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [2](src/main/java/module10/lesson10/example02) | `module10.lesson10.example02.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [3](src/main/java/module10/lesson10/example03) | `module10.lesson10.example03.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [4](src/main/java/module10/lesson10/example04) | `module10.lesson10.example04.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [5](src/main/java/module10/lesson10/example05) | `module10.lesson10.example05.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [6](src/main/java/module10/lesson10/example06) | `module10.lesson10.example06.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [7](src/main/java/module10/lesson10/example07) | `module10.lesson10.example07.Main` |
+| 10.10 Module 10 Practice Solutions: Lessons 10.01–10.04 | [8](src/main/java/module10/lesson10/example08) | `module10.lesson10.example08.Main` |
+| 10.11 Module 10 Practice Solutions: Lessons 10.05–10.09 | [1](src/main/java/module10/lesson11/example01) | `module10.lesson11.example01.Main` |
+| 10.11 Module 10 Practice Solutions: Lessons 10.05–10.09 | [2](src/main/java/module10/lesson11/example02) | `module10.lesson11.example02.PublishCheck` |
+| 10.11 Module 10 Practice Solutions: Lessons 10.05–10.09 | [3](src/main/java/module10/lesson11/example03) | `module10.lesson11.example03.Main` |
+| 10.11 Module 10 Practice Solutions: Lessons 10.05–10.09 | [4](src/main/java/module10/lesson11/example04) | `module10.lesson11.example04.Main` |
 
 ### Module 11: Final Project
 

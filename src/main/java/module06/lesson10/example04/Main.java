@@ -1,48 +1,33 @@
 package module06.lesson10.example04;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
-        List<Course> courses = new ArrayList<>(List.of(
-                new Course("JAVA", "Java Foundation", 300_000L),
-                new Course("SYSTEM-DESIGN", "System Design", 800_000L),
-                new Course("BACKEND", "Backend Development", 500_000L)));
+        int[] sorted = {10, 20, 30, 40, 50, 60, 70};
 
-        courses.sort(
-                Comparator.comparingLong(Course::getPriceInPaisa).reversed());
+        System.out.println(binarySearch(sorted, 60));
+        System.out.println(binarySearch(sorted, 35));
+    }
 
-        for (Course course : courses) {
-            System.out.println(
-                    course.getTitle() + " - " + course.getPriceInPaisa());
+    static int binarySearch(int[] sorted, int target) {
+        int left = 0;
+        int right = sorted.length - 1;
+
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
+            int value = sorted[middle];
+
+            if (value == target) {
+                return middle;
+            }
+
+            if (value < target) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
         }
-    }
-}
 
-final class Course {
-
-    private final String code;
-    private final String title;
-    private final long priceInPaisa;
-
-    Course(String code, String title, long priceInPaisa) {
-        this.code = code;
-        this.title = title;
-        this.priceInPaisa = priceInPaisa;
-    }
-
-    String getCode() {
-        return code;
-    }
-
-    String getTitle() {
-        return title;
-    }
-
-    long getPriceInPaisa() {
-        return priceInPaisa;
+        return -1;
     }
 }

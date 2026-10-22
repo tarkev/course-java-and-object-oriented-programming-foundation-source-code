@@ -3,15 +3,14 @@ package module01.lesson24.example23;
 public class Main {
 
     public static void main(String[] args) {
-        String text = "Java Foundation";
-        char target = 'a';
-        int foundIndex = -1;
-        for (int index = 0; index < text.length(); index++) {
-            if (text.charAt(index) == target) {
-                foundIndex = index;
-                break;
-            }
+        int option = 2;
+
+        switch (option) {
+            case 1 -> System.out.println("Creating a course");
+            case 2 -> System.out.println("Viewing courses");
+            case 3 -> System.out.println("Updating a course");
+            case 4 -> System.out.println("Exiting");
+            default -> System.out.println("Invalid option");
         }
-        System.out.println("First index of 'a': " + foundIndex);
     }
 }

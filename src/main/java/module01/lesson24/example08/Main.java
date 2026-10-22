@@ -1,16 +1,16 @@
 package module01.lesson24.example08;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        String text = "Java Foundation";
-        int count = 0;
-        for (int index = 0; index < text.length(); index++) {
-            char character = text.charAt(index);
-            if (character == 'a' || character == 'A') {
-                count++;
-            }
-        }
-        System.out.println("Count: " + count);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+        int age = Integer.parseInt(scanner.nextLine().strip());
+        System.out.println("Next year you will be " + (age + 1));
+
+        scanner.close();
     }
 }

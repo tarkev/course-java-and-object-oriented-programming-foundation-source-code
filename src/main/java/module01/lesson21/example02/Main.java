@@ -1,9 +1,18 @@
 package module01.lesson21.example02;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello Java");
-        System.out.println("My first project");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Confirm enrollment (yes/no): ");
+        String answer = scanner.nextLine().strip();
+        if (answer == "yes") {
+            System.out.println("Enrollment confirmed.");
+        } else {
+            System.out.println("Enrollment cancelled.");
+        }
+        scanner.close();
     }
 }

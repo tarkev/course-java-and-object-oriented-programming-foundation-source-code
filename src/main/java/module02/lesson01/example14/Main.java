@@ -3,17 +3,14 @@ package module02.lesson01.example14;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("1");
-        first();
-        System.out.println("4");
-    }
+        System.out.println("Tarkev");
+        System.out.println("----------------");
 
-    static void first() {
-        System.out.println("2");
-        second();
-    }
+        System.out.println("1. Java");
+        System.out.println("2. Backend");
+        System.out.println("3. System Design");
 
-    static void second() {
-        System.out.println("3");
+        System.out.println("----------------");
+        System.out.println("Learn. Live. Grow.");
     }
 }

@@ -3,11 +3,15 @@ package module02.lesson09.example07;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(calculateArea(5, 4));
-        System.out.println(calculateArea(10, 3));
+        show(3);
+        System.out.println();
     }
 
-    static int calculateArea(int width, int height) {
-        return width * height;
+    static void show(int number) {
+        if (number == 0) {
+            return;
+        }
+        show(number - 1);
+        System.out.print(number + " ");
     }
 }

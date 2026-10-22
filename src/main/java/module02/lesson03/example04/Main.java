@@ -2,27 +2,17 @@ package module02.lesson03.example04;
 
 public class Main {
 
-    static final int PASSING_MARK = 40;
-
     public static void main(String[] args) {
-        printResult("Subu", 85);
-        printResult(35);
+        show(5);
+        show(5L);
+        show(2.5);
     }
 
-    static void printResult(String name, int mark) {
-        String result = getResult(mark);
-        System.out.println(name + ": " + result);
+    static void show(long value) {
+        System.out.println("long");
     }
 
-    static void printResult(int mark) {
-        printResult("Learner", mark);
-    }
-
-    static String getResult(int mark) {
-        if (mark >= PASSING_MARK) {
-            return "Passed";
-        }
-
-        return "Failed";
+    static void show(double value) {
+        System.out.println("double");
     }
 }

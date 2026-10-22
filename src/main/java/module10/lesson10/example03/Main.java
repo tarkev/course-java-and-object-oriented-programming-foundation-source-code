@@ -1,29 +1,49 @@
 package module10.lesson10.example03;
 
-import java.util.Locale;
-
 public class Main {
 
     public static void main(String[] args) {
-        EmailAddress email = new EmailAddress("  Subu@Tarkev.COM ");
-        System.out.println(email);
-        System.out.println(email.equals(new EmailAddress("subu@tarkev.com")));
+        int[][] scores = {{80, 90}, {70, 60}};
+        ScoreTable table = new ScoreTable(scores);
 
-        try {
-            new EmailAddress("   ");
-        } catch (IllegalArgumentException exception) {
-            System.out.println(exception.getMessage());
-        }
+        scores[0][0] = 10;
+        table.getScores()[1][0] = 10;
+
+        System.out.println(table.scoreAt(0, 0) + " " + table.scoreAt(1, 0));
     }
 }
 
-record EmailAddress(String value) {
+final class ScoreTable {
 
-    EmailAddress {
-        if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("Email address is required.");
+    private final int[][] scores;
+
+    ScoreTable(int[][] scores) {
+        if (scores == null) {
+            throw new IllegalArgumentException("Scores are required.");
         }
 
-        value = value.strip().toLowerCase(Locale.ROOT);
+        this.scores = deepCopy(scores);
+    }
+
+    int[][] getScores() {
+        return deepCopy(scores);
+    }
+
+    int scoreAt(int row, int column) {
+        return scores[row][column];
+    }
+
+    private static int[][] deepCopy(int[][] source) {
+        int[][] copy = new int[source.length][];
+
+        for (int row = 0; row < source.length; row++) {
+            if (source[row] == null) {
+                throw new IllegalArgumentException("Rows cannot be null.");
+            }
+
+            copy[row] = source[row].clone();
+        }
+
+        return copy;
     }
 }

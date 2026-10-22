@@ -3,24 +3,15 @@ package module02.lesson09.example04;
 public class Main {
 
     public static void main(String[] args) {
-        showHeader();
-        showCourses();
-        showFooter();
+        describe(5 / 2);
+        describe(5 / 2.0);
     }
 
-    static void showHeader() {
-        System.out.println("Tarkev");
-        System.out.println("----------------");
+    static void describe(int value) {
+        System.out.println("int " + value);
     }
 
-    static void showCourses() {
-        System.out.println("1. Java");
-        System.out.println("2. Backend");
-        System.out.println("3. System Design");
-    }
-
-    static void showFooter() {
-        System.out.println("----------------");
-        System.out.println("Learn. Live. Grow.");
+    static void describe(double value) {
+        System.out.println("double " + value);
     }
 }

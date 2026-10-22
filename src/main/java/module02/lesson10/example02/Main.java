@@ -1,15 +1,16 @@
 package module02.lesson10.example02;
 
 public class Main {
+
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3};
+        printHeader();
+        System.out.println("Welcome to the course.");
+        printHeader();
+    }
 
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = numbers[i] * 2;
-        }
-
-        for (int number : numbers) {
-            System.out.println(number);
-        }
+    static void printHeader() {
+        System.out.println("----------------");
+        System.out.println("Java");
+        System.out.println("----------------");
     }
 }

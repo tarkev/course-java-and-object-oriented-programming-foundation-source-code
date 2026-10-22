@@ -1,37 +1,26 @@
 package module07.lesson14.example09;
 
-import java.util.Locale;
-import java.util.Objects;
-
 public class Main {
 
+    enum EnrollmentStatus {
+        ACTIVE, COMPLETED, CANCELLED, PAUSED
+    }
+
+    static String label(EnrollmentStatus status) {
+        return switch (status) {
+            case ACTIVE -> "In progress";
+            case COMPLETED -> "Completed";
+            case CANCELLED -> {
+                String note = "Cancelled";
+                yield note + " (no access)";
+            }
+            case PAUSED -> "Paused";
+        };
+    }
+
     public static void main(String[] args) {
-        EmailAddress first = new EmailAddress(" Nur@Tarkev.com");
-        EmailAddress second = new EmailAddress("nur@tarkev.com");
-
-        System.out.println(first);
-        System.out.println(first.equals(second));
-    }
-
-    record LearnerId(long value) {
-
-        LearnerId {
-            if (value < 1) {
-                throw new IllegalArgumentException("Learner id must be at least 1.");
-            }
-        }
-    }
-
-    record EmailAddress(String value) {
-
-        EmailAddress {
-            value = Objects.requireNonNull(value, "Email is required.")
-                    .strip()
-                    .toLowerCase(Locale.ROOT);
-
-            if (value.isBlank() || !value.contains("@")) {
-                throw new IllegalArgumentException("Invalid email: " + value);
-            }
-        }
+        System.out.println(label(EnrollmentStatus.ACTIVE));
+        System.out.println(label(EnrollmentStatus.CANCELLED));
+        System.out.println(label(EnrollmentStatus.PAUSED));
     }
 }

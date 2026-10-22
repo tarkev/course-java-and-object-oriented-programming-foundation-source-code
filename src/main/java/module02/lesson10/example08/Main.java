@@ -1,14 +1,14 @@
 package module02.lesson10.example08;
 
 public class Main {
+
     public static void main(String[] args) {
-        int[][] values = {{1, 2}, {3, 4, 5}, {6}};
+        System.out.println(isAdult(20));
+        System.out.println(isAdult(18));
+        System.out.println(isAdult(15));
+    }
 
-        int count = 0;
-        for (int[] row : values) {
-            count += row.length;
-        }
-
-        System.out.println(count);
+    static boolean isAdult(int age) {
+        return age >= 18;
     }
 }

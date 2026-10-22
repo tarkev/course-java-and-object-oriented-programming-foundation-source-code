@@ -1,29 +1,42 @@
 package module03.lesson13.example04;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
-        int[] input = {80, 90, 70};
-        Numbers numbers = new Numbers(input);
+        Course free = new Course("Java and OOP Foundation", 20);
+        Course paid = new Course("Backend Development", 30, 499_000);
 
-        input[0] = 0;
-        numbers.getValues()[1] = 0;
-
-        System.out.println(Arrays.toString(numbers.getValues()));
+        System.out.println(free.title + ": " + free.priceInPaisa);
+        System.out.println(paid.title + ": " + paid.priceInPaisa);
     }
 }
 
-final class Numbers {
+class Course {
 
-    private final int[] values;
+    String title;
+    int totalLessons;
+    long priceInPaisa;
 
-    Numbers(int[] values) {
-        this.values = Arrays.copyOf(values, values.length);
+    Course(String title, int totalLessons) {
+        this(title, totalLessons, 0);
     }
 
-    public int[] getValues() {
-        return Arrays.copyOf(values, values.length);
+    Course(String title, int totalLessons, long priceInPaisa) {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Course title is required.");
+        }
+
+        if (totalLessons <= 0) {
+            throw new IllegalArgumentException(
+                    "Total lessons must be greater than zero.");
+        }
+
+        if (priceInPaisa < 0) {
+            throw new IllegalArgumentException("Price cannot be negative.");
+        }
+
+        this.title = title.strip();
+        this.totalLessons = totalLessons;
+        this.priceInPaisa = priceInPaisa;
     }
 }

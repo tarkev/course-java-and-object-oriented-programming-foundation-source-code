@@ -1,14 +1,14 @@
 package module02.lesson10.example05;
 
 public class Main {
+
     public static void main(String[] args) {
-        int[][] values = {{1, 2, 3}, {10, 20, 30}};
+        greet("Sakib");
+        greet("Nur");
+        greet("Subu");
+    }
 
-        int total = 0;
-        for (int value : values[1]) {
-            total += value;
-        }
-
-        System.out.println(total);
+    static void greet(String name) {
+        System.out.println("Hello, " + name + "!");
     }
 }

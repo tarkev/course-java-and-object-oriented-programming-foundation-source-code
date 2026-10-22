@@ -1,17 +1,35 @@
 package module06.lesson10.example07;
 
-import java.util.PriorityQueue;
-
 public class Main {
 
     public static void main(String[] args) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        int[] sorted = {10, 20, 40, 50, 70};
 
-        queue.offer(30);
-        queue.offer(10);
-        queue.offer(20);
+        for (int target : new int[] {40, 30, 5, 90, 70}) {
+            System.out.println(binarySearch(sorted, target));
+        }
+    }
 
-        System.out.println(queue.peek());
-        System.out.println(queue.size());
+    static int binarySearch(int[] sorted, int target) {
+        return binarySearch(sorted, target, 0, sorted.length - 1);
+    }
+
+    static int binarySearch(int[] sorted, int target, int left, int right) {
+        if (left > right) {
+            return -left - 1;
+        }
+
+        int middle = left + (right - left) / 2;
+        int value = sorted[middle];
+
+        if (value == target) {
+            return middle;
+        }
+
+        if (value < target) {
+            return binarySearch(sorted, target, middle + 1, right);
+        }
+
+        return binarySearch(sorted, target, left, middle - 1);
     }
 }

@@ -1,22 +1,32 @@
 package module07.lesson14.example02;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Locale;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 public class Main {
 
     public static void main(String[] args) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM uuuu", Locale.ENGLISH);
-        LocalDate startDate = LocalDate.of(2026, 3, 3);
+        CourseRepository repository = new CourseRepository();
+        repository.save(new Course("JAVA", "Java Foundation", 300_000));
 
-        for (LocalDate reminder : reminderDates(startDate)) {
-            System.out.println(reminder.format(formatter));
-        }
+        System.out.println(repository.findByCode("JAVA").map(Course::title).orElse("Not found"));
+        System.out.println(repository.findByCode("RUST").map(Course::title).orElse("Not found"));
     }
 
-    static List<LocalDate> reminderDates(LocalDate startDate) {
-        return List.of(startDate.minusDays(7), startDate.minusDays(1));
+    record Course(String code, String title, long priceInPaisa) {
+    }
+
+    static final class CourseRepository {
+
+        private final Map<String, Course> courses = new HashMap<>();
+
+        void save(Course course) {
+            courses.put(course.code(), course);
+        }
+
+        Optional<Course> findByCode(String code) {
+            return Optional.ofNullable(courses.get(code));
+        }
     }
 }

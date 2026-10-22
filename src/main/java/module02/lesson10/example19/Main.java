@@ -1,10 +1,10 @@
 package module02.lesson10.example19;
 
-import java.util.Arrays;
-
 public class Main {
+
     public static void main(String[] args) {
-        int[][] values = {{1, 2}, {3, 4}};
-        System.out.println(Arrays.deepToString(values));
+        int[] values = {10, 20, 30, 40};
+        System.out.println("Length: " + values.length);
+        System.out.println("Last valid index: " + (values.length - 1));
     }
 }

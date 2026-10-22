@@ -1,21 +1,11 @@
 package module01.lesson24.example16;
 
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int mark = 105;
 
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine().strip();
-        while (name.isBlank()) {
-            System.out.println("Name is required.");
-            System.out.print("Enter your name: ");
-            name = scanner.nextLine().strip();
-        }
-        System.out.println("Hello, " + name + "!");
-
-        scanner.close();
+        boolean validMark = mark >= 0 && mark <= 100;
+        System.out.println("Valid mark: " + validMark);
     }
 }

@@ -1,12 +1,16 @@
 package module01.lesson24.example10;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        int number = 1;
-        while (number <= 10) {
-            System.out.println(number);
-            number++;
-        }
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a language: ");
+        String language = scanner.nextLine().strip().toLowerCase();
+        System.out.println(language);
+
+        scanner.close();
     }
 }

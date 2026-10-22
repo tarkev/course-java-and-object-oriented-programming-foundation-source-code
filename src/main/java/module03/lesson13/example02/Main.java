@@ -1,55 +1,35 @@
 package module03.lesson13.example02;
 
-import java.util.Objects;
-
 public class Main {
 
     public static void main(String[] args) {
-        Learner first = new Learner(1L, "Nur", "nur@example.com");
-        Learner second = new Learner(1L, "Nur Islam", "nur@tarkev.com");
-        Learner third = new Learner(2L, "Nur", "nur@example.com");
+        Enrollment enrollment = new Enrollment();
+        enrollment.learnerName = "Sakib";
+        enrollment.completedLessons = 18;
+        enrollment.totalLessons = 20;
 
-        System.out.println(first.equals(second));
-        System.out.println(first.hashCode() == second.hashCode());
-        System.out.println(first.equals(third));
-        System.out.println(first);
+        System.out.println("Learner: " + enrollment.learnerName);
+        System.out.println(
+                "Progress: " + enrollment.calculateProgress() + "%");
+        System.out.println("Completed: " + enrollment.isCompleted());
     }
 }
 
-class Learner {
+class Enrollment {
 
-    private final long learnerId;
-    private final String name;
-    private final String email;
+    String learnerName;
+    int completedLessons;
+    int totalLessons;
 
-    Learner(long learnerId, String name, String email) {
-        this.learnerId = learnerId;
-        this.name = name;
-        this.email = email;
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
+    double calculateProgress() {
+        if (totalLessons <= 0) {
+            return 0.0;
         }
 
-        if (other == null || getClass() != other.getClass()) {
-            return false;
-        }
-
-        Learner learner = (Learner) other;
-        return learnerId == learner.learnerId;
+        return completedLessons * 100.0 / totalLessons;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(learnerId);
-    }
-
-    @Override
-    public String toString() {
-        return "Learner{" + "learnerId=" + learnerId
-                + ", name='" + name + '\'' + '}';
+    boolean isCompleted() {
+        return totalLessons > 0 && completedLessons == totalLessons;
     }
 }

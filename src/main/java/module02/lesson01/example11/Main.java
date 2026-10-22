@@ -2,15 +2,18 @@ package module02.lesson01.example11;
 
 public class Main {
 
-    static void showFooter() {
-        System.out.println("Footer");
-    }
-
     public static void main(String[] args) {
-        showHeader();
+        lesson();
+        quiz();
+        lesson();
     }
 
-    static void showHeader() {
-        System.out.println("Header");
+    static void lesson() {
+        System.out.println("Watch");
+        quiz();
+    }
+
+    static void quiz() {
+        System.out.println("Answer");
     }
 }

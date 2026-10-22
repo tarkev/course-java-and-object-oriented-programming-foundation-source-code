@@ -1,44 +1,31 @@
 package module03.lesson13.example01;
 
-import java.util.Objects;
-
 public class Main {
 
     public static void main(String[] args) {
-        Course first = new Course("JAVA", "Java Foundation");
-        Course second = new Course("JAVA", "Java Foundation");
+        Course java = new Course();
+        java.title = "Java and OOP Foundation";
+        java.lessonCount = 107;
 
-        System.out.println(first == second);
-        System.out.println(first.equals(second));
+        Course spring = new Course();
+        spring.title = "Backend Development with Spring Boot";
+        spring.lessonCount = 60;
+
+        java.lessonCount = 110;
+
+        System.out.println(java.title + ": " + java.lessonCount);
+        System.out.println(spring.title + ": " + spring.lessonCount);
+        System.out.println("Can publish: " + spring.canBePublished());
     }
 }
 
 class Course {
 
-    private final String code;
-    private final String title;
+    String title;
+    int lessonCount;
+    boolean published;
 
-    Course(String code, String title) {
-        this.code = code.strip().toUpperCase();
-        this.title = title.strip();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-
-        if (other == null || getClass() != other.getClass()) {
-            return false;
-        }
-
-        Course course = (Course) other;
-        return code.equals(course.code);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(code);
+    boolean canBePublished() {
+        return title != null && !title.isBlank() && lessonCount > 0;
     }
 }

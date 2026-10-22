@@ -3,11 +3,7 @@ package module02.lesson09.example06;
 public class Main {
 
     public static void main(String[] args) {
-        int total = add(15, 27);
-        System.out.println(total);
-    }
-
-    static int add(int first, int second) {
-        return first + second;
+        int[][] grid = {{1, 2, 3}, {4}, {5, 6}};
+        System.out.println(grid.length + " " + grid[1].length + " " + grid[2][1]);
     }
 }

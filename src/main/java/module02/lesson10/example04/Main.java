@@ -1,17 +1,26 @@
 package module02.lesson10.example04;
 
 public class Main {
+
     public static void main(String[] args) {
-        int[][] matrix = {{10, 20, 30}, {40, 50, 60}};
+        showHeader();
+        showCourses();
+        showFooter();
+    }
 
-        System.out.println(matrix[1][1]);
-        matrix[1][2] = 99;
+    static void showHeader() {
+        System.out.println("Tarkev");
+        System.out.println("----------------");
+    }
 
-        for (int row = 0; row < matrix.length; row++) {
-            for (int column = 0; column < matrix[row].length; column++) {
-                System.out.print(matrix[row][column] + " ");
-            }
-            System.out.println();
-        }
+    static void showCourses() {
+        System.out.println("1. Java");
+        System.out.println("2. Backend");
+        System.out.println("3. System Design");
+    }
+
+    static void showFooter() {
+        System.out.println("----------------");
+        System.out.println("Learn. Live. Grow.");
     }
 }

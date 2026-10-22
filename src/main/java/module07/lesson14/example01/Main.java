@@ -1,32 +1,37 @@
 package module07.lesson14.example01;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Main {
 
+    enum CourseStatus {
+        DRAFT, PUBLISHED, ARCHIVED
+    }
+
+    record Course(
+            String code,
+            String title,
+            CourseStatus status,
+            long priceInPaisa,
+            List<String> topics) {
+    }
+
     public static void main(String[] args) {
-        CourseRepository repository = new CourseRepository();
-        repository.save(new Course("JAVA", "Java Foundation", 300_000));
+        List<Course> courses = List.of(
+                new Course("JAVA", "Java Foundation", CourseStatus.PUBLISHED,
+                        0, List.of("Java", "OOP")),
+                new Course("BACKEND", "Backend Development", CourseStatus.PUBLISHED,
+                        450_000, List.of("Java", "Backend")),
+                new Course("SYSTEM", "System Design", CourseStatus.DRAFT,
+                        600_000, List.of("Backend", "Architecture")));
 
-        System.out.println(repository.findByCode("JAVA").map(Course::title).orElse("Not found"));
-        System.out.println(repository.findByCode("RUST").map(Course::title).orElse("Not found"));
-    }
+        Map<String, String> titlesByCode = courses.stream()
+                .collect(Collectors.toMap(Course::code, Course::title));
 
-    record Course(String code, String title, long priceInPaisa) {
-    }
-
-    static final class CourseRepository {
-
-        private final Map<String, Course> courses = new HashMap<>();
-
-        void save(Course course) {
-            courses.put(course.code(), course);
-        }
-
-        Optional<Course> findByCode(String code) {
-            return Optional.ofNullable(courses.get(code));
-        }
+        System.out.println(titlesByCode.get("JAVA"));
+        System.out.println(titlesByCode.get("SYSTEM"));
+        System.out.println(titlesByCode.size() + " courses");
     }
 }

@@ -2,16 +2,19 @@ package module02.lesson03.example07;
 
 public class Main {
 
-    static int count = 5;
+    static int total = 0;
 
     public static void main(String[] args) {
-        int count = 1;
-        count++;
-        System.out.println(count);
-        printCount();
+        visit();
+        visit();
+        visit();
+        System.out.println("Total: " + total);
     }
 
-    static void printCount() {
-        System.out.println(count);
+    static void visit() {
+        int calls = 0;
+        calls++;
+        total++;
+        System.out.println("Calls: " + calls);
     }
 }

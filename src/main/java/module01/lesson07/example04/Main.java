@@ -1,9 +1,9 @@
 package module01.lesson07.example04;
 
-public class Main {                         // Class block starts
+public class Main {
 
-    public static void main(String[] args) { // Method block starts
-        System.out.println("Hello Java");
-    }                                       // Method block ends
-
-}                                           // Class block ends
+    public static void main(String[] args) {
+        System.out.println("First");
+        System.out.println("Second");
+    }
+}

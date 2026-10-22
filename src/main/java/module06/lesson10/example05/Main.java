@@ -1,22 +1,16 @@
 package module06.lesson10.example05;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<Course> courses = new ArrayList<>(List.of(
-                new Course("JAVA-21", "Java Foundation", 300_000L),
-                new Course("BACKEND", "Backend Development", 500_000L),
-                new Course("JAVA-17", "Java Foundation", 250_000L)));
+        int[] numbers = {10, 20, 30, 40};
 
-        courses.sort(Comparator.comparing(Course::getTitle)
-                .thenComparing(Course::getCode));
+        boolean found = Arrays.binarySearch(numbers, 30) >= 0;
+        boolean missing = Arrays.binarySearch(numbers, 35) >= 0;
 
-        for (Course course : courses) {
-            System.out.println(course.getTitle() + " - " + course.getCode());
-        }
+        System.out.println("30 found: " + found);
+        System.out.println("35 found: " + missing);
     }
 }

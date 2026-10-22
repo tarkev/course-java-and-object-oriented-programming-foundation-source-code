@@ -1,25 +1,31 @@
 package module01.lesson15.example01;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        int learnerAge = 20;
-        boolean emailVerified = true;
-        boolean enrollmentOpen = true;
-        boolean accountBlocked = false;
+        Scanner scanner = new Scanner(System.in);
 
-        if (learnerAge < 0) {
-            System.out.println("Invalid age");
-        } else if (learnerAge < 18) {
-            System.out.println("Minimum age requirement not met");
-        } else if (!emailVerified) {
-            System.out.println("Email verification required");
-        } else if (!enrollmentOpen) {
-            System.out.println("Enrollment is closed");
-        } else if (accountBlocked) {
-            System.out.println("Blocked account cannot enroll");
+        System.out.print("Enter your mark: ");
+        int mark = Integer.parseInt(scanner.nextLine().strip());
+
+        if (mark < 0 || mark > 100) {
+            System.out.println("Invalid mark");
+        } else if (mark >= 80) {
+            System.out.println("Grade: A");
+        } else if (mark >= 70) {
+            System.out.println("Grade: B");
+        } else if (mark >= 60) {
+            System.out.println("Grade: C");
+        } else if (mark >= 50) {
+            System.out.println("Grade: D");
+        } else if (mark >= 40) {
+            System.out.println("Grade: E");
         } else {
-            System.out.println("Enrollment allowed");
+            System.out.println("Grade: F");
         }
+
+        scanner.close();
     }
 }

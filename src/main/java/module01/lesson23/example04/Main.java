@@ -3,12 +3,9 @@ package module01.lesson23.example04;
 public class Main {
 
     public static void main(String[] args) {
-        char letter = 'A';
+        String courseName = "Java Foundation";
+        int durationInWeeks = 8;
 
-        int code = letter;
-        char nextLetter = (char) 66;
-
-        System.out.println(code);
-        System.out.println(nextLetter);
+        System.out.println(courseName);
     }
 }

@@ -2,25 +2,29 @@ package module07.lesson14.example08;
 
 public class Main {
 
-    enum EnrollmentStatus {
-        ACTIVE, COMPLETED, CANCELLED, PAUSED
+    sealed interface LessonContent permits VideoContent, ArticleContent, QuizContent {
     }
 
-    static String label(EnrollmentStatus status) {
-        return switch (status) {
-            case ACTIVE -> "In progress";
-            case COMPLETED -> "Completed";
-            case CANCELLED -> {
-                String note = "Cancelled";
-                yield note + " (no access)";
-            }
-            case PAUSED -> "Paused";
+    record VideoContent(String title, int minutes) implements LessonContent {
+    }
+
+    record ArticleContent(String title, int words) implements LessonContent {
+    }
+
+    record QuizContent(String title, int questions) implements LessonContent {
+    }
+
+    static int studyMinutes(LessonContent content) {
+        return switch (content) {
+            case VideoContent video -> video.minutes();
+            case ArticleContent article -> article.words() / 200;
+            case QuizContent quiz -> quiz.questions() * 2;
         };
     }
 
     public static void main(String[] args) {
-        System.out.println(label(EnrollmentStatus.ACTIVE));
-        System.out.println(label(EnrollmentStatus.CANCELLED));
-        System.out.println(label(EnrollmentStatus.PAUSED));
+        System.out.println(studyMinutes(new VideoContent("Streams in Practice", 18)));
+        System.out.println(studyMinutes(new ArticleContent("Reading Records", 1_200)));
+        System.out.println(studyMinutes(new QuizContent("Optional Quiz", 5)));
     }
 }

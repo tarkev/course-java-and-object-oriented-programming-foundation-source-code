@@ -2,12 +2,9 @@ package module01.lesson09.example05;
 
 public class Main {
 
-    public static void main(String[] args) {
-        {
-            String message = "Hello";
-            System.out.println(message);
-        }
+    static final int MAXIMUM_STUDENT_CAPACITY = 100;
 
-        // message is not accessible here
+    public static void main(String[] args) {
+        System.out.println(MAXIMUM_STUDENT_CAPACITY);
     }
 }
